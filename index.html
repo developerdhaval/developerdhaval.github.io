@@ -8,98 +8,669 @@
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body, html {
+        body,
+        html,
+        dd {
             padding: 10px;
         }
+
         .box {
-            border: 2px solid white;
-            padding: 10px;
-            box-shadow: 4px 4px white;
-            border-radius: 20px;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: rgb(6, 53, 3);
         }
+
         .boxx {
-            background-color: rgba(21, 255, 0, 0.751);
-            color: black;
-            padding: 7px;
+            background-color: rgba(0, 0, 0, 0.751);
+            color: rgb(208, 208, 208);
+            padding: 9px;
             border-radius: 20px;
         }
-        
-/*Grid css*/
-.cards {
-     max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-gap: 1rem;
-    }
- .card {
-      padding: 1px;
-    }
-    @media (min-width: 900px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
-    }
-    /* Screen larger than 900px? 3 columns */
-    @media (min-width: 600px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
-    }
+
+        .tag {
+            border: 1px solid white;
+            height: fit-content;
+            width: fit-content;
+            padding: 10px;
+            box-shadow: 2px 2px white;
+            border-radius: 20px;
+            align-items: center;
+
+        }
+
+        /*Grid css*/
+        .cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+        .card {
+            padding: 1px;
+        }
+
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Screen larger than 900px? 3 columns */
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .car {
+            width: 320px;
+            height: 350px;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(#212121, #212121) padding-box,
+                linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+            border: 1px solid rgb(16, 86, 18);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transform-origin: right bottom;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .car .main-content {
+            flex: 1;
+        }
+
+        .car .header span:first-child {
+            font-weight: 600;
+            color: #717171;
+            margin-right: 4px;
+        }
+
+        .car .heading {
+            font-size: 24px;
+            margin: 24px 0 16px;
+            font-weight: 600;
+        }
+
+        .car .categories {
+            display: flex;
+            gap: 8px;
+        }
+
+        .car .categories span {
+            background-color: #e81cff;
+            padding: 4px 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            border-radius: 50em;
+        }
+
+        .car .footer {
+            font-weight: 600;
+            color: #717171;
+            margin-right: 4px;
+        }
+
+        .car:hover {
+            rotate: 8deg;
+        }
+
+        .parent {
+            width: 290px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .cardd {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
+            transition: all 0.5s ease-in-out;
+            transform-style: preserve-3d;
+            box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+        }
+
+        .glass {
+            transform-style: preserve-3d;
+            position: absolute;
+            inset: 8px;
+            border-radius: 55px;
+            border-top-right-radius: 100%;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+            /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
+            transform: translate3d(0px, 0px, 25px);
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .content {
+            padding: 100px 60px 0px 30px;
+            transform: translate3d(0, 0, 26px);
+        }
+
+        .content .title {
+            display: block;
+            color: #00894d;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .content .text {
+            display: block;
+            color: rgba(0, 137, 78, 0.7647058824);
+            font-size: 15px;
+            margin-top: 20px;
+        }
+
+        .bottom {
+            padding: 10px 12px;
+            transform-style: preserve-3d;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transform: translate3d(0, 0, 26px);
+        }
+
+        .bottom .view-more {
+            display: flex;
+            align-items: center;
+            width: 40%;
+            justify-content: flex-end;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .bottom .view-more:hover {
+            transform: translate3d(0, 0, 10px);
+        }
+
+        .bottom .view-more .view-more-button {
+            background: none;
+            border: none;
+            color: #00c37b;
+            font-weight: bolder;
+            font-size: 12px;
+        }
+
+        .bottom .view-more .svg {
+            fill: none;
+            stroke: #00c37b;
+            stroke-width: 3px;
+            max-height: 15px;
+        }
+
+        .bottom .social-buttons-container {
+            display: flex;
+            gap: 10px;
+            transform-style: preserve-3d;
+        }
+
+        .bottom .social-buttons-container .social-button {
+            width: 30px;
+            aspect-ratio: 1;
+            padding: 5px;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            border: none;
+            display: grid;
+            place-content: center;
+            box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+        }
+
+        .bottom .social-buttons-container .social-button:first-child {
+            transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+        }
+
+        .bottom .social-buttons-container .social-button:nth-child(2) {
+            transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+        }
+
+        .bottom .social-buttons-container .social-button:nth-child(3) {
+            transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+        }
+
+        .bottom .social-buttons-container .social-button .svg {
+            width: 15px;
+            fill: #00894d;
+        }
+
+        .bottom .social-buttons-container .social-button:hover {
+            background: black;
+        }
+
+        .bottom .social-buttons-container .social-button:hover .svg {
+            fill: white;
+        }
+
+        .bottom .social-buttons-container .social-button:active {
+            background: rgb(255, 234, 0);
+        }
+
+        .bottom .social-buttons-container .social-button:active .svg {
+            fill: black;
+        }
+
+        .logo {
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform-style: preserve-3d;
+        }
+
+        .logo .circle {
+            display: block;
+            position: absolute;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 0;
+            right: 0;
+            box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background: rgba(0, 249, 203, 0.2);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .logo .circle1 {
+            width: 170px;
+            transform: translate3d(0, 0, 20px);
+            top: 8px;
+            right: 8px;
+        }
+
+        .logo .circle2 {
+            width: 140px;
+            transform: translate3d(0, 0, 40px);
+            top: 10px;
+            right: 10px;
+            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+            transition-delay: 0.4s;
+        }
+
+        .logo .circle3 {
+            width: 110px;
+            transform: translate3d(0, 0, 60px);
+            top: 17px;
+            right: 17px;
+            transition-delay: 0.8s;
+        }
+
+        .logo .circle4 {
+            width: 80px;
+            transform: translate3d(0, 0, 80px);
+            top: 23px;
+            right: 23px;
+            transition-delay: 1.2s;
+        }
+
+        .logo .circle5 {
+            width: 50px;
+            transform: translate3d(0, 0, 100px);
+            top: 30px;
+            right: 30px;
+            display: grid;
+            place-content: center;
+            transition-delay: 1.6s;
+        }
+
+        .logo .circle5 .svg {
+            width: 20px;
+            fill: white;
+        }
+
+        .parent:hover .cardd {
+            transform: rotate3d(1, 1, 0, 30deg);
+            box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+        }
+
+        .parent:hover .cardd .bottom .social-buttons-container .social-button {
+            transform: translate3d(0, 0, 50px);
+            box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+        }
+
+        .parent:hover .cardd .logo .circle2 {
+            transform: translate3d(0, 0, 60px);
+        }
+
+        .parent:hover .cardd .logo .circle3 {
+            transform: translate3d(0, 0, 80px);
+        }
+
+        .parent:hover .cardd .logo .circle4 {
+            transform: translate3d(0, 0, 100px);
+        }
+
+        .parent:hover .cardd .logo .circle5 {
+            transform: translate3d(0, 0, 120px);
+        }
     </style>
 </head>
 
 <body>
     <div class="navbar bg-base-100">
-        <div class="flex-1">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="https://uiosindia.blogspot.com/p/mac-ui-update.html">MAC UI</a></li>
+                    <li><a href="https://uiosindia.blogspot.com/">UIOS</a></li>
+                    <li><a href="https://github.com/developerdhaval">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-center">
             <a class="btn btn-ghost text-xl">Developer Dhaval</a>
         </div>
-        <div class="flex-none">
-            <ul class="menu menu-horizontal px-1">
-                <li><a>MAC UI</a></li>
-                <li><a>UIOS</a></li>
-            </ul>
+        <div class="navbar-end">
+            <a href="#">Resume</a>
         </div>
     </div>
+
+
     <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse">
-            <div>
-                <h1 class="text-5xl font-bold">Hi, I am</h1>
-                <h1 class="text-5xl font-bold">Developer Dhaval</h1>
-                <h2 class="text-3xl font-bold">I am <span style="color: #7D48D9;">UI Designer</span></h2>
-                <p class="py-6">I am web developer from India. I also UI/UX designer and provide the code for your
-                    website on GitHub. You can esily use my clean and neat code and make the powerful system design
-                    website with me.</p>
-                <a href="https://github.com/developerdhaval" class="btn btn-primary">GitHub Profile</a>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzTnYdroU5E62tm52NqlQ7l21jfC41o5u0ncmYMW4ORtl-2Cvo5SCfX0yGhDvpvd88lwsLRy9hDY-P0gBLbGlFiRcc3zX1Zd-PZa9Bz8OLV3ose3N8r3O-12d-xPKAA6b0BQeQJ5bCr1Wgp3geaCoh-CDrfqkXufYBfak4hLRLK4VlcMla0op1XReVTHw/s16000/wepik--20240603115707bS8V.png"
+                class="max-w-sm rounded-lg shadow-2xl" />
+
+
+
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div>
+                    <h1 class="text-5xl font-bold">Hi, I am</h1>
+                    <h1 class="text-5xl font-bold">Developer Dhaval</h1>
+                    <h2 class="text-3xl font-bold">I am <span style="color: #7D48D9;">UI Designer</span></h2>
+                    <p class="py-6">I am web developer from India. I also UI/UX designer and provide the code for your
+                        website on GitHub. You can esily use my clean and neat code and make the powerful system design
+                        website with me.</p>
+                    <a href="https://github.com/developerdhaval" class="btn btn-primary">GitHub Profile</a>
+                </div>
             </div>
         </div>
     </div>
-<b><h1 class="text-2xl">My other site</h1></b><br>
-<div class="cards">
-    <div class="card">
-    <div class="box">
-        <b class="boxx">UIOS Website</b><br><br>
-        <p>This site in you can get a free css code for design your website. You can also get a Elements, Popup, Box and more code with tutorial, also get help for your website.</p>
-        <a class="link link-primary" href="https://uiosindia.blogspot.com/">Visit Site</a>
 
-    </div></div>
 
-    <div class="card">
-        <div class="box">
-            <b class="boxx">MACUI Update</b><br><br>
-            <p>Mac ui update is best ui for your projects and get feel universes. I have made GitHub projects everyday, you can also get that ui update. Best secure UI and verified by uios.</p>
-            <a class="link link-primary" href="https://uiosindia.blogspot.com/p/mac-ui-update.html">More details</a>
-        </div></div>
+    <center>
+        <div class="tag"><b>
+                <h1 class="text-2xl">My other projects</h1>
+            </b></div>
+    </center><br>
+    <div class="cards">
+        <div class="card">
+            <div class="box">
+                <b class="boxx">UIOS Website</b><br><br>
+                <p>This site in you can get a free css code for design your website. You can also get a Elements, Popup,
+                    Box and more code with tutorial, also get help for your website.</p>
+                <a class="link link-primary" href="https://uiosindia.blogspot.com/">Visit Site</a>
 
-</div>
-<br>
-<b><h1 class="text-2xl">My Skiils</h1></b><br>
+            </div>
+        </div>
 
-    <div class="box">
-        <b class="btn btn-primary">HTML</b>
-        <b class="btn btn-primary">CSS</b>
-        <b class="btn btn-primary">UI designer</b>
-        <b class="btn btn-primary">Java</b>
-        <b class="btn btn-primary">Web developer</b>
+        <div class="card">
+            <div class="box">
+                <b class="boxx">MACUI Update</b><br><br>
+                <p>Mac ui update is best ui for your projects and get feel universes. I have made GitHub projects
+                    everyday, you can also get that ui update. Best secure UI and verified by uios.</p>
+                <a class="link link-primary" href="https://uiosindia.blogspot.com/p/mac-ui-update.html">More details</a>
+            </div>
+        </div>
 
-        
     </div>
+    <br>
+    <center>
+        <div class="tag"><b>
+                <h1 class="text-2xl">My Skiils</h1>
+            </b></div>
+    </center><br>
 
+    <div class="cards">
+        <div class="card">
+            <div class="box">
+                <center><b class="btn btn-primary">HTML, CSS, JavaScript</b></center>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <center><b class="btn btn-primary">UI/UX Design</b></center>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <center><b class="btn btn-primary">Web Developer</b></center>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <center><b class="btn btn-primary">GitHub projects</b></center>
+            </div>
+        </div>
+
+    </div><br>
+    <div class="dd">
+        <center>
+            <div class="tag"><b>
+                    <h1 class="text-2xl">GitHub projects</h1>
+                </b></div>
+        </center><br>
+        <div class="box">
+            <div class="cards">
+
+                <div class="card">
+                    <button class="btn btn-primary">Login form JS</button>
+                </div>
+
+
+                <div class="card">
+                    <button class="btn btn-primary">Search filter</button>
+                </div>
+
+
+                <div class="card">
+                    <button class="btn btn-primary">Developer tools</button>
+                </div>
+
+
+                <div class="card">
+                    <button class="btn btn-primary">Code design</button>
+                </div>
+
+
+                <div class="card">
+                    <button class="btn btn-primary">Website template</button>
+                </div>
+
+
+                <div class="card">
+                    <button class="btn btn-primary">Themes</button>
+                </div>
+
+                <br>
+            </div>
+            <center><a href="https://github.com/developerdhaval" class="btn btn-outline btn-primary">Discover more
+                    projects</a></center>
+        </div><br>
+        <center>
+            <div class="tag"><b>
+                    <h1 class="text-2xl">Contact me</h1>
+                </b></div>
+        </center><br>
+
+        <div class="box">
+
+            <center>
+                <form class="form" method="post" action="//submit.form" onSubmit="return validateForm();">
+
+
+                    <b>Contact me with fill up below form. Or Email - </b><br><br>
+                    <u>devloperdhaval@gmail.com</u>
+                    <br><br>
+                    <div class="form-container">
+                        <input type="text" id="data_5" name="data_5" style="" class="form-control input"
+                            autocomplete="off" placeholder="Name"><br>
+
+                        <input type="email" id="data_3" name="data_3" style="" class="form-control input"
+                            autocomplete="off" placeholder="Email"><br>
+
+                        <input type="textarea" id="data_6" name="data_6" style="" rows="6" class="form-control input"
+                            autocomplete="off" placeholder="Massage">
+
+                    </div><br>
+                    <button class="btn btn-primary" name="skip_Submit" value="Submit" type="submit">Send</button>
+                    <div>
+
+                        <div><a class="hidden" href="https://www.100forms.com" id="lnk100" title="form to email">form to
+                                email</a></div>
+
+                        <script src="https://www.100forms.com/js/FORMKEY:TY6BM2UYU6TZ" type="text/javascript"></script>
+
+
+
+                </form>
+
+        </div>
+        </form>
+        </center>
+    </div><br>
+
+    <center>
+        <div class="tag"><b>
+                <h1 class="text-2xl">About web</h1>
+            </b></div><br><br>
+        <div class="cards box">
+            <div class="card">
+                <div class="car">
+                    <div class="main-content">
+                        <div class="header">
+                            <span>Website by</span>
+                            <span>Developer Dhaval</span>
+                        </div>
+                        <p class="heading">User interface organization system - UIOS</p>
+                        <div class="categories">
+                            <span>UI design</span>
+                            <span>Web Developer</span>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        GitHub projects
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="parent">
+                    <div class="cardd">
+                        <div class="logo">
+                            <span class="circle circle1"></span>
+                            <span class="circle circle3"></span>
+                            <span class="circle circle4"></span>
+                            <span class="circle circle5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.667 31.69" class="svg">
+                                    <path id="Path_6" data-name="Path 6"
+                                        d="M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z"
+                                        transform="translate(0 0)"></path>
+                                    <path id="Path_7" data-name="Path 7"
+                                        d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z"
+                                        transform="translate(-45.91 0)"></path>
+                                    <path id="Path_8" data-name="Path 8"
+                                        d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z"
+                                        transform="translate(0 -51.963)"></path>
+                                </svg>
+                            </span>
+
+                        </div>
+                        <div class="glass"></div>
+                        <div class="content">
+                            <span class="title">MAC UI</span>
+                            <span class="text">Use MAC UI for your website or app. Make more beauty of your website.
+                                Feel the universes.
+                                <a href="https://uiosindia.blogspot.com/p/mac-ui-update.html"
+                                    class="view-more-button">View more</a></span>
+                        </div>
+                        <div class="bottom">
+
+                            <div class="social-buttons-container">
+
+                            </div>
+                            h
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        </div>
+
+        </div>
+        </div>
+</body>
+</center>
+
+<script type="text/javascript">
+
+    function validateForm() {
+
+        if (isEmpty(document.getElementById('data_5').value.trim())) {
+
+            document.getElementById('toastNotif').innerHTML = '<span>Name cannot be blank</span>';
+
+            return false;
+
+        }
+
+        if (isEmpty(document.getElementById('data_3').value.trim())) {
+
+            document.getElementById('toastNotif').innerHTML = '<span>Email cannot be blank</span>';
+
+            return false;
+
+        }
+
+        if (!validateEmail(document.getElementById('data_3').value.trim())) {
+
+            document.getElementById('toastNotif').innerHTML = '<span>A valid email is required</span>';
+
+            return false;
+
+        }
+
+        if (isEmpty(document.getElementById('data_6').value.trim())) {
+
+            document.getElementById('toastNotif').innerHTML = '<span>Message cannot be blank</span>';
+
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+    function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+
+    function validateEmail(email) {
+
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+
+        return isEmpty(email) || re.test(email);
+
+    }
+
+</script>
 
 
 
