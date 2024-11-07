@@ -1,0 +1,587 @@
+<html data-theme="cupcake"></html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crushed&display=swap" rel="stylesheet">
+    <style>
+        .crushed-regular {
+  font-family: "Crushed", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Crushed&display=swap');
+
+        body,
+        html,
+        dd {
+            padding: 10px;
+        }
+
+        .responsive {
+  width: 100%;
+  height: auto;
+}
+
+.di {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+        .box {
+            padding: 15px;
+            border-radius: 30px;
+            background-color: rgb(6, 53, 3);
+        }
+
+        .boxx {
+            background-color: rgba(0, 0, 0, 0.751);
+            color: rgb(208, 208, 208);
+            padding: 9px;
+            border-radius: 20px;
+        }
+
+        .tag {
+            border: 1px solid white;
+            height: fit-content;
+            width: fit-content;
+            padding: 10px;
+            box-shadow: 2px 2px white;
+            border-radius: 20px;
+            align-items: center;
+
+        }
+
+        /*Grid css*/
+        .cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+        .card {
+            padding: 1px;
+        }
+
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Screen larger than 900px? 3 columns */
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .car {
+            width: 288px;
+            height: 350px;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(#212121, #212121) padding-box,
+                linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+            border: 1px solid rgb(16, 86, 18);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transform-origin: right bottom;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .car .main-content {
+            flex: 1;
+        }
+
+        .car .header span:first-child {
+            font-weight: 600;
+            color: #717171;
+            margin-right: 4px;
+        }
+
+        .car .heading {
+            font-size: 24px;
+            margin: 24px 0 16px;
+            font-weight: 600;
+        }
+
+        .car .categories {
+            display: flex;
+            gap: 8px;
+        }
+
+        .car .categories span {
+            background-color: #e81cff;
+            padding: 4px 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            border-radius: 50em;
+        }
+
+        .car .footer {
+            font-weight: 600;
+            color: #717171;
+            margin-right: 4px;
+        }
+
+        .car:hover {
+            rotate: 8deg;
+        }
+
+        .parent {
+            width: 290px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .cardd {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
+            transition: all 0.5s ease-in-out;
+            transform-style: preserve-3d;
+            box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+        }
+
+        .glass {
+            transform-style: preserve-3d;
+            position: absolute;
+            inset: 8px;
+            border-radius: 55px;
+            border-top-right-radius: 100%;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+            /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
+            transform: translate3d(0px, 0px, 25px);
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .content {
+            padding: 100px 60px 0px 30px;
+            transform: translate3d(0, 0, 26px);
+        }
+
+        .content .title {
+            display: block;
+            color: #00894d;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .content .text {
+            display: block;
+            color: rgba(0, 137, 78, 0.7647058824);
+            font-size: 15px;
+            margin-top: 20px;
+        }
+
+        .bottom {
+            padding: 10px 12px;
+            transform-style: preserve-3d;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transform: translate3d(0, 0, 26px);
+        }
+
+        .bottom .view-more {
+            display: flex;
+            align-items: center;
+            width: 40%;
+            justify-content: flex-end;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .bottom .view-more:hover {
+            transform: translate3d(0, 0, 10px);
+        }
+
+        .bottom .view-more .view-more-button {
+            background: none;
+            border: none;
+            color: #00c37b;
+            font-weight: bolder;
+            font-size: 12px;
+        }
+
+        .bottom .view-more .svg {
+            fill: none;
+            stroke: #00c37b;
+            stroke-width: 3px;
+            max-height: 15px;
+        }
+
+        .bottom .social-buttons-container {
+            display: flex;
+            gap: 10px;
+            transform-style: preserve-3d;
+        }
+
+        .bottom .social-buttons-container .social-button {
+            width: 30px;
+            aspect-ratio: 1;
+            padding: 5px;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            border: none;
+            display: grid;
+            place-content: center;
+            box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+        }
+
+        .bottom .social-buttons-container .social-button:first-child {
+            transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+        }
+
+        .bottom .social-buttons-container .social-button:nth-child(2) {
+            transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+        }
+
+        .bottom .social-buttons-container .social-button:nth-child(3) {
+            transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+        }
+
+        .bottom .social-buttons-container .social-button .svg {
+            width: 15px;
+            fill: #00894d;
+        }
+
+        .bottom .social-buttons-container .social-button:hover {
+            background: black;
+        }
+
+        .bottom .social-buttons-container .social-button:hover .svg {
+            fill: white;
+        }
+
+        .bottom .social-buttons-container .social-button:active {
+            background: rgb(255, 234, 0);
+        }
+
+        .bottom .social-buttons-container .social-button:active .svg {
+            fill: black;
+        }
+
+        .logo {
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform-style: preserve-3d;
+        }
+
+        .logo .circle {
+            display: block;
+            position: absolute;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 0;
+            right: 0;
+            box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background: rgba(0, 249, 203, 0.2);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .logo .circle1 {
+            width: 170px;
+            transform: translate3d(0, 0, 20px);
+            top: 8px;
+            right: 8px;
+        }
+
+        .logo .circle2 {
+            width: 140px;
+            transform: translate3d(0, 0, 40px);
+            top: 10px;
+            right: 10px;
+            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+            transition-delay: 0.4s;
+        }
+
+        .logo .circle3 {
+            width: 110px;
+            transform: translate3d(0, 0, 60px);
+            top: 17px;
+            right: 17px;
+            transition-delay: 0.8s;
+        }
+
+        .logo .circle4 {
+            width: 80px;
+            transform: translate3d(0, 0, 80px);
+            top: 23px;
+            right: 23px;
+            transition-delay: 1.2s;
+        }
+
+        .logo .circle5 {
+            width: 50px;
+            transform: translate3d(0, 0, 100px);
+            top: 30px;
+            right: 30px;
+            display: grid;
+            place-content: center;
+            transition-delay: 1.6s;
+        }
+
+        .logo .circle5 .svg {
+            width: 20px;
+            fill: white;
+        }
+
+        .parent:hover .cardd {
+            transform: rotate3d(1, 1, 0, 30deg);
+            box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+        }
+
+        .parent:hover .cardd .bottom .social-buttons-container .social-button {
+            transform: translate3d(0, 0, 50px);
+            box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+        }
+
+        .parent:hover .cardd .logo .circle2 {
+            transform: translate3d(0, 0, 60px);
+        }
+
+        .parent:hover .cardd .logo .circle3 {
+            transform: translate3d(0, 0, 80px);
+        }
+
+        .parent:hover .cardd .logo .circle4 {
+            transform: translate3d(0, 0, 100px);
+        }
+
+        .parent:hover .cardd .logo .circle5 {
+            transform: translate3d(0, 0, 120px);
+        }
+        // Colors
+$primary: #52A3B6;
+$primary-ultralight: mix(white, $primary, 80%);
+$primary-light: mix(white, $primary, 25%);
+$primary-dark: mix(black, $primary, 25%);
+$primary-ultradark: mix(black, $primary, 80%);
+$black: #333333;
+$white: #eeeeee;
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+$open-sans: 'Open Sans', Helvetica, arial, sans-serif;
+$raleway: 'Raleway', 'Open Sans', sans-serif;
+
+// Misc
+$max-width: 800px;
+
+
+// ------------------------------------------------------
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $open-sans;
+    color: $primary;
+    background-color: $black;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: $raleway;
+    text-align: center;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    position: relative;
+    overflow: visible;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50px;
+        height: 2px;
+        background-color: $primary;
+        transform: translateX(-50%);
+    }
+}
+
+.pen__heading {}
+
+.pen__subheading {
+    margin-bottom: 0;
+    
+    a {
+        color: $primary;
+        
+        &:hover,
+        &:focus {
+            color: $primary-light;
+        }
+    }
+}
+
+.container {
+    overflow: hidden;
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.col {
+    padding: 1rem;
+    
+    @media (min-width: $max-width) {
+        width: 50%;
+        float: left;
+
+        &:nth-of-type(2n+1) {
+            clear: left;
+        }        
+    }
+    
+    &.col--full {
+        width: 100%;
+    }
+}
+.back {
+    background-color: rgb(255, 119, 0);
+    padding: 20px;
+
+}
+    </style>
+</head>
+
+<body>
+  
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Developer Dhaval</a>
+        </div>
+        <div class="flex-none">
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="badge badge-sm indicator-item">8</span>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
+              <div class="card-body">
+                <span class="text-lg font-bold">8 Items</span>
+                <span class="text-info">Subtotal: $999</span>
+                <div class="card-actions">
+                  <button class="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>About</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero bg-base-200 min-h-screen text-left" style="background-color: rgb(249, 243, 243);">
+        <div class="hero-content flex-col lg:flex-row">
+          <div>
+            <h1 class="text-5xl font-bold text-left" style="color: #00894d;">Hello there!</h1>
+            <h1 class="text-5xl font-bold text-left">Best place to create website</h1>
+            <p class="py-6">
+             Welcome to the best platform of create a professional website with less price.
+            </p>
+            <button class="btn btn-outline btn-success">GitHub</button> <button class="btn btn-neutral">Create your website</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="di">
+      <div role="alert" class="alert alert-success">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 shrink-0 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span><b>Website Festival:</b></span>
+        <p>Create your first website with 70% off</p>
+      </div>
+                   
+       
+
+      </div>   
+<script>
+
+</script>
+</body>
+</html>
