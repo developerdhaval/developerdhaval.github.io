@@ -1,0 +1,205 @@
+/* MACUI Buttons */
+.button {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 20px;
+    color: #ffffff;
+    z-index: 1;
+    background: hsl(250, 100%, 63%);
+    position: relative;
+    font-weight: 750;
+    font-size: 16px;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .button::before, .button-outline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+
+    transition: all 250ms
+   }
+   
+   
+   .button:hover::before, .button-outline:hover::before {
+    width: 100%;
+   }
+
+   .button-outline:hover {
+    color: white;
+   }
+
+   .button-outline {
+    padding: 15px 25px;
+    border: 2px solid black;
+    border-radius: 20px;
+    color: auto;
+    z-index: 1;
+    background: transparent;
+    position: relative;
+    font-weight: 750;
+    font-size: 16px;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+
+   .button-outline-primary {
+    padding: 15px 25px;
+    border: 2px solid hsl(250, 100%, 63%);;
+    border-radius: 20px;
+    color: auto;
+    z-index: 1;
+    background: transparent;
+    position: relative;
+    font-weight: 750;
+    font-size: 16px;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+
+   .button-outline-primary:hover {
+    background-color: hsl(250, 100%, 63%);;
+    color: white
+   }
+
+   .button-outline-natrual {
+    padding: 15px 25px;
+    border: 2px solid hsl(0, 0%, 0%);;
+    border-radius: 20px;
+    color: auto;
+    z-index: 1;
+    background: transparent;
+    position: relative;
+    font-weight: 750;
+    font-size: 16px;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+
+   .button-outline-natrual:hover {
+    background-color: hsl(0, 0%, 0%);;
+    color: white
+   }
+
+   .button-outline-secondary {
+    padding: 15px 25px;
+    border: 2px solid rgb(245, 155, 38);
+    border-radius: 20px;
+    color: auto;
+    z-index: 1;
+    background: transparent;
+    position: relative;
+    font-weight: 750;
+    font-size: 16px;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+
+   .button-outline-secondary:hover {
+    background-color: rgb(245, 155, 38);
+    color: white
+   }
+
+   .dropdown-content {
+    border: 2px solid black;
+   }
+
+   .modal-box {
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    border-radius: 30px;
+   }
+
+   .collapse {
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+   }
+
+   .badge {
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    padding: 10px;
+   }
+
+   .card {
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+   }
+   
+   .outline {
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+   }
+
+   /* From Uiverse.io by Codewithvinay */ 
+.card-2 {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    background: #d8e2e8;
+    box-shadow: 20px 20px 60px #d8e2e8,
+                  -20px -20px 60px #d8e2e8;
+   }
+
+   .tr {
+    background-color: #d8e2e8;
+  }
+
+  .menu-1 {
+    border: 2px solid rgb(44, 68, 100); 
+    border-radius: 40px; 
+    box-shadow: 4px 4px rgb(44, 68, 100);
+  }
+  .navbar {
+    background: #d8e2e8;
+    border-radius: 40px;
+  }
+  .parent {
+    background: #d8e2e8;
+    border-radius: 30px;
+  }
+  .tabs {
+    background: #d8e2e8;
+    border-radius: 50px;
+  }
+
+
+
+
+
+
+
+
+/* MACUI Colors */
+
+.primary {
+    background-color: hsl(250, 100%, 63%);
+    color: white;
+}
+.natural {
+    background-color: #212121;
+    color: white;
+}
+.secondary {
+    background-color: rgb(245, 155, 38);
+    color: white;
+}
+.info {
+    background-color: #29d0b4;
+    color: white;
+}
+.success {
+    background-color: #1ca32c;
+    color: white;
+}
+.error {
+    background-color: rgb(226, 56, 56);
+    color: white;
+}
