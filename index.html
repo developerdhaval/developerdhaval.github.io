@@ -1,402 +1,488 @@
-<html data-theme="cupcake">
-
-
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="google-site-verification" content="HjRxBeErA8QIYjmLMmxKmzfcXTq-Xtz8_dkSsjrUZS0" />
-  
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crushed&display=swap" rel="stylesheet">
-  <style>
-    .crushed-regular {
-      font-family: "Crushed", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
+	<title>Developer Dhaval</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    .about {
-  width: 230px;
-  height: fit-content;
-  border: 2px solid black;
-  box-shadow: 4px 4px black;
-  border-radius: 10px;
-  padding: 20px;
-}
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+	<link rel="stylesheet" href="open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="animate.css">
 
-    /*Grid css*/
-    .cards {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-gap: 2rem;
-    }
+	<link rel="stylesheet" href="owl.carousel.min.css">
+	<link rel="stylesheet" href="owl.theme.default.min.css">
+	<link rel="stylesheet" href="magnific-popup.css">
 
-    .card {
-      padding: 1px;
-    }
+	<link rel="stylesheet" href="aos.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/developerdhaval/MACUI@main/macui@3.0.css"
+		text="text/css" />
 
-    @media (min-width: 900px) {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+	<link rel="stylesheet" href="ionicons.min.css">
 
-    /* Screen larger than 900px? 3 columns */
-    @media (min-width: 600px) {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @import url('https://fonts.googleapis.com/css2?family=Crushed&display=swap');
-
-    .responsive {
-      width: 100%;
-      height: auto;
-    }
-
-    .di {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    .back {
-      background-color: rgb(255, 119, 0);
-      padding: 20px;
-
-    }
-  </style>
+	<link rel="stylesheet" href="flaticon.css">
+	<link rel="stylesheet" href="icomoon.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
-  <div class="navbar bg-base-100">
-    <div class="flex-1">
-      <a class="btn btn-ghost text-xl">Developer Dhaval</a>
-    </div>
-    <div class="flex-none">
-      <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-          <div class="indicator">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span class="badge badge-sm indicator-item">2</span>
-          </div>
-        </div>
-        <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
-          <div class="card-body">
-            <span class="text-lg font-bold">Coupon code</span>
-            <span class="text-info">Get up to 30% off</span>
-            <div class="card-actions">
-              <!-- Open the modal using ID.showModal() method -->
-<button class="btn btn-primary" onclick="my_modal_1.showModal()">Get code</button>
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Coupon code</h3><br>
-    
-    <p>1. DM7918 - Get up to ₹91 off</p><br>
-    <p>2. AZ1527 - Get up to ₹120 off</p><br>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">OK!</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <img alt="Tailwind CSS Navbar component"
-              src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg" />
-          </div>
-        </div>
-        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          <li>
-            <a href="https://developerdhaval.github.io/Createwebsite.html" class="justify-between">
-              Create_Website
-              <span class="badge">Aewsome</span>
-            </a>
-          </li>
-          <li><a href="https://developerdhaval.github.io/About.html">Contact</a></li>
-          <li><a href="https://developerdhaval.github.io/Control.html">Control panel</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero bg-base-200 min-h-screen text-left" style="background-color: rgb(249, 243, 243);">
-    <div class="hero-content flex-col lg:flex-row">
-      <div>
-        <h1 class="text-5xl font-bold text-left" style="color: #00894d;">Hello there!</h1>
-        <h1 class="text-5xl font-bold text-left">Best place to create website</h1>
-        <p class="py-6">
-          Welcome to the best platform of create a professional website with less price.
-        </p>
-        <a href="https://github.com/developerdhaval" class="btn btn-outline btn-success">GitHub</a> <a href="https://developerdhaval.github.io/Createwebsite.html" class="btn btn-neutral">Create your
-          website</a>
-      </div>
-    </div>
-  </div>
-
-  <!--[Di start]-->
-
-  <div class="di">
-    <ul class="timeline timeline-vertical">
-      <li>
-        <div class="timeline-start timeline-box">Enter your details</div>
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <hr />
-      </li>
-      <li>
-        <hr />
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">Select plan</div>
-        <hr />
-      </li>
-      <li>
-        <hr />
-        <div class="timeline-start timeline-box">Enter Webite info</div>
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <hr />
-      </li>
-      <li>
-        <hr />
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">Enter Custom web changes</div>
-        <hr />
-      </li>
-      <li>
-        <hr />
-        <div class="timeline-start timeline-box">Website created Succuesfully!</div>
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-      </li>
-    </ul>
-    <br><br><br>
-
-    <div role="alert" class="alert alert-success">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span><b>Website Festival:</b></span>
-      <p>Create your first website with 70% off</p>
-    </div><br>
-
-   <center>
-    <div class="cards">
-      <div class="cardd">
-    <b><p class="text-3xl">About me</p></b>
-    <div class="about">
-      <center>
-      <div class="avatar">
-        <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-          <img src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg" />
-        </div>
-      </div><br><br>
-    </center>
-    <b><p>Developer Dhaval</p></b>
-    <p>Hello there! I will help to create website with less price and responsive design. I have 4 yerars experience of the Practice. Also get a UI/UX design website with less price and grow your business esaily.</p>
-    </div></div>
-
-    
-    <div class="cards">
-      <div class="cardd">
-    <b><p class="text-3xl">Pricing Plan</p></b>
-    <div class="about">
-      <center>
-      <div class="avatar">
-        <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-          <img src="https://cdn.dribbble.com/users/1171108/screenshots/18051021/pricing_illustration.png" />
-        </div>
-      </div><br><br>
-    </center>
-    <b>Basic plan</b><br>
-    <del>1999</del> 899 <br>
-    <a href="https://developerdhaval.github.io/Createwebsite.html" class="link link-neutral">See all features</a><br><br><hr><br>
-
-    <b>Standard plan</b><br>
-    <del>1799</del> 1599 <br>
-    <a href="https://developerdhaval.github.io/Createwebsite.html" class="link link-neutral">See all features</a><br><br><hr><br>
-
-    <b>Custom plan</b><br>
-    Up to 17% Discount <br>
-    <a href="https://developerdhaval.github.io/Createwebsite.html" class="link link-neutral">See all features</a><br><br><hr><br>
-
-    </div></div></div>
-
-     
-    <div class="cards">
-      <div class="cardd">
-    <b><p class="text-3xl">Offer</p></b>
-    <div class="about">
-      <center>
-      <div class="avatar">
-        <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-          <img src="https://static.vecteezy.com/system/resources/previews/018/765/980/original/special-offer-label-icon-in-comic-style-discount-banner-cartoon-illustration-on-isolated-background-sale-sign-business-concept-splash-effect-vector.jpg" />
-        </div>
-      </div><br><br>
-    </center>
-    1. First time website discount up to 70% off. <br>
-    2. Additional coupon discount <br>
-    3. Fast web service (Only 10% extra Charges) <br>
-    4. Return money in 6 days. <br>
-    5. Website check-up and service. 
-    </div></div></div>
-    </div></center><br>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-    <div class="hero bg-base-200 min-h-screen" style="background-color: rgb(249, 245, 245);">
-      <div class="hero-content flex-col lg:flex-row">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/000/519/016/original/modern-flat-web-page-design-template-concept-of-web-development-decorated-people-character-for-website-and-mobile-website-development-flat-landing-page-template-vector-illustration.jpg"
-          class="max-w-sm rounded-lg shadow-2xl responsive" />
-        <div>
-          <h1 class="text-5xl font-bold">Create your Website</h1>
-          <p class="py-6">
-            Get high quality website according to your wish and grow your business esaily.
-          </p>
-          <a href="https://developerdhaval.github.io/Createwebsite.html" class="btn btn-primary">Create now</a>
-        </div>
-      </div>
-    </div></div>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Developer Dhaval</a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> 
+			</button>
 
-    <hr>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+					<li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
+					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
+					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav><br><br><br><br><br><br>
+	<section id="home-section">
+		<div style="margin: 10ppx;">
+			<center>
+				<span class="subheading">Hello!</span>
+				<div style="font-size: 50px;"><span style="color: wheat; font-weight: bold;">I am </span><span
+						style="color: rgb(212, 212, 81); font-weight: bold;">Dhaval Mandaviya</span></div>
+				<h5>A web developer</h5><br>
+				<p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> <a href="https://themacui.blogspot.com/"
+						class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
 
-    <div class="hero bg-base-200 min-h-screen" style="background-color: rgb(249, 245, 245);">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/021/221/145/non_2x/discount-coupon-with-five-stars-icon-3d-rendering-illustration-vector.jpg"
-          class="max-w-sm rounded-lg shadow-2xl responsive" />
-        <div>
-          <h1 class="text-5xl font-bold">Coupon Code</h1>
-          <p class="py-6">
-            Use code to get more discount.<br>
-            <p>1. DM7918 - Get up to ₹91 off</p>
-            <p>2. AZ1527 - Get up to ₹120 off</p><br>
-          </p>
-          <button class="btn btn-neutral">Limited time offer</button>
-        </div>
-      </div>
-    </div><hr>
+			</center>
+		</div>
+	</section><br><br><br>
 
-    <div class="hero bg-base-200 min-h-screen" style="background-color: rgb(249, 245, 245); padding-top: -100%; padding-bottom: -100%;">
-      <div class="hero-content flex-col lg:flex-row">
-        <img
-          src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2020/05/Website_illustration_jpg_6PA9rpLF.jpg?auto=format&q=60&fit=max&w=930"
-          class="max-w-sm rounded-lg shadow-2xl responsive" />
-        <div>
-          <h1 class="text-5xl font-bold">Useful site</h1>
-          <p class="py-6">
-            Observe best site and make website with your own talent. Also get some tutorial in free.
-          </p>
-          <a href="https://developerdhaval.github.io/webmart.html" class="btn btn-primary">View site</a>
-        </div>
-      </div>
-    </div><hr>
+	<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+		<div class="container">
+			<div class="row d-flex">
+				<div class="col-md-6 col-lg-5 d-flex">
+					<div class="img-about img d-flex align-items-stretch">
+						<div class="overlay"></div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="macui-bg" style="align-items: center; background-color: rgb(34, 34, 34);">
+				<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+					<div class="row justify-content-start pb-3">
+						<div class="col-md-12 heading-section ">
+							<h2 class="mb-4">About Me</h2>
+							<p>A small river named Duden flows by their place and supplies it with the necessary
+								regelialia.</p>
+							<ul class="about-info mt-4 px-md-0 px-2">
+								<li class="d-flex"><span>Name:</span> <span>Dhaval Mandaviya</span></li>
+								<li class="d-flex"><span>Project:</span> <span>MACUI</span></li>
+								<li class="d-flex"><span>Address:</span> <span>Gujarat, India</span></li>
+								<li class="d-flex"><span>Education:</span> <span>Running</span></li>
+								<li class="d-flex"><span>Email:</span> <span>devloperdhaval@gmail.com</span></li>
+								<li class="d-flex"><span>Experience: </span> <span>4 Years</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="counter-wrap   d-flex mt-md-3">
+						<div class="text">
+							<p class="mb-4">
+								<span class="number" data-number="40">0</span>
+								<span>Project complete</span>
+							</p>
+							<p><a href="https://drive.google.com/file/d/1OD5XyShzmvlvNHlXANEUzHB_HFJswMUJ/view?usp=sharing" class="btn btn-primary py-3 px-3">Download CV</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <div class="hero bg-base-200 min-h-screen" style="background-color: rgb(249, 245, 245);">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/002/136/517/non_2x/cyber-security-concept-people-work-on-screen-protecting-data-and-confidentiality-vector.jpg"
-          class="max-w-sm rounded-lg shadow-2xl responsive" />
-        <div>
-          <h1 class="text-5xl font-bold">Security and trust </h1>
-          <p class="py-6">
-            Our platform is fully secure, you will trust it, Make sure to read our condition and other statment.<br>
-          </p>
-          <a href="https://developerdhaval.github.io/Security.html" class="btn btn-neutral">Read now</a>
-        </div>
-      </div>
-    </div><hr>
+	<section class="ftco-section ftco-no-pb" id="resume-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-10 heading-section text-center  ">
+					<h1 class="big big-2">Resume</h1>
+					<h2 class="mb-4">Resume</h2>
+					<p>Get more info about me and my Education or skills! Get project which I made.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="resume-wrap  ">
+						<span class="date">2020-2021</span>
+						<h2>Blogger</h2>
+						<span class="position">Google</span>
+						<p class="mt-4">I started Blogger to learn coding and post! That is my first step to know about
+							coding world. Now i am reached to highest coding platform but I never forget to Blogger!</p>
+					</div>
+					<div class="resume-wrap  ">
+						<span class="date">2021-2022</span>
+						<h2>Github</h2>
+						<span class="position">Coding</span>
+						<p class="mt-4">I started to create Coding project and upload to Github. Day by day I create
+							more project and prepare for best coding skills.</p>
+					</div>
+				</div>
 
-    </div>
+				<div class="col-md-6">
+					<div class="resume-wrap  ">
+						<span class="date">2023-24</span>
+						<h2>Figma</h2>
+						<span class="position">Design</span>
+						<p class="mt-4">I started to learn UI/UX design in Figma. Also make a library with Figma and
+							grow my designing skills!</p>
+					</div>
+					<div class="resume-wrap  ">
+						<span class="date">2024-25</span>
+						<h2>MACUI</h2>
+						<span class="position">Library</span>
+						<p class="mt-4">I created my own CSS library. Its not just library, its largest marketplace for
+							all web developers and designers!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-5">
+				<div class="col-md-6 text-center  ">
+					<p><a href="https://drive.google.com/file/d/1OD5XyShzmvlvNHlXANEUzHB_HFJswMUJ/view?usp=sharing" class="btn btn-primary py-4 px-5">Download CV</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section" id="services-section">
+		<div class="container">
+			<div class="row justify-content-center py-5 mt-5">
+				<div class="col-md-12 heading-section text-center  ">
+					<h1 class="big big-2">Services</h1>
+					<h2 class="mb-4">Services</h2>
+					<p>Explore what i can do for clients!</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-analysis"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">Web Design</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-flasks"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">Coding</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-ideas"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">Web Developer</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-analysis"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">Figma</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-flasks"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">code solutions</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex  ">
+					<div class="services-1">
+						<span class="icon">
+							<i class="flaticon-ideas"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">Tailwind css</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section" id="skills-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center  ">
+					<h1 class="big big-2">Skills</h1>
+					<h2 class="mb-4">My Skills</h2>
+					<p>Know about, my developing skills! </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>Figma</h3>
+						<div class="progress">
+							<div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+								aria-valuemax="100" style="width:90%">
+								<span>90%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>Blogger</h3>
+						<div class="progress">
+							<div class="progress-bar color-6" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+								aria-valuemax="100" style="width:80%">
+								<span>98%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>HTML5</h3>
+						<div class="progress">
+							<div class="progress-bar color-3" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+								aria-valuemax="100" style="width:95%">
+								<span>95%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>CSS3</h3>
+						<div class="progress">
+							<div class="progress-bar color-4" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+								aria-valuemax="100" style="width:90%">
+								<span>90%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>Github</h3>
+						<div class="progress">
+							<div class="progress-bar color-5" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+								aria-valuemax="100" style="width:70%">
+								<span>90%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap  ">
+						<h3>Javascript</h3>
+						<div class="progress">
+							<div class="progress-bar color-2" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+								aria-valuemax="100" style="width:85%">
+								<span>65%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section ftco-project" id="projects-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center  ">
+					<h1 class="big big-2">Projects</h1>
+					<h2 class="mb-4">Projects</h2>
+					<p>Get and explore my Project with source code!</p>
+				</div>
+			</div>
+			<div class="grids">
+				<div class="grid">
+					<center>
+						<div class="macui-bg" style="background-color: rgb(34, 34, 34); color: white; text-align: left;">
+							<span
+								style="background-color: black; padding: 15px; border-radius: 25px; margin-bottom: 20px; font-weight: bold; font-size: large; color: white;">MACUI</span><br><br>
+							<p>I created MACUI! its awesome CSS library. its just not a Library, its largest web
+								marketplace for Developers and designers!</p>
+							<a href="https://themacui.blogspot.com/">Visit site!</a>
+						</div>
+					</center>
+				</div>
+				<div class="grid">
+					<center>
+						<div class="macui-bg" style="background-color: rgb(34, 34, 34); color: white; text-align: left;">
+							<span
+								style="background-color: black; padding: 15px; border-radius: 25px; margin-bottom: 20px; font-weight: bold; font-size: large; color: white;">Github</span><br><br>
+							<p>Explore and get my all projects in Github with source code and get regular web updates. Also solve your coding questions!</p>
+							<a href="https://github.com/developerdhaval">Visit site!</a>
+						</div>
+					</center>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center  ">
+					<h1 class="big big-2">Contact</h1>
+					<h2 class="mb-4">Contact Me</h2>
+					<p>Contact for any work and questions regarding to web services.</p>
+				</div>
+			</div>
+
+			<!-- 
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+
+    Create Access Key here 👉 https://web3forms.com/
+ -->
+ <div style="background-color: rgb(34, 34, 34); border-radius: 25px;">
+				
+<section class="contact-section">
+	<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
   
-    <!--[Di end]-->
-  </div>
+		<input type="hidden" name="access_key" value="ba3c581f-e8b9-4ca3-b358-e0be82794c81" />
+		<input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+		<input type="hidden" name="from_name" value="Developer Dhaval site" />
 
-  <footer class="footer bg-base-200 text-base-content p-10">
-    
-      <div class="ring-primary ring-offset-base-100 w-24">
-        <img src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg" />
-      </div>
-      <p>
-        Mandaviya Dhaval
-        <br />
-        A trusted developer of india.
-      </p>
-     <nav>
-      <h6 class="footer-title">Services</h6>
-      <a href="https://developerdhaval.github.io/Createwebsite.html" class="link link-hover">Create website</a>
-      <a href="https://developerdhaval.github.io/webmart.html" class="link link-hover">Website tutorial</a>
-      <a href="https://developerdhaval.github.io/About.html" class="link link-hover">Ask question - inquiry</a>
-      <a href="https://uiosindia.blogspot.com/" class="link link-hover">UIOS India</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Company</h6>
-      <a href="https://developerdhaval.github.io/About.html" class="link link-hover">About us</a>
-      <a href="https://developerdhaval.github.io/" class="link link-hover">Contact</a>
-      <a href="https://developerdhaval.github.io/Addsite.html" class="link link-hover">Add your site</a>
-      <a href="https://developerdhaval.github.io/Member.html" class="link link-hover">Be a member</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Legal</h6>
-      <a href="https://developerdhaval.github.io/Terms.html" class="link link-hover">Terms of use</a>
-      <a href="https://developerdhaval.github.io/Privacypolicy.html" class="link link-hover">Privacy policy</a>
-      <a href="https://developerdhaval.github.io/Refund.html" class="link link-hover">Refund policy</a>
-      <a href="https://developerdhaval.github.io/Disclaimer.html" class="link link-hover">Disclaimer</a>
-    </nav>
-  </footer>
-        <script>
+	  <div class="form-group-container">
+		<div class="form-group">
+		  <label for="name" class="form-label">Name</label>
+		  <input id="name" name="name" class="form-input" placeholder="Your name" type="text" />
+		</div>
+		<div class="form-group">
+		  <label for="email" class="form-label">Email</label>
+		  <input id="email" name="email" class="form-input" placeholder="Your email" type="email" />
+		</div>
+		<div class="form-group">
+		  <label for="message" class="form-label">Message</label>
+		  <textarea class="form-textarea" style="color: white;" id="message" name="message" placeholder="Your message"></textarea>
+		</div>
+	  </div>
+	  <button class="form-submit" type="submit">Send Message</button>
+	</form>
+  
+  </section>
 
-        </script>
+		</div>
+	</section>
+
+
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">About</h2>
+						<p>I am web developer and have skill of web designing. I created lots of project but MACUI library is most famous and useful project!</p>
+						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+							<li class=""><a href="https://www.instagram.com/_dhaval._.mandaviya_/"><span class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Links</h2>
+						<ul class="list-unstyled">
+							<li><a href="https://themacui.blogspot.com/"><span class="icon-long-arrow-right mr-2"></span>MACUI</a></li>
+							<li><a href="https://github.com/developerdhaval"><span class="icon-long-arrow-right mr-2"></span>Github</a></li>
+							<li><a href="https://developerdhaval.github.io/Security.html"><span class="icon-long-arrow-right mr-2"></span>Web Policy</a></li>
+							<li><a href="https://themacui.blogspot.com/p/contact.html"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Services</h2>
+						<ul class="list-unstyled">
+							<li><a href="https://themacui.blogspot.com/p/contact.html"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+							<li><a href="https://developerdhaval.github.io/Createwebsite.html"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
+							<li><a href="https://themacui.blogspot.com/p/contact.html"><span class="icon-long-arrow-right mr-2"></span>Coding</a></li>
+							<li><a href="https://developerdhaval.github.io/Control.htmll"><span class="icon-long-arrow-right mr-2"></span>Control Panel</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-envelope"></span><span
+											class="text">devloperdhaval@gmail.com</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="jquery.min.js"></script>
+	<script src="jquery-migrate-3.0.1.min.js"></script>
+	<script src="popper.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="jquery.easing.1.3.js"></script>
+	<script src="jquery.waypoints.min.js"></script>
+	<script src="jquery.stellar.min.js"></script>
+	<script src="owl.carousel.min.js"></script>
+	<script src="jquery.magnific-popup.min.js"></script>
+	<script src="aos.js"></script>
+	<script src="jquery.animateNumber.min.js"></script>
+	<script src="scrollax.min.js"></script>
+
+	<script src="main.js"></script>
+
 </body>
 
 </html>
