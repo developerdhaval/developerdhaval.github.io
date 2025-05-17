@@ -1,0 +1,73 @@
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.c5 {
+    background-color: #e5d6f8;
+}
+nav {
+    background-color: #000000;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+}
+nav .logo {
+    font-weight: 600;
+    font-size: xx-large;
+}
+.macbtn2 {
+  background-color: transparent;
+  margin: 3px;
+  color: white;
+  border-radius: 10em;
+  padding: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgb(247, 247, 247);
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  display: flex;
+  width: fit-content;
+  margin-top: 10px;
+}
+.macbtn2:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 rgb(255, 255, 255);
+}
+.button {
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 10em;
+    padding: 13px;
+    color: black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.shadow {
+    box-shadow: 5px 5px black;
+    border: 2px solid black;
+}
+.macnotes-border {
+  border: 2px solid black;
+  padding: 18px;
+  height: 100%;
+  border-radius: var(--border-radius);
+  gap: 10px;
+  margin-bottom: 20px;
+
+  heading {
+  padding: 20px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: -18px;
+  margin-left: -18px;
+  margin-right: -18px;
+  margin-bottom: 20px;
+  display: flex;
+  }
+}
