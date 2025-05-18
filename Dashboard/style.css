@@ -1,17 +1,22 @@
 * {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 .c5 {
     background-color: #e5d6f8;
 }
+.c3 {
+  background-color: #deebff;
+}
+
 nav {
     background-color: #000000;
     display: flex;
     height: 80px;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 50px 0px 50px;
+    padding: 0px 30px 0px 30px;
 }
 nav .logo {
     font-weight: 600;
@@ -71,3 +76,17 @@ nav .logo {
   display: flex;
   }
 }
+.btn {
+  transition: all 0.4s ease-in-out;
+}
+.btn:hover {
+  transition: all 0.2s ease-in-out;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
