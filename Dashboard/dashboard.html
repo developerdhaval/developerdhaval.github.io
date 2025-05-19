@@ -28,6 +28,51 @@
 </head>
 
 <body>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const copyButtons = document.querySelectorAll('.copy-button');
+  
+  copyButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const targetId = button.getAttribute('data-target');
+      copyCode(targetId, button);
+    });
+  });
+});
+
+function copyCode(contentId, button) {
+  const content = document.getElementById(contentId);
+  const range = document.createRange();
+  const selection = window.getSelection();
+
+  selection.removeAllRanges();
+  range.selectNodeContents(content);
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
+    showToast("Code copied to clipboard!", "success");
+    button.classList.add("copied");
+  } catch (err) {
+    console.error("Failed to copy", err);
+    showToast("Failed to copy the code!", "error");
+  }
+
+  selection.removeAllRanges();
+  setTimeout(() => button.classList.remove("copied"), 2000);
+}
+
+function showToast(message, type = "info") {
+  const toast = document.getElementById("new-toast");
+  toast.textContent = message;
+  toast.classList.add("show", type);
+
+  setTimeout(() => toast.classList.remove("show", type), 3000);
+}
+
+</script>
+
 
     <!-- Navbar -->
     <nav>
@@ -359,6 +404,61 @@
                             </details>
                         </li>
                         <li><a href="https://themacui.blogspot.com/2025/01/design.html#illustrations">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <p style="border-top: 1px solid black"><br><br>
+
+        <!-- Colors and Illustration -->
+    <div id="usef" class="macnotes c3 mp" style="border-radius: 0px; ">
+        <p style="font-size: x-large; font-weight: bold; text-align: center;">Useful site</p>
+    </div><br>
+
+    <div style="padding: 15px;">
+        <div class="grids">
+            <div class="grid">
+                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
+                    <div class="macheading c3">All site</div>
+                    <p>Choose site to use it :</p><br>
+                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
+                        
+                        <li>
+                            <details>
+                                <summary>Site</summary>
+                                <ul>
+                                    <li><a href="https://uiverse.io/">Uiverse</a></li>
+                                    <li><a href="https://www.jsdelivr.com/github">JSdelivr</a></li>
+                                    <li><a href="https://10015.io/">10015 Tools</a></li>
+                                    <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
+                                    <li><a href="https://www.w3schools.com/">w3school</a></li>
+                                    <li><a href="https://www.freeprivacypolicy.com/">Policy Generator</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="https://themacui.blogspot.com/2025/01/design.html">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
+                    <div class="macheading c3">Bookmark</div>
+                    <p>Choose site to use it :</p><br>
+                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
+                        
+                        <li>
+                            <details>
+                                <summary>Site</summary>
+                                <ul>
+                                    <li><a href="https://codepen.io/saadeghi/pen/OJypbNM">Theme</a></li>
+                                    <li><a href="https://web3forms.com/">Forms</a></li>
+                                    <li><a href="https://codepen.io/kjbrum/pen/qooQJJ">Cursor</a></li>
+                                    </ul>
+                            </details>
+                        </li>
+                        <li><a href="https://github.com/">GitHub</a></li>
                     </ul>
                 </div>
             </div>
