@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Group</title>
+  <!-- Cdn -->
+  <link rel="stylesheet" href="apps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    scroll-behavior: smooth;
+    background-color: #F4F4F0;
+}
+hr {
+    border-top: 1px solid black;
+}
+.grids {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.grid {
+  padding: 1px;
+}
+@media (min-width: 900px) {
+  .grids {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 600px) {
+  .grids {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.notes {
+    background-color: rgb(194, 224, 255);
+    padding: 40px;
+    border-radius: 50px;
+    width: 1000px;
+  }
+@media (max-width: 600px) {
+    .notes {
+        width: fit-content;
+    }
+}
+.img {
+  width: 70%;
+  border-radius: 30px;
+}
+@media (max-width: 600px) {
+  .img {
+    width: 100%;
+  }
+}
+.mainbtn {
+  text-align: left;
+  text-decoration: none;
+  border: 2px solid black;
+  color: black;
+  padding: 15px;
+  border-radius: 60px;
+  transition: all 0.3s ease;
+}
+.mainbtn:hover {
+  box-shadow: 4px 4px black;
+}
+.notes2 {
+  border: 2px solid rgba(0, 0, 0, 0.664);
+  background-color: white;
+  border-radius: 26px;
+  padding: 20px;
+}
+p,a,i {
+  background-color: transparent;
+}
+
+ button {
+  background-color: #000000;
+  border-radius: 20px;
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  margin-bottom: 10px;
+  border: 0;
+}
+</style>
+</head>
+
+<body>
+  <p style="font-size: 20px; font-weight: bold; padding: 20px;">Developer Group</p>
+  <hr>
+  <center>
+    <div style="padding: 15px;">
+      <div class="notes">
+        <div class="grids" style="background-color: rgb(194, 224, 255);">
+          <div style="text-align: left; background-color: rgb(194, 224, 255);" class="grid">
+            
+            <p style="font-size: 25px; font-weight: 600; text-align: left; background-color: rgb(194, 224, 255);"><i class="fa-regular fa-thumbs-up"></i> Explore apps and <br>
+              create a batter day!</p>
+            <p style="text-align: left; background-color: rgb(194, 224, 255);">Create something new and explore
+              coding marketplace!</p><br><a style="background-color: rgb(194, 224, 255);" href="#"
+              class="mainbtn">Get started</a><br style="background-color: rgb(194, 224, 255);"><br
+              style="background-color: rgb(194, 224, 255);">
+          </div>
+          <div style="background-color: rgb(194, 224, 255);" class="grid"><img
+              style="background-color: rgb(194, 224, 255);"
+              src="https://i.pinimg.com/736x/ab/0b/2a/ab0b2a1ec35f1b15e8f9bbfc00c73836.jpg" class="img" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </center><br><br>
+
+  <div class="main2" style="padding: 15px;">
+    <div class="grids">
+      <div class="grid">
+        <div class="notes2">
+          <p style="font-size: larger; font-weight: 600;"><i class="fa-regular fa-star"></i> Website for daily use</p><br>
+          <a href="https://github.com/"><button>GitHub</button></a>
+          <a href="https://developerdhaval.github.io/Dashboard/dashboard.html"><button>Dashboard</button></a>
+          <a href="https://daisyui.com/"><button>DaisyUI</button></a>
+          <a href="https://pairdrop.net/"><button>Pairdrop</button></a>
+          <a href="https://web3forms.com/#start"><button>Web forms</button></a>
+          <a href="https://www.ilovepdf.com/edit-pdf"><button>Pdf</button></a>
+            <a href="https://www.jsdelivr.com/github"><button>Jsdelivr</button></a>
+        <br><br></div>
+      </div>
+      <div class="grid">
+        <div class="notes2">
+          <p style="font-size: larger; font-weight: 600;"><i class="fa-solid fa-code"></i> AI for website</p><br>
+          <a href="https://chatgpt.com/"><button>ChatGPT</button></a>
+          <a href="https://gemini.google.com/app"><button>GeminiAI</button></a>
+          <a href="https://v0.app/"><button>v0</button></a>
+          <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
