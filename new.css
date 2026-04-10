@@ -1,0 +1,604 @@
+/* MACUI @3.0 CSS - Developer Dhaval */
+
+:root {
+  --border-radius: 25px;
+
+  --color-1: #86efac;
+  --color-2: #d6cefb;
+  --color-3: #e8f0fe;
+  --color-4: #f6f8c9;
+
+  --text-1: #14582b;
+  --text-2: #4529d4;
+  --text-3: #3b66b1;
+
+  --btn-1: #2fd76c;
+  --btn-2: #a593ff;
+  --btn-3: #bfd6fd;
+  --btn-4: #f1f790;
+
+  --color-shadow-1: #4fd981;
+  --color-shadow-2: #ac9bff;
+  --color-shadow-3: #bfd6fd;
+  --color-shadow-4: #f4f99d;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-red: #ff0000;
+  --color-green: #00ca4e;
+  --color-yellow: #ffbd44;
+}
+
+body {
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #f0f0f0;
+}
+
+.font2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav {
+  background-color: #DEEBFF;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px 0px 30px;
+  color: black;
+}
+
+nav .logo {
+  font-weight: 600;
+  font-size: xx-large;
+  display: flex;
+  color: black;
+}
+
+.macbtn2 {
+  background-color: transparent;
+  margin: 3px;
+  color: black;
+  border-radius: 10em;
+  padding: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 black;
+  display: flex;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.macbtn2:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+
+.button-main {
+  background-color: rgb(212, 158, 251);
+  width: fit-content;
+  padding: 15px;
+  font-size: 25px;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  transition: all 0.3s ease-in;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.button-main:hover {
+  box-shadow: 4px 4px transparent;
+}
+
+@media (max-width: 600px) {
+  .button-main {
+    font-size: 17px;
+  }
+}
+
+.img-main {
+  height: 400px;
+  width: 700px;
+  border-radius: 30px;
+}
+
+@media (max-width: 600px) {
+  .img-main {
+    height: fit-content;
+  }
+}
+
+.btn-outline {
+  margin: 5px;
+}
+
+.ad {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .ad {
+    font-size: 30px;
+  }
+}
+
+.herob {
+  background-color: #ffffff75;
+  border-radius: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  backdrop-filter: blur(50px);
+  box-shadow: 2px 2px 2px rgba(121, 111, 234, 0.327);
+  border: 2px solid rgb(203, 141, 247);
+
+}
+.modal {
+  backdrop-filter: blur(40px);
+  box-shadow: 2px 2px 2px rgba(121, 111, 234, 0.327);
+}
+.modal-box {
+  border: 2px solid rgb(101, 74, 117);
+  box-shadow: 4px 4px rgb(182, 176, 252);
+}
+.heading1 {
+  background-color: #d9b6fd;
+  width: fit-content;
+  font-size: x-large;
+  padding: 15px;
+  border-radius: 100px;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(178, 134, 255);
+  box-shadow: 4px 4px rgb(178, 134, 255);;
+}
+.heading2 {
+  background-color: #c3b9ff;
+  width: fit-content;
+  font-size: x-large;
+  padding: 15px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(178, 134, 255);
+  box-shadow: 4px 4px rgb(178, 134, 255);;
+}
+/*Grid css*/
+.grids-3 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.grid-3 {
+  padding: 1px;
+}
+
+@media (min-width: 900px) {
+  .grids-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 600px) {
+  .grids-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.product {
+  margin: 20px;
+  background-color: #e6caff;
+  border-radius: 30px;
+  padding: 20px;
+  border: 2px solid #6d379c;
+  transition: all 0.2s ease;
+}
+.product:hover {
+  box-shadow: 4px 4px #6d379c;
+}
+.pimage {
+  border-radius: 20px;
+  height: 250px;
+}
+.ptext {
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.844);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 40px;
+}
+.pprice {
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid black;
+  width: 70%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.img2 {
+  height: 250px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.img2:hover {
+  border: 2px solid rgb(46, 19, 64);
+  box-shadow: 4px 4px rgb(46, 19, 64);;
+}
+/*Notes*/
+.macnotes {
+  padding: 18px;
+  height: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+.sec3 {
+  border: 2px solid;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 70%;
+  background-color: #e5d6fb;
+}
+@media (max-width: 600px) {
+  .sec3 {
+    width: 100%;
+  }
+}
+.cl2 {
+  position: relative;
+  top: 60px;
+  left: 10px;
+}
+/* From Uiverse.io by kennyotsu-monochromia */ 
+.container {
+  width: 100%;
+  height: 100%;
+  --color: #E1E1E1;
+  background-color: #F3F3F3;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 50px 50px;
+}
+.form1 {
+  background-color: #eacdff;
+  padding: 15px;
+  border-radius: 30px;
+  border: 2px solid #7b4e9b;
+  box-shadow: 4px 4px #7b4e9b;
+  width: 50%;
+}
+@media (max-width: 600px) {
+  .form1 {
+    width: 100%;
+  }
+}
+/* From Uiverse.io by mohamed_3222 */ 
+.container1 {
+  width: 100%;
+  height: 100%;
+  /* Add your background pattern here */
+  background-color: #e5e5f7;
+  opacity: 0.7;
+  background:
+    radial-gradient(
+      circle,
+      transparent 20%,
+      #e5e5f7 20%,
+      #e5e5f7 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #e5e5f7 20%,
+        #e5e5f7 80%,
+        transparent 80%,
+        transparent
+      )
+      12.5px 12.5px,
+    linear-gradient(#3784c5 1px, transparent 1px) 0 -0.5px,
+    linear-gradient(90deg, #3784c5 1px, #e5e5f7 1px) -0.5px 0;
+  background-size:
+    25px 25px,
+    25px 25px,
+    12.5px 12.5px,
+    12.5px 12.5px;
+}
+
+.macnotes-border {
+  border: 2px solid black;
+  padding: 18px;
+  height: 100%;
+  border-radius: var(--border-radius);
+  gap: 10px;
+  margin-bottom: 20px;
+
+  heading {
+    padding: 20px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    margin-top: -18px;
+    margin-left: -18px;
+    margin-right: -18px;
+    margin-bottom: 20px;
+    display: flex;
+  }
+}
+
+.macnotes-border:hover {
+  box-shadow: 4px 4px black;
+}
+
+.macborder {
+  border: 2px solid black;
+}
+
+.macshadow {
+  box-shadow: 4px 4px black;
+}
+
+/*Grid css*/
+.grids {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.grid {
+  padding: 1px;
+}
+
+@media (min-width: 900px) {
+  .grids {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 600px) {
+  .grids {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.grids-i {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.grid-i {
+  padding: 1px;
+}
+
+@media (min-width: 300px) {
+  .grids-i {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 600px) {
+  .grids-i {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/*Button*/
+.macbtn {
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: var(--border-radius);
+  width: fit-content;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.macbtn:hover {
+  transform: translateY(-2px) translateX(-2px);
+}
+
+
+
+.ul {
+  display: inline-block;
+  color: black;
+  text-decoration: n1;
+}
+
+.ul::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: black;
+  transition: width .3s;
+}
+
+.ul:hover::after {
+  width: 100%;
+}
+
+.macheading {
+  padding: 15px;
+  width: fit-content;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+.macnav {
+  background-color: #000000;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px 0px 30px;
+}
+
+.macnav .logo {
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+.navbtn {
+  border: 2px solid white;
+  border-radius: var(--border-radius);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbtn:hover {
+  background-color: white;
+  color: black;
+}
+
+hr {
+  border-top: 1px solid black;
+}
+
+.code-container {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.code-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: system-ui;
+  font-weight: 700;
+  color: #333;
+}
+
+.copy-button {
+  background-color: transparent;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.copy-button:hover {
+  background-color: #f9f9f9;
+  border-color: #ccc;
+}
+
+.copy-button.copied {
+  background-color: #303030;
+  border-color: #2d2d2d;
+  color: #fff;
+}
+
+.copy-icon {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+.code-block {
+  padding: 10px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #333;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.new-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+  z-index: 9999;
+}
+
+.new-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease;
+}
+
+.new-toast.success {
+  background-color: #323232;
+}
+
+.new-toast.error {
+  background-color: #dc3545;
+}
+
+.new-toast.info {
+  background-color: #17a2b8;
+}
+
+.glass {
+  background-color: rgba(153, 145, 242, 0.362);
+  width: fit-content;
+  padding: 30px 50px;
+  backdrop-filter: blur(20px);
+  box-shadow: 2px 2px 2px rgba(121, 111, 234, 0.327);
+  border-radius: 50px;
+}
+
+.macbox {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid rgb(199, 198, 198);
+  border-radius: 23px;
+  width: 50%;
+  box-shadow: 5px 5px 5px 5px rgb(238, 236, 236);
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
