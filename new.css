@@ -1,34 +1,4 @@
-/* MACUI @3.0 CSS - Developer Dhaval */
-
-:root {
-  --border-radius: 25px;
-
-  --color-1: #86efac;
-  --color-2: #d6cefb;
-  --color-3: #e8f0fe;
-  --color-4: #f6f8c9;
-
-  --text-1: #14582b;
-  --text-2: #4529d4;
-  --text-3: #3b66b1;
-
-  --btn-1: #2fd76c;
-  --btn-2: #a593ff;
-  --btn-3: #bfd6fd;
-  --btn-4: #f1f790;
-
-  --color-shadow-1: #4fd981;
-  --color-shadow-2: #ac9bff;
-  --color-shadow-3: #bfd6fd;
-  --color-shadow-4: #f4f99d;
-
-  --color-black: #000;
-  --color-white: #fff;
-  --color-red: #ff0000;
-  --color-green: #00ca4e;
-  --color-yellow: #ffbd44;
-}
-
+/* Website CSS - Developer Dhaval */
 body {
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
@@ -321,7 +291,30 @@ nav .logo {
     12.5px 12.5px,
     12.5px 12.5px;
 }
-
+.imgf {
+  height: 200px;
+  border: 2px solid;
+  border-radius: 100px;
+  box-shadow: 7px 7px rgb(80, 63, 112);
+}
+.footer {
+  border: 2px solid;
+  padding: 15px;
+  margin: 15px;
+  width: fit-content;
+  border-radius: 50px;
+  text-align: left;
+  
+}
+.textf {
+  font-size: 40px;
+  background-color: #e0cbf7;
+  width: fit-content;
+  padding: 15px;
+  border-radius: 40px;
+  border: 2px solid rgb(80, 63, 112);
+  box-shadow: 4px 4px rgb(80, 63, 112);;
+}
 .macnotes-border {
   border: 2px solid black;
   padding: 18px;
@@ -479,126 +472,4 @@ nav .logo {
 
 hr {
   border-top: 1px solid black;
-}
-
-.code-container {
-  position: relative;
-  background: #ffffff;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.code-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.code-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-family: system-ui;
-  font-weight: 700;
-  color: #333;
-}
-
-.copy-button {
-  background-color: transparent;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 5px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  display: flex;
-  align-items: center;
-}
-
-.copy-button:hover {
-  background-color: #f9f9f9;
-  border-color: #ccc;
-}
-
-.copy-button.copied {
-  background-color: #303030;
-  border-color: #2d2d2d;
-  color: #fff;
-}
-
-.copy-icon {
-  width: 18px;
-  height: 18px;
-  color: currentColor;
-}
-
-.code-block {
-  padding: 10px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  color: #333;
-  overflow-x: auto;
-  margin-top: 10px;
-}
-
-.new-toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: white;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s 0.5s;
-  z-index: 9999;
-}
-
-.new-toast.show {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s ease;
-}
-
-.new-toast.success {
-  background-color: #323232;
-}
-
-.new-toast.error {
-  background-color: #dc3545;
-}
-
-.new-toast.info {
-  background-color: #17a2b8;
-}
-
-.glass {
-  background-color: rgba(153, 145, 242, 0.362);
-  width: fit-content;
-  padding: 30px 50px;
-  backdrop-filter: blur(20px);
-  box-shadow: 2px 2px 2px rgba(121, 111, 234, 0.327);
-  border-radius: 50px;
-}
-
-.macbox {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid rgb(199, 198, 198);
-  border-radius: 23px;
-  width: 50%;
-  box-shadow: 5px 5px 5px 5px rgb(238, 236, 236);
-}
-
-.responsive {
-  width: 100%;
-  height: auto;
 }
