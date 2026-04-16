@@ -222,12 +222,12 @@ nav {
     .text-changer {
         margin-top: -39px;
         margin-left: 35PX;
-        height: 50px;
+        height: 80px;
         padding: 10px;
         border-radius: 8px;
         display: flex;
         box-sizing: content-box;
-        font-size: 30px;
+        font-size: 27px;
     }
 }
 
