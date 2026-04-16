@@ -173,7 +173,7 @@ nav {
 
 @media (max-width: 600px) {
     .title {
-        font-size: 27px;
+        font-size: 35px;
     }
 }
 
@@ -221,13 +221,13 @@ nav {
 @media (max-width: 600px) {
     .text-changer {
         margin-top: -39px;
-        margin-left: 15PX;
+        margin-left: 35PX;
         height: 50px;
         padding: 10px;
         border-radius: 8px;
         display: flex;
         box-sizing: content-box;
-        font-size: 26px;
+        font-size: 30px;
     }
 }
 
