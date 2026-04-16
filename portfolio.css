@@ -221,13 +221,13 @@ nav {
 @media (max-width: 600px) {
     .text-changer {
         margin-top: -39px;
-        margin-left: 35PX;
+        margin-left: 32PX;
         height: 80px;
         padding: 10px;
         border-radius: 8px;
         display: flex;
         box-sizing: content-box;
-        font-size: 27px;
+        font-size: 23px;
     }
 }
 
