@@ -197,17 +197,19 @@ nav {
 .mimgc2 {
     position: relative;
 }
-@media (max-width: 600px) {
-    .mimgc2 {
-        display: none;
-    }
-}
 .mimg2 {
     position:absolute;
     width: 400px;
     top: -170px;
     left: -50px;
     mix-blend-mode:difference;
+}
+@media (max-width: 600px) {
+    .mimg2 {
+    width: 200px;
+    top: -50px;
+    left: -100px;
+    }
 }
 .mimgc3 {
     position: relative;
