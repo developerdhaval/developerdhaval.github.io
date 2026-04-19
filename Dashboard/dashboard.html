@@ -22,6 +22,196 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+    font-family: "Poppins";
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+:root {
+    --bgcolor: #202020c1;
+    --bocolor: #353535;
+}
+.btn {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+p, li, a  {
+    background-color: transparent;
+}
+div, ul {
+    background-color: transparent;
+}
+button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.grids {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.btn1 {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #303030;
+    padding: 15px 20px;
+    margin: 20px;
+    border: 2px solid #c1c0c050;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+.btn1:hover {
+    background-color: rgba(255, 255, 255, 0.277);
+}
+.sec1 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #202020c1;
+    align-items: center;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 100px;
+    width: 50%;
+    height: 70px;
+    backdrop-filter: blur(20px);
+    border: 2px solid #353535;
+}
+@media (max-width: 600px) {
+    .sec1 {
+        margin: 20px;
+        width: 80%;
+    }
+}
+.navimg {
+    width: 6%;
+    border-radius: 100px;
+}
+.navtext {
+    background-color: transparent;
+    padding-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+@media (max-width: 600px) {
+  .navimg {
+    width: 15%;
+  }
+}
+.navtext2 {
+    background-color: var(--bgcolor);
+    width: fit-content;
+    padding: 6px 20px;
+    border: 2px solid var(--bocolor);
+    border-radius: 100px;
+    font-size: 15px;
+}
+.sec2 {
+    text-align: center;
+}
+.herotext1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+.heading1 {
+    background-color: rgb(57, 32, 81);
+    width: fit-content;
+    padding: 15px 50px;
+    border-radius: 15px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+.card {
+    background-color: #3d37457c;
+    padding: 20PX;
+    border-radius: 30px;
+    border: 2px solid rgb(64, 58, 71);
+}
+.cheading {
+    background-color: rgb(85, 40, 130);
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 30px 25px 25px 2px;
+    margin-top: -20px;
+    margin-left: -22px;
+    font-weight: 600;
+}
+.macborder {
+    backdrop-filter: blur(20px);
+    background-color: #00000049;
+    border: 2px solid var(--bocolor);
+    padding: 10px;
+    margin: 20px;
+}
+.dropdown-content {
+    padding: 20px;
+    margin: 5px;
+    border-radius: 29px;
+}
+.cheading1 {
+    border: 2px solid rgb(101, 74, 160);
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 30px 25px 25px 2px;
+    margin-top: -20px;
+    margin-left: -22px;
+    font-weight: 600;
+}
+.modal {
+    background-color: #30303068;
+    backdrop-filter: blur(20px);
+}
+.modal-box {
+    background-color: black;
+    border-radius: 30px 30px 0px 0px;
+}
+.btn2 {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #303030;
+    padding: 9px 20px;
+    margin-top: 20px;
+    border: 2px solid #c1c0c050;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+.btn2:hover {
+    background-color: rgba(255, 255, 255, 0.277);
+}
+.sec3text {
+    font-size: 30px;
+    font-weight: 700;
+}
+    </style>
 </head>
 
 <body>
