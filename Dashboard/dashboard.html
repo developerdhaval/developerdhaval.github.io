@@ -1,206 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="business">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MACUI - D</title>
-    <!--[cdn]-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/developerdhaval/MACUI@main/macui@3.0.css"
-        text="text/css" />
+    <title>MACUI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
-
     <!--[favicon]-->
-    <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/a/AVvXsEjsJ7twQoI89h9MkkvRwVrzyvElk-YFLF32Xqq9Gx-dUXsxClTcox7DNAo3B6M-VI4F3uLSCDOcoalRrhxb5B51IPFeWr7o2hLc4copdR7fImRms2GNFzGbwfjpHKtykCamXn6ZtB2ziR0NGFYSu_q8tSiHJUhgr4-ntql3IydRLrKc4W2chnOXFVTz7pGs=s512">
-
+    <link rel="icon" type="image/x-icon"
+        href="https://blogger.googleusercontent.com/img/a/AVvXsEjsJ7twQoI89h9MkkvRwVrzyvElk-YFLF32Xqq9Gx-dUXsxClTcox7DNAo3B6M-VI4F3uLSCDOcoalRrhxb5B51IPFeWr7o2hLc4copdR7fImRms2GNFzGbwfjpHKtykCamXn6ZtB2ziR0NGFYSu_q8tSiHJUhgr4-ntql3IydRLrKc4W2chnOXFVTz7pGs=s512">
     <!--[font]-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
-    <!--[icon]-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    <!--[Icon]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
-    
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const copyButtons = document.querySelectorAll('.copy-button');
-  
-  copyButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const targetId = button.getAttribute('data-target');
-      copyCode(targetId, button);
-    });
-  });
-});
-
-function copyCode(contentId, button) {
-  const content = document.getElementById(contentId);
-  const range = document.createRange();
-  const selection = window.getSelection();
-
-  selection.removeAllRanges();
-  range.selectNodeContents(content);
-  selection.addRange(range);
-
-  try {
-    document.execCommand("copy");
-    showToast("Code copied to clipboard!", "success");
-    button.classList.add("copied");
-  } catch (err) {
-    console.error("Failed to copy", err);
-    showToast("Failed to copy the code!", "error");
-  }
-
-  selection.removeAllRanges();
-  setTimeout(() => button.classList.remove("copied"), 2000);
-}
-
-function showToast(message, type = "info") {
-  const toast = document.getElementById("new-toast");
-  toast.textContent = message;
-  toast.classList.add("show", type);
-
-  setTimeout(() => toast.classList.remove("show", type), 3000);
-}
-
-</script>
-
-
     <!-- Navbar -->
-    <nav>
-        <div class="logo" style="color: white;">MACUI</div>
-        <div accesskey="m" class="macbtn2" onclick="my_modal_5.showModal()">Menu</div>
-        <dialog id="my_modal_5" class="m modal modal-bottom sm:modal-middle">
-            <div class="modal-box shadow">
-                <h3 class="text-lg font-bold"><b>Menu (alt+m)</b></h3><br>
-                <p class="py-4">
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a>
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a>
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a><br><br>
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a>
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a>
-                    <a href="#" class="btn btn-neutral btn-outline">Button</a>
-                </p>
-                <div class="modal-action">
-                    <form method="dialog">
-                        <button class="btn btn-dash">Close</button>
-                    </form>
-                </div>
-            </div>
-        </dialog>
-    </nav>
+    <center>
+        <div class="sec1">
+            <img class="navimg"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90"
+                alt="">
+            <p class="navtext">MACUI</p>
+        </div>
+        <p class="navtext2">Developer Dashboard</p><br>
+    </center>
 
     <!-- Hero section -->
+    <div class="sec2">
+        <p class="herotext1">Best platform for Frontend Developer <br> <span
+                style="color: rgb(106, 106, 106); font-weight: 700;">Make your way easiest!</span></p>
+        <p style="padding: 20px;">MACUI is largest library and best resource to make website. This is personal dashboard
+            for Developers!</p>
+        <br>
+        <a class="btn1" href="https://developerdhaval.github.io/">Meet Developer</a><br><br>
+    </div><br>
+    <p style="border-top: 1px solid rgb(97, 97, 97);"></p><br>
+
+    <!-- Section 1 -->
+    <center>
+        <div class="heading1"><i style="background-color: transparent;" class="fa-solid fa-pen-nib"></i> Quick Features
+        </div>
+    </center><br>
     <div style="padding: 20px;">
         <div class="grids">
             <div class="grid">
-                <div class="macnotes c3">
-                    <center><b style="font-size: xx-large; font-weight: bold;">Dashboard</b></center><br>
-                    <p style="border-top: 1px solid rgb(0, 0, 0);"><br>
-                    <p>MACUI is largest library and best resource to make website. This is personal dashboard for
-                        Developers!</p><br>
-                    <u>Links »</u><br><br>
-                    <a target="_blank" href="https://themacui.blogspot.com/" class="ul">Official website</a><br>
-                    <a target="_blank" href="https://developerdhaval.github.io/" class="ul">Meet Developer</a><br>
-                    <a target="_blank" href="https://themacui.blogspot.com/p/contact.html" class="ul">Contact</a><br>
-                    <a target="_blank" href="https://themacui.blogspot.com/p/macui-policy.html" class="ul"> Website policy</a><br><br><br>
-                    <a href="https://developerdhaval.github.io/Dashboard/getstarted.html" class="button">Get started with MACUI</a><br><br>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="macnotes-border macshadow">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwYfoecIY2AEY3uDsPf1VzQRcLUhOocEjS7Jeg7LIiIwemr6zs_hLiGjR1_QM-xRA3yvM3gk6HWmmyA8sGrHPiCkJeU1HrJmO-Op3MgUT0TG9ZCPSk-Hn_vWik06n1bPTSSFeNsKbHgXW4DBdUnLfHjTrI8NMbJk04wXEH4QOGrvgFPZV4YWp7C8paxA86/s16000/WhatsApp%20Image%202025-05-17%20at%205.16.40%20PM.jpeg"
-                        alt="">
-                </div>
-            </div>
-        </div>
-    </div><br>
-    <p style="border-top: 1.5px solid rgb(0, 0, 0);"><br>
-        
-          <!-- Installation -->
-    <div style="padding: 15px;">
-        <center><div class="macheading c3" style="font-size: x-large; font-weight: bold;">MACUI &nbsp;» 3.1</div>
-        <div class="macnotes macborder" style="width: 80%; text-align: left;">
-  <div class="code-header">
-    <h3>Install via CDN</h3>
-    <button class="copy-button" data-target="code-content1">
-      <svg xmlns="http://www.w3.org/2000/svg" class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-      </svg>
-    </button>
-</div><p style="border-top: 1px solid black"></p><br>
-  <div id="code-content1" class="code-block">
-    <pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/developerdhaval/MACUI@main/macui@3.1.css&quot; text=&quot;text/css&quot;/&gt;</pre><br>
-  </div>
-</div></center>
-<div id="new-toast" class="new-toast"></div>
-    </div><br>
-    <hr><br><br>
-
-        <!-- Grids Block Features -->
-    <div style="padding: 15px;">
-        <center>
-            <div class="macheading c3">
-                <p style="font-weight: bold; font-size: x-large;">&nbsp; <i class="fa-solid fa-pen-nib"></i> Quick
-                    Features &nbsp; </p>
-            </div>
-        </center><br>
-        <div class="grids">
-            <div class="grid">
-                <div class="macnotes-border macshadow">
-                    <heading style="font-size: x-large; font-weight: bold;" class="c3">Installation</heading>
-                    <p>Choose library to apply css in your project :</p><br>
+                <div class="card">
+                    <p class="cheading">Installation</p><br>
+                    <p>Choose library to apply css in your project :</p>
                     <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn m-1 btn-neutral btn-outline">Choose</div>
+                        <div tabindex="0" role="button" class="btn btn1">Choose</div>
                         <ul tabindex="0"
                             class="macborder dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            <li><a target="_blank" href="https://themacui.blogspot.com/2025/01/macui.html">MACUI</a></li>
+                            <li><a target="_blank" href="https://themacui.blogspot.com/2025/01/macui.html">MACUI</a>
+                            </li>
                             <li><a target="_blank" href="https://daisyui.com/docs/cdn/">DasiyUI</a></li>
-                            <li><a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite">Tailwind css</a></li>
-                            <li><a target="_blank" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap</a>
+                            <li><a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite">Tailwind
+                                    css</a></li>
+                            <li><a target="_blank"
+                                    href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap</a>
                             </li>
                             <li><a target="_blank" href="https://pagedone.io/docs/installation">Pagedone</a></li>
-                            <li><a target="_blank" href="https://flowbite.com/docs/getting-started/introduction/">Flowbite</a></li>
+                            <li><a target="_blank"
+                                    href="https://flowbite.com/docs/getting-started/introduction/">Flowbite</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="grid">
-                <div class="macnotes-border macshadow">
-                    <heading style="font-size: x-large; font-weight: bold;" class="c3">Components</heading>
-                    <p>Choose library to use components :</p><br>
+                <div class="card">
+                    <p class="cheading">Components</p><br>
+                    <p>Choose library to use components :</p>
                     <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn m-1 btn-neutral btn-outline">Choose</div>
-                        <ul tabindex="0"
+                        <div tabindex="0" role="button" class="btn btn1">Choose</div>
+                       <ul tabindex="0"
                             class="macborder dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            <li><a target="_blank" href="https://themacui.blogspot.com/2025/03/components.html">MACUI</a></li>
+                            <li><a target="_blank"
+                                    href="https://themacui.blogspot.com/2025/03/components.html">MACUI</a></li>
                             <li><a target="_blank" href="https://daisyui.com/components/">DasiyUI</a></li>
                             <li><a target="_blank" href="https://tailwindui.com/components">Tailwind css</a></li>
-                            <li><a target="_blank" href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap</a></li>
+                            <li><a target="_blank"
+                                    href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap</a></li>
                             <li><a target="_blank" href="https://pagedone.io/docs/accordion">Pagedone</a></li>
-                            <li><a target="_blank" href="https://flowbite.com/docs/components/accordion/">Flowbite</a></li>
+                            <li><a target="_blank" href="https://flowbite.com/docs/components/accordion/">Flowbite</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="grid">
-                <div class="macnotes-border macshadow">
-                    <heading style="font-size: x-large; font-weight: bold;" class="c3">Themes</heading>
-                    <p>Choose themes for your project :</p><br>
+                <div class="card">
+                    <p class="cheading">Themes</p><br>
+                    <p>Choose themes for your project :</p>
                     <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn m-1 btn-neutral btn-outline">Choose</div>
+                        <div tabindex="0" role="button" class="btn btn1">Choose</div>
                         <ul tabindex="0"
                             class="macborder dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                             <li><a target="_blank" href="#">MACUI</a></li>
@@ -209,12 +112,13 @@ function showToast(message, type = "info") {
                     </div>
                 </div>
             </div>
+
             <div class="grid">
-                <div class="macnotes-border macshadow">
-                    <heading style="font-size: x-large; font-weight: bold;" class="c3">Materials</heading>
-                    <p>Choose material type to use it :</p><br>
+                <div class="card">
+                    <p class="cheading">Materials</p><br>
+                    <p>Choose material type to use it :</p>
                     <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn m-1 btn-neutral btn-outline">Choose</div>
+                        <div tabindex="0" role="button" class="btn btn1">Choose</div>
                         <ul tabindex="0"
                             class="macborder dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                             <li><a href="#temp">Templates</a></li>
@@ -229,95 +133,101 @@ function showToast(message, type = "info") {
                 </div>
             </div>
         </div>
-    </div><br>
+    </div><br><br>
 
-    <p style="border-top: 1px solid black"><br><br>
-
-        <!-- Templates -->
-    <div id="temp" class="macnotes c3 mp" style="border-radius: 0px; ">
-        <p style="font-size: x-large; font-weight: bold; text-align: center;">Templates</p>
-    </div><br>
-
-    <div style="padding: 15px;">
+    <!-- Sction 2 - Templates -->
+    <div class="sec3" style="padding: 15px;">
+        <center>
+            <p class="heading1">Templates</p>
+        </center><br>
         <div class="grids">
             <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Blogger</div>
-                    <p>Choose templates to download :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
-                        <li><a target="_blank"
-                                href="https://drive.google.com/drive/folders/1PHHhT2eIjGvJsDStz2BMZ3rEmpF6zAUy?usp=sharing">Plus
-                                UI</a></li>
-                        <li>
-                            <details>
-                                <summary>Jagodesain</summary>
-                                <ul>
-                                    <li><a target="_blank"
-                                            href="https://drive.google.com/drive/folders/1Ij8M9eHCxQW_3UADnCbiFqongVZeFnfW?usp=sharing">Median
-                                            UI</a></li>
-                                    <li><a target="_blank"
-                                            href="https://drive.google.com/file/d/1BiAu7NzpXjw1VBLuIlHtlnso10YYfu3A/view?usp=sharing">Fletro
-                                            pro</a></li>
-                                    <li><a target="_blank"
-                                            href="https://drive.google.com/file/d/1uwYQ-1s_cGhfK_IQXXW2D_Ao5kV3SMWt/view?usp=sharing">iMagz</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary>More site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://gooyaabitemplates.com/">Gooyaabi</a></li>
-                                    <li><a target="_blank" href="https://btemplates.com/">B Templates</a></li>
-                                    <li><a target="_blank" href="https://templatelib.com/">Templatelib</a></li>
-                                    <li><a target="_blank" href="https://www.goomsite.net/">Goomsite</a></li>
-                                    <li><a target="_blank"
-                                            href="https://www.themeidn.eu.org/search/label/Blogger%20Template">Themeidn</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
+                <div class="card">
+                    <div class="cheading1">Blogger</div><br>
+                    <p>Choose templates to download :</p>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <button class="btn1" onclick="my_modal_5.showModal()">View theme</button>
+                    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                        <div class="modal-box">
+                            <h3 class="text-lg font-bold">Blogger Template</h3><br>
+                            <p class="py-4">
+                                <a class="btn2" target="_blank"
+                                    href="https://drive.google.com/drive/folders/1PHHhT2eIjGvJsDStz2BMZ3rEmpF6zAUy?usp=sharing">Plus
+                                    UI</a>
+                                <a class="btn2" target="_blank"
+                                    href="https://drive.google.com/drive/folders/1Ij8M9eHCxQW_3UADnCbiFqongVZeFnfW?usp=sharing">
+                                    Median UI</a><br><br>
+                                <a class="btn2" target="_blank"
+                                    href="https://drive.google.com/file/d/1BiAu7NzpXjw1VBLuIlHtlnso10YYfu3A/view?usp=sharing">Fletro
+                                    pro</a>
+                                <a class="btn2" target="_blank"
+                                    href="https://drive.google.com/file/d/1uwYQ-1s_cGhfK_IQXXW2D_Ao5kV3SMWt/view?usp=sharing">iMagz</a><br><br>
+                                <u>More site</u><br><br>
+                                <a class="btn2" target="_blank" href="https://gooyaabitemplates.com/">Gooyaabi</a>
+                                <a class="btn2" target="_blank" href="https://btemplates.com/">B Templates</a><br><br>
+                                <a class="btn2" target="_blank" href="https://templatelib.com/">Templatelib</a>
+                                <a class="btn2" target="_blank" href="https://www.goomsite.net/">Goomsite</a><br><br>
+                                <a class="btn2" target="_blank"
+                                    href="https://www.themeidn.eu.org/search/label/Blogger%20Template">Themeidn</a>
+
+                            </p>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button style="border-radius: 50px; border: 2px solid var(--bocolor);"
+                                        class="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
             <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">HTML & CSS</div>
-                    <p>Choose templates to download :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
-                        <li><a target="_blank"
-                                href="https://themewagon.com/theme-category/landing-website/?swoof=1&pa_price=free&paged=1&really_curr_tax=17-product_cat">Landing
-                                page</a></li>
-                        <li><a target="_blank" href="https://themewagon.com/theme-tag/portfolio-template/">Portfolio</a></li>
-                        <li>
-                            <details>
-                                <summary>More site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://themewagon.com/">Theme Wagon</a></li>
-                                    <li><a target="_blank" href="https://www.free-css.com/">Free Css</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
+                <div class="card">
+                    <div class="cheading1">HTML & CSS</div><br>
+                    <p>Choose templates to download :</p>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <button class="btn1" onclick="my_modal_6.showModal()">View theme</button>
+                    <dialog id="my_modal_6" class="modal modal-bottom sm:modal-middle">
+                        <div class="modal-box">
+                            <h3 class="text-lg font-bold">HTML & CSS Template</h3><br>
+                            <p class="py-4">
+                                <a class="btn2" target="_blank"
+                                    href="https://themewagon.com/theme-category/landing-website/?swoof=1&pa_price=free&paged=1&really_curr_tax=17-product_cat">Landing
+                                    page</a>
+                                <a class="btn2" target="_blank"
+                                    href="https://themewagon.com/theme-tag/portfolio-template/">Portfolio</a><br><br>
+                                <u>More site</u><br><br>
+                                <a class="btn2" target="_blank" href="ht-tps://themewagon.com/">Theme Wagon</a>
+                                <a class="btn2" target="_blank" href="https://www.free-css.com/">Free Css</a>
+                            </p>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button style="border-radius: 50px; border: 2px solid var(--bocolor);"
+                                        class="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>
     </div><br>
-    <p style="border-top: 1px solid black"><br><br>
 
-        <!-- Fonts and icons -->
-    <div id="font" class="macnotes c3 mp" style="border-radius: 0px; ">
-        <p style="font-size: x-large; font-weight: bold; text-align: center;">Fonts & Icons</p>
-    </div><br>
-
-    <div style="padding: 15px;">
+    <!-- Section 3 - Fonts & Icons  -->
+     <div style="padding: 15px;">
         <div class="grids">
             <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Fonts</div>
-                    <p>Choose font to use it :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
+                <div class="card"><br>
+                    <center><p class="heading1" style="font-size: 30px;">Fonts & Icons</p><br><p>Choose color and icons for your project :</p><br>
+                    <img style="border-radius: 39px;" src="https://i.pinimg.com/1200x/73/83/6f/73836f450e8efdbb5f18ea83da73e359.jpg" alt=""></center>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="cheading1">Fonts</div>
+                    <ul style="border-radius: 29px;" class="menu bg-base-200 rounded-box w-56 macborder">
                         <li>
                             <h2 class="menu-title">Google fonts</h2>
                             <ul>
@@ -333,14 +243,9 @@ function showToast(message, type = "info") {
                                 <li><a target="_blank" href="https://fonts.google.com/">View all</a></li>
                             </ul>
                         </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Icons</div>
-                    <p>Choose icon type to use it :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
+                    </ul><br>
+                    <div style="border-radius: 1px 30px 30px 1px;" class="cheading1">Illustration</div>
+                    <ul style="border-radius: 29px;" class="menu bg-base-200 rounded-box w-56 macborder">
                         <li>
                             <h2 class="menu-title">Blogger</h2>
                             <ul>
@@ -361,142 +266,54 @@ function showToast(message, type = "info") {
                 </div>
             </div>
         </div>
-    </div><br>
-    <p style="border-top: 1px solid black"><br><br>
+     </div>
 
-        <!-- Colors and Illustration -->
-    <div id="colo" class="macnotes c3 mp" style="border-radius: 0px; ">
-        <p style="font-size: x-large; font-weight: bold; text-align: center;">Colors & Illustration</p>
-    </div><br>
-
-    <div style="padding: 15px;">
+     <!-- Section 4 - Color & illustration  -->
+     <div style="padding: 15px;">
         <div class="grids">
             <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Colors</div>
-                    <p>Choose site to use color :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
+                <div class="card">
+                    <div class="cheading1">Colors</div>
+                    <ul style="border-radius: 29px;" class="menu bg-base-200 rounded-box w-56 macborder">
                         <li>
-                            <details>
-                                <summary>Color's site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://coolors.co/">Coolors</a></li>
+                            <h2 class="menu-title">Color's site</h2>
+                            <ul>
+                               <li><a target="_blank" href="https://coolors.co/">Coolors</a></li>
                                     <li><a target="_blank" href="https://colorhunt.co/">Colorhunt</a></li>
                                     <li><a target="_blank" href="https://colorffy.com/">Colorffy</a></li>
 
-                                </ul>
-                            </details>
+                            </ul>
                         </li>
                     </ul><br>
-
-                    <div class="collapse collapse-arrow bg-base-100 border border-base-300 macborder"
-                        style="background-color: #f9f8f7;">
-                        <input type="radio" name="my-accordion-2" />
-                        <div class="collapse-title font-semibold">MACUI Colors</div>
-                        <div class="collapse-content text-sm">
+                    <div style="border-radius: 1px 30px 30px 1px;" class="cheading1">Illustration</div>
+                    <ul style="border-radius: 29px;" class="menu bg-base-200 rounded-box w-56 macborder">
+                        <li>
+                            <h2 class="menu-title">Illustration's site</h2>
                             <ul>
-                                <li><span class="dot" style="background-color: #cafad7;"></span> color-1 (c1) #cafad7;
-                                </li>
-                                <li><span class="dot" style="background-color: #d6cefb;"></span> color-2 (c2) #d6cefb;
-                                </li>
-                                <li><span class="dot" style="background-color: #e8f0fe;"></span> color-3 (c3) #e8f0fe;
-                                </li>
-                                <li><span class="dot" style="background-color: #f6f8c9;"></span> color-4 (c4) #f6f8c9;
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Illustration</div>
-                    <p>Choose site to use illustration :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
-                        
-                        <li>
-                            <details>
-                                <summary>Illustration Site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://storyset.com/">Storyset</a></li>
-                                    <li><a target="_blank" href="https://www.freepik.com/vectors/illustrations">Freepik</a></li>
+                                <li><a target="_blank" href="https://storyset.com/">Storyset</a></li>
+                                    <li><a target="_blank"
+                                            href="https://www.freepik.com/vectors/illustrations">Freepik</a></li>
                                     <li><a target="_blank" href="https://undraw.co/illustrations">Undraw</a></li>
-                                    <li><a target="_blank" href="https://freeillustrations.xyz/">Freeillustrations</a></li>
+                                    <li><a target="_blank" href="https://freeillustrations.xyz/">Freeillustrations</a>
+                                    </li>
                                     <li><a target="_blank" href="https://sketchvalley.com/">sketchvalley</a></li>
-                                </ul>
-                            </details>
+                            </ul>
                         </li>
-                        <li><a target="_blank" href="https://themacui.blogspot.com/2025/01/design.html#illustrations">View all</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="card"><br>
+                    <center><p class="heading1" style="font-size: 30px;">Colors & Illustration</p><br><p>Choose color and icons for your project :</p><br>
+                    <img style="border-radius: 39px; width: 400px;" src="https://i.pinimg.com/736x/ef/9a/fa/ef9afa84f538d10d4905d7acf6f45c21.jpg" alt=""></center>
                 </div>
             </div>
         </div>
-    </div><br>
-    <p style="border-top: 1px solid black"><br><br>
+     </div><br>
 
-        <!-- Colors and Illustration -->
-    <div id="usef" class="macnotes c3 mp" style="border-radius: 0px; ">
-        <p style="font-size: x-large; font-weight: bold; text-align: center;">Useful site</p>
-    </div><br>
-
-    <div style="padding: 15px;">
-        <div class="grids">
-            <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">All site</div>
-                    <p>Choose site to use it :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
-                        
-                        <li>
-                            <details>
-                                <summary>Site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://uiverse.io/">Uiverse</a></li>
-                                    <li><a target="_blank" href="https://www.jsdelivr.com/github">JSdelivr</a></li>
-                                    <li><a target="_blank" href="https://10015.io/">10015 Tools</a></li>
-                                    <li><a target="_blank" href="https://css-tricks.com/">CSS Tricks</a></li>
-                                    <li><a target="_blank" href="https://www.w3schools.com/">w3school</a></li>
-                                    <li><a target="_blank" href="https://www.freeprivacypolicy.com/">Policy Generator</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a href="https://themacui.blogspot.com/2025/01/design.html">View all</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid">
-                <div class="macnotes macborder" style="background-color: rgb(255, 255, 255);">
-                    <div class="macheading c3">Bookmark</div>
-                    <p>Choose site to use it :</p><br>
-                    <ul class="menu bg-base-200 rounded-box w-56 macborder" style="background-color: #f9f8f7;">
-                        
-                        <li>
-                            <details>
-                                <summary>Site</summary>
-                                <ul>
-                                    <li><a target="_blank" href="https://codepen.io/saadeghi/pen/OJypbNM">Theme</a></li>
-                                    <li><a target="_blank" href="https://web3forms.com/">Forms</a></li>
-                                    <li><a target="_blank" href="https://codepen.io/kjbrum/pen/qooQJJ">Cursor</a></li>
-                                    </ul>
-                            </details>
-                        </li>
-                        <li><a target="_blank" href="https://github.com/">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
+     <div>
         
-    </div><br>
-    <p style="border-top: 1px solid black"></p><br><br>
-    <div style="padding: 15px;">
-        <center><div class="macnotes c3" style="width: fit-content;">
-            <div class="macnotes macborder" style="text-align: center; font-weight: bold; font-size: large;">MACUI <p style="font-size: small;">All rights reserved.</p></div>
-    <img style="border-radius: 30px;" src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90" alt="">
-</center></div>    
-</div>
+     </div>
 </body>
 
 </html>
