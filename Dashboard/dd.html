@@ -22,7 +22,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-* {
+    * {
     font-family: "Poppins";
     font-weight: 500;
     scroll-behavior: smooth;
@@ -73,7 +73,7 @@ button {
 
 #loader {
     position: fixed;
-    width: 400px;
+    width: 100%;
     height: 100vh;
     background: #ffffffe3;
     backdrop-filter: blur(10px);
@@ -213,7 +213,7 @@ button {
 @media (max-width: 600px) {
     .herotext2 {
         font-size: 15px;
-        width: 360px;
+        width: 340px;
     }
 }
 
@@ -224,7 +224,7 @@ button {
 
 @media (max-width: 600px) {
     .heroimg {
-        height: 250px;
+        height: 200px;
         margin-top: 10px;
     }
 }
@@ -350,6 +350,60 @@ button {
     border-right: 2px solid rgb(141, 141, 141);
     border-top: 2px solid rgb(141, 141, 141);
     border-bottom: 2px solid rgb(141, 141, 141);
+}
+/* Slide Left */
+.slide-left{
+    animation:slideLeft linear;
+    animation-timeline:view();
+    animation-range:entry 0% cover 40%;
+    animation-fill-mode:both;
+}
+
+/* Slide Right */
+.slide-right{
+    animation:slideRight linear;
+    animation-timeline:view();
+    animation-range:entry 0% cover 40%;
+    animation-fill-mode:both;
+}
+
+@keyframes slideLeft{
+    from{
+        transform:translateX(-250px);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+
+@keyframes slideRight{
+    from{
+        transform:translateX(250px);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+.popup-box{
+    animation:popup 0.7s ease-out forwards;
+        animation-fill-mode:both;
+}
+
+@keyframes popup{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    70%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 .heading1 {
     background-color: #f9bcbc;
