@@ -81,6 +81,7 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    transition: opacity 0.4s ease;
 }
 
 #loader img {
@@ -93,18 +94,29 @@ button {
     padding-top: 100px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #ffdddd5e;
-    backdrop-filter: blur(20px);
+.glass-navbar {
     position: fixed;
     top: 0;
-    z-index: 999;
     left: 0;
-    height: 80px;
     width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-navbar.scrolled {
+    height: 68px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .heros {
@@ -125,72 +137,226 @@ button {
 
 }
 
-.nav-button {
-    border: 2px solid black;
-    padding: 15px;
-    border-radius: 50px;
-    transition: all 0.3s ease-out;
-    display: none;
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.nav-button:hover {
-    background-color: black;
-    color: white;
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    z-index: 1001;
 }
 
-.aa {
-    display: block;
-}
-
-@media (max-width: 600px) {
-    .aa {
-        display: none;
-    }
-
-    .nav-button {
-        display: block;
-    }
-}
-
-.ab {
-    cursor: pointer;
-}
-
-.img1 {
-    width: 80px;
+.logo-img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
     mix-blend-mode: darken;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.text1 {
-    display: block;
-    font-size: 30px;
+.logo-link:hover .logo-img {
+    transform: rotate(15deg) scale(1.08);
+}
+
+.logo-text {
+    font-size: 24px;
     font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #111111;
+    background: linear-gradient(135deg, #111 40%, #e63946 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    .text1 {
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #e63946;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    display: flex;
+    align-items: center;
+}
+
+.cta-button {
+    background: rgba(230, 57, 70, 0.08);
+    color: #e63946;
+    border: 1.5px solid #e63946;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.05);
+}
+
+.cta-button:hover {
+    background: #e63946;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+    transform: translateY(-2px);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #1f2937;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
+.mobile-menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    padding: 110px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 999;
+}
+
+.mobile-menu-panel.active {
+    right: 0;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 6px 0;
+}
+
+.mobile-nav-link:hover {
+    color: #e63946;
+    transform: translateX(6px);
+}
+
+.mobile-cta-button {
+    margin-top: 15px;
+    text-align: center;
+    background: #e63946;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.2);
+}
+
+.mobile-cta-button:hover {
+    background: #d62839;
+    transform: translateY(-2.5px);
+}
+
+@media (max-width: 900px) {
+    .nav-links, .nav-cta {
         display: none;
     }
-}
-
-.dropdownd {
-    background-color: #f8cdcdf5;
-    box-shadow: 2px 2px #855c5c5e;
-    margin-top: 15px;
-    margin-right: 10px;
-    border: 2px solid rgb(163, 163, 163);
-    border-radius: 30px 7px 7px 30px;
-    padding: 20px;
-    backdrop-filter: blur(30px);
-}
-
-.abc {
-    display: none;
-}
-
-@media (max-width: 600px) {
-    .abc {
-        display: block;
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .logo-text {
+        font-size: 20px;
     }
 }
 
@@ -239,10 +405,10 @@ button {
     cursor: pointer;
     font-weight: 600;
     box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 15px;
-  transition: all 0.5s ease;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
     text-align: center;
     align-items: center;
     align-content: center;
@@ -250,10 +416,10 @@ button {
 
 
 .herobtn:hover {
-  letter-spacing: 3px;
-  background-color: hsl(0, 80%, 48%);
-  color: hsl(0, 0%, 100%);
-  box-shadow: rgb(220, 24, 24) 0px 7px 29px 0px;
+    letter-spacing: 3px;
+    background-color: hsl(0, 80%, 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(220, 24, 24) 0px 7px 29px 0px;
 }
 
 .aboutimg {
@@ -342,60 +508,65 @@ button {
     border-top: 2px solid rgb(141, 141, 141);
     border-bottom: 2px solid rgb(141, 141, 141);
 }
+
 /* Slide Left */
-.slide-left{
-    animation:slideLeft linear;
-    animation-timeline:view();
-    animation-range:entry 0% cover 40%;
-    animation-fill-mode:both;
+.slide-left {
+    animation: slideLeft linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-fill-mode: both;
 }
 
 /* Slide Right */
-.slide-right{
-    animation:slideRight linear;
-    animation-timeline:view();
-    animation-range:entry 0% cover 40%;
-    animation-fill-mode:both;
+.slide-right {
+    animation: slideRight linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-fill-mode: both;
 }
 
-@keyframes slideLeft{
-    from{
-        transform:translateX(-250px);
+@keyframes slideLeft {
+    from {
+        transform: translateX(-250px);
     }
-    to{
-        transform:translateX(0);
+
+    to {
+        transform: translateX(0);
     }
 }
 
-@keyframes slideRight{
-    from{
-        transform:translateX(250px);
-    }
-    to{
-        transform:translateX(0);
-    }
-}
-.popup-box{
-    animation:popup 0.7s ease-out forwards;
-        animation-fill-mode:both;
-}
-
-@keyframes popup{
-    0%{
-        transform:scale(0);
-        opacity:0;
+@keyframes slideRight {
+    from {
+        transform: translateX(250px);
     }
 
-    70%{
-        transform:scale(1.1);
-        opacity:1;
-    }
-
-    100%{
-        transform:scale(1);
-        opacity:1;
+    to {
+        transform: translateX(0);
     }
 }
+
+.popup-box {
+    animation: popup 0.7s ease-out forwards;
+    animation-fill-mode: both;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .heading1 {
     background-color: #f9bcbc;
     width: fit-content;
@@ -411,43 +582,54 @@ button {
         font-size: 20px;
     }
 }
+
 .note3 {
     padding-left: 100px;
     padding-right: 100px;
     border-left: 2px solid;
     border-radius: 50px;
 }
+
 @media (max-width: 600px) {
     .note3 {
         padding-left: 15px;
         padding-right: 0px;
     }
 }
+
 .tbtn1 {
     border: 2px solid black;
     padding: 15px;
     transition: all 0.3s ease-in-out;
 }
+
 .tbtn1:hover {
     background-color: black;
     color: white;
 }
+
 .neimg {
     width: 500px;
     box-shadow: 4px 4px black;
     border: 2px solid black;
     border-radius: 20px;
 }
+
 .note4 {
     border: 2px solid black;
     border-radius: 7px 60px 60px 7px;
     padding: 20px;
 }
+
 .note5 {
     border: 2px solid black;
     border-radius: 60px 7px 7px 60px;
     padding: 20px;
+    background-color: rgb(251, 232, 232);
+    align-items: center;
+    align-content: center;
 }
+
 .context {
     border-radius: 7px 0px 20px 0px;
     border: 2px solid black;
@@ -458,28 +640,135 @@ button {
     font-weight: 700;
     background-color: rgb(251, 232, 232);
 }
+
 .box1 {
-     box-shadow: 4px 4px black;
+    box-shadow: 4px 4px black;
     border: 2px solid black;
     border-radius: 20px;
     height: fit-content;
     padding: 15px;
 }
+
 .product1 {
     display: block;
 }
+
 @media (max-width: 600px) {
     .product1 {
         display: none;
     }
 }
+
 .product2 {
     display: none;
 }
+
 @media (max-width: 600px) {
     .product2 {
         display: block;
     }
+}
+
+.input {
+    border: 2px solid rgb(157, 157, 157);
+    margin: 10px;
+    padding: 15px;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f3f5;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: left;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-color: #e63946;
+}
+
+.product-card-img-wrapper {
+    background-color: #fafafa;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f5;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    mix-blend-mode: darken;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card-img {
+    transform: scale(1.05);
+}
+
+.product-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.product-card-desc {
+    font-size: 14px;
+    color: #626262;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.product-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e63946;
+    background-color: transparent;
+    border: 2px solid #e63946;
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-card-btn {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+.product-card-btn i {
+    transition: transform 0.3s ease;
+}
+
+.product-card-btn:hover i {
+    transform: translateX(4px);
 }
 
     </style>
@@ -497,46 +786,88 @@ button {
     <script>
         window.addEventListener("load", function () {
             const loader = document.getElementById("loader");
-            const content = document.getElementById("content");
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = "0";
+                    setTimeout(() => {
+                        loader.style.display = "none";
+                    }, 400);
+                }, 1000); // 1 sec delay
+            }
+        });
 
-            setTimeout(() => {
-                loader.style.display = "none";
-                content.style.display = "block";
-            }, 1000); // 1 sec delay
-        });</script>
-    <div class="navbar">
-        <p style="font-size: 30px; font-weight: bold;"><img class="img1"
-                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg"
-                alt=""></p>
-        <p class="text1">Orbit Bearings</p>
-        <div class="abc">
-            <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-neutral btn-dash">Main menu <i
-                        class="fa-solid fa-bars"></i></div>
-                <ul tabindex="-1"
-                    class="dropdown-content dropdownd menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><a href="#about">Products</a></li>
-                    <li><a href="#about">Technology</a></li>
-                    <li><a href="#about">News & Events</a></li>
-                    <li><a href="#about">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="aa">
-            <a href="#service" class="ab">About us &nbsp;&nbsp;</a>
-            <button class="btn btn-neutral btn-outline" popovertarget="popover-1" style="anchor-name:--anchor-1">
-                More <i class="fa-solid fa-bars"></i>
-            </button>
-            <ul class="dropdown dropdownd menu w-52 rounded-box bg-base-100 shadow-sm" popover id="popover-1"
-                style="position-anchor:--anchor-1">
-                <li><a href="#about">Products</a></li>
-                <li><a href="#about">Technology</a></li>
-                <li><a href="#about">News & Events</a></li>
-                <li><a href="#about">Contact</a></li>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+            const navbar = document.querySelector('.glass-navbar');
+
+            if (mobileMenuBtn && mobileMenuPanel) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenuPanel.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking menu links
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                    if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+                });
+            });
+
+            // Scroll effect
+            window.addEventListener('scroll', () => {
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            });
+        });
+    </script>
+    <nav class="glass-navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo-link">
+                <img class="logo-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg" alt="Orbit Bearings Logo">
+                <span class="logo-text">Orbit Bearings</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#news" class="nav-link">News & Events</a></li>
             </ul>
 
+            <div class="nav-cta">
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
-    </div><br><br><br>
+
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu-panel">
+            <ul class="mobile-nav-links">
+                <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+                <li><a href="#products" class="mobile-nav-link">Products</a></li>
+                <li><a href="#technology" class="mobile-nav-link">Technology</a></li>
+                <li><a href="#news" class="mobile-nav-link">News & Events</a></li>
+                <li><a href="#contact" class="mobile-cta-button">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div style="height: 80px;"></div> <!-- Spacer to prevent layout shift under fixed navbar -->
 
     <!-- Hero -->
     <div class="hero">
@@ -560,8 +891,7 @@ button {
     </div><br>
 
     <!-- About page -->
-    <center><div class="abouts popup-box">
-        
+    <center><div class="abouts" id="about">
             <div><img class="aboutimg"
                     src="https://i.pinimg.com/originals/e9/b2/5e/e9b25e18d55b41ac65de62849606c043.gif" alt=""></div>
        
@@ -569,144 +899,92 @@ button {
         <center><a class="aboutbtn" href="">Yes, I want to know</a></center><br>
         <hr style="margin-left: 10%; margin-right: 10%;"><br>
     </div> </center><br>
-
-    <!-- Products -->
-    <div class="product1" style="padding: 15px;">
+    <div style="padding: 15px;">
         <center>
             <div class="heading1">Products</div>
             <p>Explore Orbit's best quality products <i class="fa-solid fa-circle-arrow-right"></i></p>
         </center><br>
         <div class="grids">
             <div class="grid">
-                <div class="note slide-left">
-                    <center><img class="pimg"
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
                             src="https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
-                            alt=""></center>
-                    <p class="ptext1">Taper Roller Bearings</p>
-                    <p>Tapered roller bearings consist of inner ring, outer ring, tapered rollers, and cage. The taper
-                        angles allow the bearing to handle both radial and thrust loads. The main feature of these
-                        bearings is that the action line of the resulting load through the rollers forms an angle with
-                        the geometric axis of the bearing, which is why these bearings are especially suitable for
-                        supporting significant combined loads (in radial and axial directions). We at Orbit can provide
-                        customized bearings to further enhance performance in demanding applications.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                            alt="Taper Roller Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Taper Roller Bearings</h3>
+                        <p class="product-card-desc">Tapered roller bearings consist of inner ring, outer ring, tapered
+                            rollers, and cage. The taper angles allow the bearing to handle both radial and thrust
+                            loads. The main feature of these bearings is that the action line of the resulting load
+                            through the rollers forms an angle with the geometric axis of the bearing, which is why
+                            these bearings are especially suitable for supporting significant combined loads.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="grid">
-                <div class="note2 slide-right">
-                    <center><img class="pimg"
-                            src="https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg" alt="">
-                    </center>
-                    <p class="ptext1">Truck Hub Bearings</p>
-                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
-                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
-                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
-                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
-                        service life of the wheel end.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg"
+                            alt="Truck Hub Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Truck Hub Bearings</h3>
+                        <p class="product-card-desc">The Truck Hub Unit (Insert Unit) is a fully assembled tapered
+                            roller bearing unit along with the sealing and lubrication. This unit is very convenient for
+                            a quick and easy replacement in the field. This bearing is maintenance free and has a
+                            significantly longer life. It comes with a preset initial tension and the highly efficient
+                            sealing system ensures a long and trouble-free service life.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="grid">
-                <div class="note slide-left">
-                    <center><img class="pimg"
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
                             src="https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg"
-                            alt=""></center>
-                    <p class="ptext1">Cylindrical Roller Bearings</p>
-                    <p>The Cylindrical roller bearings consist of inner ring, outer ring, cylindrical rollers, and cage.
-                        These bearings are used in applications which have high radial loads combined with high speed.
-                        It is easy to fit and dismantle them as they can be taken apart. The bearings are very rigid,
-                        thus they can support high radial loads. These bearings are also suitable for higher speeds due
-                        to the cage compared to the full complement designs.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                            alt="Cylindrical Roller Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Cylindrical Roller Bearings</h3>
+                        <p class="product-card-desc">The Cylindrical roller bearings consist of inner ring, outer ring,
+                            cylindrical rollers, and cage. These bearings are used in applications which have high
+                            radial loads combined with high speed. It is easy to fit and dismantle them as they can be
+                            taken apart. The bearings are very rigid, thus they can support high radial loads. These
+                            bearings are also suitable for higher speeds.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="grid">
-                <div class="note2 slide-right">
-                    <center><img class="pimg2"
-                            src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg" alt="">
-                    </center><br><br>
-                    <p class="ptext1">Truck Axle Module</p>
-                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
-                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
-                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
-                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
-                        service life of the wheel end.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg"
+                            alt="Truck Axle Module">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Truck Axle Module</h3>
+                        <p class="product-card-desc">The Truck Hub Unit (Insert Unit) is a fully assembled tapered
+                            roller bearing unit along with the sealing and lubrication. This unit is very convenient for
+                            a quick and easy replacement in the field. This bearing is maintenance free and has a
+                            significantly longer life. It comes with a preset initial tension and highly efficient
+                            sealing system for wheel ends.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
-    <!-- Products -->
-    <div class="product2" style="padding: 15px;">
-        <center>
-            <div class="heading1">Products</div>
-            <p>Explore Orbit's best quality products <i class="fa-solid fa-circle-arrow-right"></i></p>
-        </center><br>
-        <div class="grids">
-            <div class="grid">
-                <div class="note">
-                    <center><img class="pimg"
-                            src="https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
-                            alt=""></center>
-                    <p class="ptext1">Taper Roller Bearings</p>
-                    <p>Tapered roller bearings consist of inner ring, outer ring, tapered rollers, and cage. The taper
-                        angles allow the bearing to handle both radial and thrust loads. The main feature of these
-                        bearings is that the action line of the resulting load through the rollers forms an angle with
-                        the geometric axis of the bearing, which is why these bearings are especially suitable for
-                        supporting significant combined loads (in radial and axial directions). We at Orbit can provide
-                        customized bearings to further enhance performance in demanding applications.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="note2">
-                    <center><img class="pimg"
-                            src="https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg" alt="">
-                    </center>
-                    <p class="ptext1">Truck Hub Bearings</p>
-                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
-                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
-                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
-                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
-                        service life of the wheel end.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="note">
-                    <center><img class="pimg"
-                            src="https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg"
-                            alt=""></center>
-                    <p class="ptext1">Cylindrical Roller Bearings</p>
-                    <p>The Cylindrical roller bearings consist of inner ring, outer ring, cylindrical rollers, and cage.
-                        These bearings are used in applications which have high radial loads combined with high speed.
-                        It is easy to fit and dismantle them as they can be taken apart. The bearings are very rigid,
-                        thus they can support high radial loads. These bearings are also suitable for higher speeds due
-                        to the cage compared to the full complement designs.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="note2">
-                    <center><img class="pimg2"
-                            src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg" alt="">
-                    </center><br><br>
-                    <p class="ptext1">Truck Axle Module</p>
-                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
-                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
-                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
-                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
-                        service life of the wheel end.</p>
-                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Technology section -->
-     <div style="padding: 15px;">
+     <div id="technology" style="padding: 15px;">
         <center><div class="heading1">Technology</div>
         <p>Explore our Technology:-</p><br></center>
 
@@ -721,7 +999,7 @@ button {
         </div>
      </div><br><hr>
 
-     <div style="padding: 15px;">
+     <div id="news" style="padding: 15px;">
         <center><div class="heading1">News & Events</div>
         <p>Read news and explore events:-</p><br></center>
         <div class="grids">
@@ -735,13 +1013,25 @@ button {
         </div><br><hr><br>
      </div>
 
-     <div style="padding: 15px;">
+     <div id="contact" style="padding: 15px;">
         <center><div class="heading1">Contact</div>
         <p>Contact for products or inquiry:-</p><br></center>
         <div class="grids">
             <div class="grid">
                 <div class="note5"> 
-                    
+                    <div style="background-color: transparent;">
+          <form action="https://api.web3forms.com/submit" method="POST" class="form">
+            <input type="hidden" name="access_key" value="ba3c581f-e8b9-4ca3-b358-e0be82794c81" />
+            <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+            <input type="hidden" name="from_name" value="Developer Dhaval site" />
+
+            <input id="name" class="input" name="name" placeholder="Name" type="text"><br>
+            <input id="email" class="input" name="email" placeholder="Email" type="email"><br>
+            <textarea id="message" style="height: 70px;" class="input" name="message" placeholder="Message"
+              type="message"></textarea><br>
+            <button type="submit" style="margin: 10px;" class="btn btn-natrual btn-outline">Send message</button>
+          </form>
+        </div>
                 </div>
             </div>
             <div class="grid">
