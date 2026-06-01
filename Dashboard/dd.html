@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-    * {
+    <style>
+        * {
     font-family: "Poppins";
     font-weight: 500;
     scroll-behavior: smooth;
@@ -213,7 +213,7 @@ button {
 @media (max-width: 600px) {
     .herotext2 {
         font-size: 15px;
-        width: 340px;
+        width: 320px;
     }
 }
 
@@ -254,15 +254,6 @@ button {
   background-color: hsl(0, 80%, 48%);
   color: hsl(0, 0%, 100%);
   box-shadow: rgb(220, 24, 24) 0px 7px 29px 0px;
-}
-
-.herobtn:active {
-  letter-spacing: 3px;
-  background-color: hsl(0, 80%, 48%);
-  color: hsl(0, 0%, 100%);
-  box-shadow: rgb(220, 24, 24) 0px 0px 0px 0px;
-  transform: translateY(10px);
-  transition: 100ms;
 }
 
 .aboutimg {
@@ -351,7 +342,61 @@ button {
     border-top: 2px solid rgb(141, 141, 141);
     border-bottom: 2px solid rgb(141, 141, 141);
 }
-    .heading1 {
+/* Slide Left */
+.slide-left{
+    animation:slideLeft linear;
+    animation-timeline:view();
+    animation-range:entry 0% cover 40%;
+    animation-fill-mode:both;
+}
+
+/* Slide Right */
+.slide-right{
+    animation:slideRight linear;
+    animation-timeline:view();
+    animation-range:entry 0% cover 40%;
+    animation-fill-mode:both;
+}
+
+@keyframes slideLeft{
+    from{
+        transform:translateX(-250px);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+
+@keyframes slideRight{
+    from{
+        transform:translateX(250px);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+.popup-box{
+    animation:popup 0.7s ease-out forwards;
+        animation-fill-mode:both;
+}
+
+@keyframes popup{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    70%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+.heading1 {
     background-color: #f9bcbc;
     width: fit-content;
     font-size: 35px;
@@ -420,7 +465,24 @@ button {
     height: fit-content;
     padding: 15px;
 }
-</style>
+.product1 {
+    display: block;
+}
+@media (max-width: 600px) {
+    .product1 {
+        display: none;
+    }
+}
+.product2 {
+    display: none;
+}
+@media (max-width: 600px) {
+    .product2 {
+        display: block;
+    }
+}
+
+    </style>
 </head>
 
 <body>
@@ -509,7 +571,7 @@ button {
     </div> </center><br>
 
     <!-- Products -->
-    <div style="padding: 15px;">
+    <div class="product1" style="padding: 15px;">
         <center>
             <div class="heading1">Products</div>
             <p>Explore Orbit's best quality products <i class="fa-solid fa-circle-arrow-right"></i></p>
@@ -560,6 +622,74 @@ button {
             </div>
             <div class="grid">
                 <div class="note2 slide-right">
+                    <center><img class="pimg2"
+                            src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg" alt="">
+                    </center><br><br>
+                    <p class="ptext1">Truck Axle Module</p>
+                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
+                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
+                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
+                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
+                        service life of the wheel end.</p>
+                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Products -->
+    <div class="product2" style="padding: 15px;">
+        <center>
+            <div class="heading1">Products</div>
+            <p>Explore Orbit's best quality products <i class="fa-solid fa-circle-arrow-right"></i></p>
+        </center><br>
+        <div class="grids">
+            <div class="grid">
+                <div class="note">
+                    <center><img class="pimg"
+                            src="https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
+                            alt=""></center>
+                    <p class="ptext1">Taper Roller Bearings</p>
+                    <p>Tapered roller bearings consist of inner ring, outer ring, tapered rollers, and cage. The taper
+                        angles allow the bearing to handle both radial and thrust loads. The main feature of these
+                        bearings is that the action line of the resulting load through the rollers forms an angle with
+                        the geometric axis of the bearing, which is why these bearings are especially suitable for
+                        supporting significant combined loads (in radial and axial directions). We at Orbit can provide
+                        customized bearings to further enhance performance in demanding applications.</p>
+                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="note2">
+                    <center><img class="pimg"
+                            src="https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg" alt="">
+                    </center>
+                    <p class="ptext1">Truck Hub Bearings</p>
+                    <p>The Truck Hub Unit (Insert Unit) is a fully assembled tapered roller bearing unit along with the
+                        sealing and lubrication. This unit is very convenient for a quick and easy replacement in the
+                        field. This bearing is maintenance free and has a significantly longer life. It comes with a
+                        preset initial tension and the highly efficient sealing system ensures a long and trouble-free
+                        service life of the wheel end.</p>
+                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="note">
+                    <center><img class="pimg"
+                            src="https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg"
+                            alt=""></center>
+                    <p class="ptext1">Cylindrical Roller Bearings</p>
+                    <p>The Cylindrical roller bearings consist of inner ring, outer ring, cylindrical rollers, and cage.
+                        These bearings are used in applications which have high radial loads combined with high speed.
+                        It is easy to fit and dismantle them as they can be taken apart. The bearings are very rigid,
+                        thus they can support high radial loads. These bearings are also suitable for higher speeds due
+                        to the cage compared to the full complement designs.</p>
+                    <br><a class="pbtn1" href="">Explore product <i class="fa-regular fa-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="note2">
                     <center><img class="pimg2"
                             src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg" alt="">
                     </center><br><br>
