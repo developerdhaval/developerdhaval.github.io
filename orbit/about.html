@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Orbit Bearings</title>
+    <link rel="stylesheet" href="style.css">
+    <!--[font]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--[Icon]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== PAGE DESIGN TOKENS ==================== */
+        :root {
+            --primary: #e63946;
+            --primary-hover: #d62839;
+            --primary-light: rgba(230, 57, 70, 0.08);
+            --dark: #111111;
+            --dark-light: #1f2937;
+            --gray-light: #f8f9fa;
+            --gray-border: #e9ecef;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            background-color: #f9f9fb;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .about-hero {
+            background: linear-gradient(135deg, rgb(253, 236, 236) 0%, #ffffff 100%);
+            padding: 130px 24px 70px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.04) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+
+        .hero-pre-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero-title-main {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title-main {
+                font-size: 32px;
+            }
+        }
+
+        .hero-title-main span {
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 30%, #e07a5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc-main {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            max-width: 650px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-desc-main {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        .hero-btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.2);
+            transition: var(--transition);
+        }
+
+        .hero-btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+        }
+
+        .hero-btn-secondary {
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero-btn-secondary:hover {
+            background-color: var(--dark);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero image wrapper */
+        .hero-img-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-img-card img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        .stat-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--dark);
+            color: #ffffff;
+            padding: 15px 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .stat-badge {
+                display: none;
+            }
+        }
+
+        .stat-badge .stat-number {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .stat-badge .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888;
+        }
+
+        /* ==================== CORE VALUES SECTION ==================== */
+        .section-padding {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 30px 20px;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .value-icon-box {
+            width: 54px;
+            height: 54px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(230, 57, 70, 0.1);
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon-box {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.25);
+        }
+
+        .value-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .value-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ==================== MILESTONE TIMELINE ==================== */
+        .timeline-section {
+            background-color: var(--gray-light);
+            border-top: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 10px;
+        }
+
+        /* Central line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--gray-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0.85;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            opacity: 1;
+        }
+
+        /* Align elements alternately */
+        .timeline-left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-right {
+            left: 50%;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
+            }
+
+            .timeline-right {
+                left: 0;
+            }
+
+            .timeline-left {
+                left: 0;
+            }
+        }
+
+        /* Markers */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: #ffffff;
+            border: 4px solid var(--primary);
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .timeline-right::after {
+            left: -9px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item::after {
+                left: 22px;
+            }
+
+            .timeline-left::after {
+                left: 22px;
+            }
+        }
+
+        .timeline-item:hover::after {
+            background-color: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        /* Timeline Box Card */
+        .timeline-content-box {
+            padding: 20px;
+            background-color: #ffffff;
+            position: relative;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-content-box {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .timeline-year {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ==================== TECHNOLOGY CENTRE TAB SHOWCASE ==================== */
+        .tech-showcase-container {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 450px;
+        }
+
+        @media (max-width: 900px) {
+            .tech-showcase-container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+        }
+
+        .tech-tabs-sidebar {
+            background-color: var(--gray-light);
+            border-right: 1px solid var(--gray-border);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .tech-tabs-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--gray-border);
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 20px;
+            }
+        }
+
+        .tech-tab-link {
+            width: 100%;
+            padding: 15px 20px;
+            background: #ffffff;
+            border: 2px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            text-align: left;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-dark);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .tech-tab-link {
+                width: auto;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+
+        .tech-tab-link:hover {
+            border-color: #cbd5e1;
+            background-color: var(--gray-light);
+        }
+
+        .tech-tab-link.active {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .tech-tab-link i {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .tech-tab-content-pane {
+            padding: 40px;
+            display: none;
+            animation: paneFade 0.4s ease-out;
+            text-align: left;
+        }
+
+        .tech-tab-content-pane.active {
+            display: block;
+        }
+
+        @keyframes paneFade {
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .tech-pane-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tech-pane-title i {
+            color: var(--primary);
+        }
+
+        .tech-pane-desc {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .capability-item {
+            background: var(--gray-light);
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+            font-size: 13px;
+        }
+
+        .capability-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--dark-light);
+            font-weight: 700;
+        }
+
+        /* ==================== GLOBAL FOOTPRINT SECTION ==================== */
+        .map-section {
+            background-color: var(--dark);
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+
+        .map-text {
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .map-text {
+                text-align: center;
+            }
+        }
+
+        .map-text h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .map-text h2 span {
+            color: var(--primary);
+        }
+
+        .map-text p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .export-regions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .region-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .region-tag:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+        }
+
+        .region-tag i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .region-tag span {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Map graphic container */
+        .map-graphic-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            min-height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .map-graphic-bg {
+            width: 100%;
+            height: auto;
+            opacity: 0.15;
+            mix-blend-mode: lighten;
+        }
+
+        .ping-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .ping-point::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            opacity: 0.8;
+            animation: pingGlow 2s infinite ease-out;
+        }
+
+        @keyframes pingGlow {
+            0% {
+                transform: scale(0.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Ping positioning labels */
+        .ping-usa {
+            top: 38%;
+            left: 24%;
+        }
+
+        .ping-europe {
+            top: 32%;
+            left: 48%;
+        }
+
+        .ping-india {
+            top: 52%;
+            left: 66%;
+        }
+
+        .ping-australia {
+            top: 76%;
+            left: 84%;
+        }
+
+        .location-label {
+            position: absolute;
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: -24px;
+            margin-left: -15px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: #888888;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        footer a {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhP18PFgV-NOJjxsnIGw2xbz77e-JgW0Pgl2zB11hcXf2rA8ckri8rK_rUIJkdac2KNngK-x0azCcDKhMiSHvlJip9WFXYeWg8oF-RJuQ5eK27-shbQCX1D9Yg_V_FUrSVDUGkJxnriEskn4cFKSWNIgBrs0bbD1QtccYiQNHAb_V4i0k6S8O5v_ZPgVW9j/s800/31463.gif"
+            alt="Loading">
+        <p>Loading Profile...</p>
+    </div>
+
+    <!-- Glass Navbar -->
+    <nav class="glass-navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo-img"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg"
+                    alt="Orbit Bearings Logo">
+                <span class="logo-text">Orbit Bearings</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="index.html#products" class="nav-link">Products</a></li>
+                <li><a href="index.html#technology" class="nav-link">Technology</a></li>
+                <li><a href="index.html#news" class="nav-link">News & Events</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="index.html#contact" class="cta-button">Contact Us</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu-panel">
+            <ul class="mobile-nav-links">
+                <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+                <li><a href="index.html#products" class="mobile-nav-link">Products</a></li>
+                <li><a href="index.html#technology" class="mobile-nav-link">Technology</a></li>
+                <li><a href="index.html#news" class="mobile-nav-link">News & Events</a></li>
+                <li><a href="index.html#contact" class="mobile-cta-button">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="about-hero">
+        <div class="hero-container">
+            <div>
+                <p class="hero-pre-title">Pioneering Motion Since 1990</p>
+                <h1 class="hero-title-main">Engineering <span>Next-Gen</span> Bearing Technologies</h1>
+                <p class="hero-desc-main">
+                    Orbit Bearings was established as a family-owned enterprise in Rajkot, Gujarat, India. Today, Orbit
+                    has evolved into a global manufacturer of Taper and Cylindrical Roller Bearings, serving OEM
+                    customers across the USA, Europe, Australia, and Asia.
+                </p>
+                <div class="hero-buttons">
+                    <a style="text-decoration: none;" href="buy.html" class="hero-btn-primary">Buy Bearings Now</a>
+                    <a style="text-decoration: none;" href="#timeline" class="hero-btn-secondary">Explore Journey</a>
+                </div>
+            </div>
+            <div class="hero-img-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuLJ0fACh97juhfVoNEr5sRVCmelAKJOvrk-JzjTfKe94XN2z55iE8ZdqHLZ8SJOEY5o2qFzNxIKHck4LcpHLVi-nPiCmr9E5mj3rMHuXYsuQwyyLLJMI4ayvMHWhH1ipnBvPNOYEiA8LWy5Amp9dCUboUvh7l-9gKMl7rKhrWyEmVUnLH0XHxs1OTI9er/s320/WhatsApp%20Image%202026-05-30%20at%202.29.42%20PM.jpeg"
+                    alt="Precision bearing production">
+                <div class="stat-badge">
+                    <div class="stat-number">35+</div>
+                    <div class="stat-label">Years Legacy</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Core Values Section -->
+    <section class="section-padding">
+        <div class="section-header">
+            <p class="section-subtitle">Our Principles</p>
+            <h2 class="section-title">The Values Driving Orbit</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon-box"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 class="value-title">Precision Eng.</h3>
+                <p class="value-desc">Crafted with sub-micron tolerances using high-purity alloy steels to guarantee
+                    rotation accuracy under intense loads.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="value-title">OEM Durability</h3>
+                <p class="value-desc">Custom-made modules optimized for commercial transports, tractors, transmissions,
+                    and industrial gearboxes.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box"><i class="fa-solid fa-earth-americas"></i></div>
+                <h3 class="value-title">Global Standards</h3>
+                <p class="value-desc">Seamless logistics exporting high-volume orders globally, strictly compliant with
+                    international ISO guidelines.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box"><i class="fa-solid fa-handshake"></i></div>
+                <h3 class="value-title">Legacy & Trust</h3>
+                <p class="value-desc">Grown from a local family business into a multi-national engineering partner while
+                    maintaining customer-first reliability.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Orbit Technology Centre Spotlight Section -->
+    <section class="section-padding" id="technology-centre">
+        <div class="section-header">
+            <p class="section-subtitle">Research & Development</p>
+            <h2 class="section-title">More about Orbit</h2>
+        </div>
+        <div class="tech-showcase-container">
+            <div class="tech-tabs-sidebar">
+                <button class="tech-tab-link active" data-tab="design">
+                    Company history <i class="fa-solid fa-compass-drafting"></i>
+                </button>
+                <button class="tech-tab-link" data-tab="validation">
+                    Corporate Strategy <i class="fa-solid fa-temperature-arrow-up"></i>
+                </button>
+                <button class="tech-tab-link" data-tab="manufacturing">
+                    Quality Policy <i class="fa-solid fa-microchip"></i>
+                </button>
+            </div>
+            <div class="tech-tab-contents">
+
+                <!-- Tab Pane 1: Design -->
+                <div class="tech-tab-content-pane active" id="pane-design">
+                    <h3 class="tech-pane-title"><i class="fa-solid fa-compass-drafting"></i> Company history</h3>
+                    <p class="tech-pane-desc">
+                        Over the years, Orbit has evolved from being a manufacturing oriented company to a knowledge
+                        based engineering entity that helps our customers to design, test and customize bearing
+                        solutions as per their requirements. Orbit's success is due to our commitment to consistent
+                        quality from design to distribution.
+
+                        In 2000, Orbit invested in modernization of manufacturing processes, which includes installation
+                        of automatic manufacturing lines with the latest technology at the new plant at GIDC Metoda.
+
+                        Orbit initiated manufacturing of advanced HUB bearings to help achieve greater life cycle cost
+                        savings for our customers in 2007. Orbit was the 1st Indian Company to supply HUB bearings to
+                        various European truck trailer manufacturers.
+
+                        During 2011, Orbit started construction of a new manufacturing plant along with Orbit Technology
+                        Centre to provide advanced engineering solutions to our customers. Orbit has also been investing
+                        in a R&D facility which can conduct virtual simulation testing for our automotive customers and
+                        friction management processes to improve fuel efficiency. Optimizing manufacturing processes and
+                        resources is one of the core strengths of the company.
+
+                        These aggressive investments into Research, Development and plant infrastructure have been
+                        essential in providing excellent supporting services to our global axles and transmissions OEM
+                        customers.
+
+                        Our ongoing investment plans include opening of a new manufacturing plant and the inauguration
+                        of The Orbit Technology Centre.
+
+                    </p>
+
+                </div>
+
+                <!-- Tab Pane 2: Validation -->
+                <div class="tech-tab-content-pane" id="pane-validation">
+                    <h3 class="tech-pane-title"><i class="fa-solid fa-temperature-arrow-up"></i> Corporate Strategy</h3>
+                    <p class="tech-pane-desc">
+                        <span style="font-weight: 700;">Vision:</span> To provide integrated solutions at all levels in
+                        motion technology.
+                        <br><br><span style="font-weight: 700;">Mission:</span>Optimizing resources for operational and
+                        process excellence
+                        Constant improvement in quality through unique value innovations
+                        Generate return on investment for all stakeholders beyond expectations
+                </div>
+            </div>
+
+            <!-- Tab Pane 3: Manufacturing -->
+            <div class="tech-tab-content-pane" id="pane-manufacturing">
+                <h3 class="tech-pane-title"><i class="fa-solid fa-microchip"></i> Quality Policy</h3>
+                <p class="tech-pane-desc">
+                    At Orbit we aim for total quality from design to distribution to ensure customer satisfaction. We
+                    are committed to constant improvement of our processes for value creation. All our products adhere
+                    to stringent quality standards as per ISO 9001 (1997), ISO 14001 (2004), ISO/TS 16949
+                    certifications.
+                </p>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Global Footprint Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-text">
+                <h2>Our <span>Global</span> Footprint</h2>
+                <p>
+                    From our high-capacity production hub in Gujarat, Orbit supplies premium bearings to the most
+                    demanding automotive hubs and industrial centers in the world. We offer comprehensive engineering
+                    support and shipping services to all export countries.
+                </p>
+                <div class="export-regions">
+                    <div class="region-tag">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>United States</span>
+                    </div>
+                    <div class="region-tag">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Europe</span>
+                    </div>
+                    <div class="region-tag">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Australia</span>
+                    </div>
+                    <div class="region-tag">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Asia-Pacific</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-graphic-box">
+                <!-- Simple abstract world outline map represented by dots and export lines -->
+                <svg class="map-graphic-bg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Custom SVG representing world map outlines -->
+                    <path d="M150 150h50v20h-50zm80 40h40v30h-40zm300-80h100v40H530zm220 180h60v50h-60z"
+                        fill="currentColor" opacity="0.3" />
+                    <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5"
+                        opacity="0.2" />
+                    <circle cx="500" cy="180" r="160" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5"
+                        opacity="0.2" />
+                    <path d="M200 200 Q 350 120 500 180 T 800 350" stroke="var(--primary)" stroke-width="2"
+                        stroke-dasharray="5 5" fill="none" opacity="0.6" />
+                    <path d="M660 270 Q 730 310 800 350" stroke="var(--primary)" stroke-width="2" stroke-dasharray="5 5"
+                        fill="none" opacity="0.6" />
+                    <path d="M660 270 Q 580 230 500 180" stroke="var(--primary)" stroke-width="2" stroke-dasharray="5 5"
+                        fill="none" opacity="0.6" />
+                </svg>
+
+                <!-- Pulsing points representing regions -->
+                <div class="ping-point ping-usa"><span class="location-label">North America</span></div>
+                <div class="ping-point ping-europe"><span class="location-label">Europe</span></div>
+                <div class="ping-point ping-india"><span class="location-label">Headquarters (Rajkot)</span></div>
+                <div class="ping-point ping-australia"><span class="location-label">Australia</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Orbit Bearings India Pvt. Ltd. All rights reserved. | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Hide loader after 800ms
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = "0";
+                    setTimeout(() => loader.style.display = "none", 400);
+                }, 800);
+            }
+        });
+
+        // Toggle mobile menu drawer
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+        if (mobileMenuBtn && mobileMenuPanel) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenuPanel.classList.toggle('active');
+            });
+        }
+
+        // Scroll Navbar effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.glass-navbar');
+            if (navbar) {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Technology Centre R&D Sidebar Tab Toggles
+        const techTabs = document.querySelectorAll(".tech-tab-link");
+        const techPanes = document.querySelectorAll(".tech-tab-content-pane");
+
+        techTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                techTabs.forEach(t => t.classList.remove("active"));
+                techPanes.forEach(p => p.classList.remove("active"));
+
+                tab.classList.add("active");
+                const tabTarget = tab.getAttribute("data-tab");
+                document.getElementById(`pane-${tabTarget}`).classList.add("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
