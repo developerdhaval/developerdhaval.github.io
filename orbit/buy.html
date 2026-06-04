@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy & Configure Bearings | Orbit Bearings</title>
+    <link rel="stylesheet" href="style.css">
+    <!--[font]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--[Icon]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        :root {
+            --primary: #e63946;
+            --primary-hover: #d62839;
+            --primary-light: rgba(230, 57, 70, 0.08);
+            --dark: #111111;
+            --dark-light: #1f2937;
+            --gray-light: #f8f9fa;
+            --gray-border: #e9ecef;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9fb;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            outline: none;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #ffffffe9;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.4s ease, display 0.4s ease;
+        }
+
+        #loader img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        #loader p {
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        /* ==================== GLASS NAVBAR ==================== */
+
+        /* ==================== MAIN LAYOUT ==================== */
+        .buy-container {
+            max-width: 1200px;
+            margin: 110px auto 60px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .buy-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 100px;
+            }
+        }
+
+        /* ==================== LEFT COLUMN: PRODUCT VIEW ==================== */
+        .product-viewer {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Gallery Card */
+        .gallery-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .badge-premium {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(230, 57, 70, 0.15);
+        }
+
+        .main-img-container {
+            width: 100%;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            background: #fafafa;
+            border: 1px solid #f1f3f5;
+        }
+
+        .main-product-img {
+            max-height: 85%;
+            max-width: 85%;
+            object-fit: contain;
+            mix-blend-mode: darken;
+            transition: transform 0.5s cubic-bezier(0.15, 0.85, 0.35, 1.2);
+        }
+
+        .main-img-container:hover .main-product-img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .thumb-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--gray-border);
+            background: #ffffff;
+            padding: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .thumb-btn:hover {
+            border-color: #cbd5e1;
+        }
+
+        .thumb-btn.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+        }
+
+        .thumb-btn img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: darken;
+        }
+
+        /* Trust Badges */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 576px) {
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .trust-badge {
+            background: #ffffff;
+            border-radius: var(--radius-sm);
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+            transition: var(--transition);
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-3px);
+            border-color: #cbd5e1;
+        }
+
+        .trust-badge i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .trust-badge span {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        /* Specs & Details Tabs */
+        .details-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid var(--gray-border);
+            background: #fafafa;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 16px 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-dark);
+            background: rgba(0, 0, 0, 0.01);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: #ffffff;
+        }
+
+        .tab-panes {
+            padding: 24px;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 12px 6px;
+        }
+
+        .specs-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 40%;
+        }
+
+        .specs-val {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .app-list {
+            list-style: none;
+        }
+
+        .app-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .app-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #2e7d32;
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+
+        .tech-quality {
+            font-size: 14px;
+        }
+
+        .tech-quality p {
+            margin-bottom: 15px;
+        }
+
+        .tech-quality strong {
+            color: var(--dark-light);
+            font-weight: 700;
+        }
+
+        /* ==================== RIGHT COLUMN: CONFIGURATOR ==================== */
+        .configurator-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sticky-wrapper {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        @media (max-width: 992px) {
+            .sticky-wrapper {
+                position: static;
+            }
+        }
+
+        /* Configuration Card */
+        .config-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+        }
+
+        .prod-pre-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .prod-main-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .stars {
+            color: #ffb703;
+        }
+
+        .review-count {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .config-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .config-section-title span.selected-value {
+            color: var(--text-dark);
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 600;
+        }
+
+        /* Product selector pills */
+        .product-picker {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .picker-btn {
+            background: #ffffff;
+            border: 2px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .picker-btn:hover {
+            border-color: #cbd5e1;
+            background: var(--gray-light);
+        }
+
+        .picker-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Custom options dropdown & pills */
+        .option-group {
+            margin-bottom: 24px;
+        }
+
+        .select-custom {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--gray-border);
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236c757d' class='bi bi-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .select-custom:focus {
+            border-color: var(--primary);
+        }
+
+        .pills-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .pill-btn {
+            flex: 1;
+            background: #ffffff;
+            border: 2px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .pill-btn:hover {
+            border-color: #cbd5e1;
+        }
+
+        .pill-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Quantity & Pricing Row */
+        .pricing-qty-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-border);
+            margin-bottom: 25px;
+        }
+
+        .qty-picker {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .qty-btn {
+            background: transparent;
+            border: none;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .qty-input {
+            width: 45px;
+            height: 38px;
+            border: none;
+            border-left: 2px solid var(--gray-border);
+            border-right: 2px solid var(--gray-border);
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-dark);
+            background: #ffffff;
+            appearance: textfield;
+        }
+
+        .qty-input::-webkit-outer-spin-button,
+        .qty-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .pricing-display {
+            text-align: right;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        .price-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .price-val {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        /* Order Type Toggle (Inquiry vs Buy) */
+        .order-toggle {
+            display: flex;
+            background: var(--gray-light);
+            border-radius: var(--radius-sm);
+            padding: 4px;
+            margin-bottom: 25px;
+            border: 1px solid var(--gray-border);
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toggle-btn.active {
+            background: #ffffff;
+            color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Form Steps Styling */
+        .checkout-flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .flow-step-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            margin-bottom: 5px;
+        }
+
+        .flow-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: #ffffff;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .flow-dot.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .flow-dot.completed {
+            border-color: #2e7d32;
+            color: #ffffff;
+            background: #2e7d32;
+        }
+
+        .flow-line {
+            flex-grow: 1;
+            height: 2px;
+            background: var(--gray-border);
+            margin: 0 8px;
+            transition: var(--transition);
+        }
+
+        .flow-line.active {
+            background: var(--primary);
+        }
+
+        .flow-line.completed {
+            background: #2e7d32;
+        }
+
+        .form-pane {
+            display: none;
+            animation: slideInForm 0.3s ease-out;
+        }
+
+        .form-pane.active {
+            display: block;
+        }
+
+        @keyframes slideInForm {
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .form-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-input-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .input-text {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 550;
+            color: var(--text-dark);
+            transition: var(--transition);
+            background: #ffffff;
+        }
+
+        .input-text:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.05);
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .textarea-custom {
+            height: 90px;
+            resize: none;
+        }
+
+        /* Glass Checkout Details Card */
+        .glass-billing-summary {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 550;
+        }
+
+        .summary-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid var(--gray-border);
+            padding-top: 10px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .form-nav-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-form {
+            flex: 1;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--gray-border);
+            background: #ffffff;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-form:hover {
+            border-color: #cbd5e1;
+            background: var(--gray-light);
+        }
+
+        .btn-form.btn-primary-form {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-form.btn-primary-form:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+            transform: translateY(-1.5px);
+        }
+
+        .btn-form:active {
+            transform: translateY(0);
+        }
+
+        /* Mock Credit Card Graphics inside form */
+        .credit-card-preview {
+            background: linear-gradient(135deg, #111111 0%, #374151 100%);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 150px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .credit-card-preview::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .card-chip {
+            width: 32px;
+            height: 24px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+            border-radius: 4px;
+        }
+
+        .card-preview-number {
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .card-preview-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-preview-holder {
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-preview-expiry {
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .card-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        /* ==================== SUCCESS MODAL ==================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .success-modal {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 460px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-border);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .success-modal {
+            transform: scale(1);
+        }
+
+        .success-icon-wrapper {
+            width: 72px;
+            height: 72px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: #2e7d32;
+            font-size: 32px;
+            border: 2px solid rgba(46, 125, 50, 0.1);
+            animation: popIcon 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2) 0.2s both;
+        }
+
+        @keyframes popIcon {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .success-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .order-summary-box {
+            background: var(--gray-light);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 25px;
+            border: 1px solid var(--gray-border);
+            font-size: 13px;
+        }
+
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .order-summary-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .order-summary-item span:first-child {
+            color: var(--text-muted);
+        }
+
+        .modal-close-btn {
+            background: var(--dark);
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.2);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: #888888;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        footer a {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhP18PFgV-NOJjxsnIGw2xbz77e-JgW0Pgl2zB11hcXf2rA8ckri8rK_rUIJkdac2KNngK-x0azCcDKhMiSHvlJip9WFXYeWg8oF-RJuQ5eK27-shbQCX1D9Yg_V_FUrSVDUGkJxnriEskn4cFKSWNIgBrs0bbD1QtccYiQNHAb_V4i0k6S8O5v_ZPgVW9j/s800/31463.gif"
+            alt="Loading">
+        <p>Loading Configurator...</p>
+    </div>
+
+    <nav class="glass-navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo-link">
+                <img class="logo-img"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg"
+                    alt="Orbit Bearings Logo">
+                <span class="logo-text">Orbit Bearings</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#news" class="nav-link">News & Events</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu-panel">
+            <ul class="mobile-nav-links">
+                <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+                <li><a href="#products" class="mobile-nav-link">Products</a></li>
+                <li><a href="#technology" class="mobile-nav-link">Technology</a></li>
+                <li><a href="#news" class="mobile-nav-link">News & Events</a></li>
+                <li><a href="#contact" class="mobile-cta-button">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Buy Page Container -->
+    <main class="buy-container">
+
+        <!-- LEFT COLUMN: Product Display, Gallery, Specs Tabs -->
+        <section class="product-viewer">
+
+            <!-- Gallery Card -->
+            <div class="gallery-card">
+                <div class="badge-premium" id="category-badge">Automotive & Industrial</div>
+                <div class="main-img-container">
+                    <img id="main-product-image" class="main-product-img"
+                        src="https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
+                        alt="Selected Bearing Product">
+                </div>
+                <div class="thumbnail-container" id="gallery-thumbs">
+                    <!-- Dynamic Thumbnails inserted by JS -->
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-grid">
+                <div class="trust-badge">
+                    <i class="fa-solid fa-award"></i>
+                    <span>ISO 9001:2015</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>OEM Quality</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-industry"></i>
+                    <span>Precision Eng.</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span>Global Delivery</span>
+                </div>
+            </div>
+
+            <!-- Details Tabs Card -->
+            <div class="details-card">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="specs">Specifications</button>
+                    <button class="tab-btn" data-tab="apps">Applications</button>
+                    <button class="tab-btn" data-tab="quality">Quality & Design</button>
+                </div>
+                <div class="tab-panes">
+                    <!-- Specs Tab -->
+                    <div class="tab-pane active" id="pane-specs">
+                        <table class="specs-table">
+                            <tbody>
+                                <tr>
+                                    <td class="specs-label">Bearing Type</td>
+                                    <td class="specs-val" id="spec-type">Tapered Roller Bearing</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Bore Size (d)</td>
+                                    <td class="specs-val" id="spec-bore">50 mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Outer Diameter (D)</td>
+                                    <td class="specs-val" id="spec-od">110 mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Width (T)</td>
+                                    <td class="specs-val" id="spec-width">29.25 mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Dynamic Load (Cr)</td>
+                                    <td class="specs-val" id="spec-cr">142 kN</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Static Load (Cor)</td>
+                                    <td class="specs-val" id="spec-cor">170 kN</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Limiting Speed</td>
+                                    <td class="specs-val" id="spec-speed">4,800 rpm</td>
+                                </tr>
+                                <tr>
+                                    <td class="specs-label">Weight</td>
+                                    <td class="specs-val" id="spec-weight">1.45 kg</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Applications Tab -->
+                    <div class="tab-pane" id="pane-apps">
+                        <ul class="app-list" id="app-list-container">
+                            <li>Heavy duty truck axles & wheel ends</li>
+                            <li>Agricultural tractors and machinery transmissions</li>
+                            <li>High load industrial gearboxes & reduction drives</li>
+                            <li>OEM engine components, compressors, and pumps</li>
+                        </ul>
+                    </div>
+
+                    <!-- Quality Tab -->
+                    <div class="tab-pane" id="pane-quality">
+                        <div class="tech-quality">
+                            <p><strong>Advanced Metallurgy:</strong> Orbit uses case-hardened cleaner steel formulation
+                                that resists fatigue and high stress micro-fractures under alternating radial and axial
+                                loads.</p>
+                            <p><strong>Simulation Tools:</strong> Designs are validated using dynamic contact stress
+                                simulators mimicking real-world heavy transport load environments in USA and Europe.</p>
+                            <p><strong>Low Friction Design:</strong> Optimized roller-raceway profiles reduce frictional
+                                torque and operating temperatures, enhancing lubricant life by up to 30%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN: Selection & Checkout -->
+        <section class="configurator-column">
+            <div class="sticky-wrapper">
+
+                <!-- Product Configurator Card -->
+                <div class="config-card">
+                    <p class="prod-pre-title">Configure Bearing</p>
+                    <h1 class="prod-main-title" id="product-title-display">Taper Roller Bearings</h1>
+
+                    <div class="rating-row">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="review-count">(4.9/5 from 182 reviews)</span>
+                    </div>
+
+                    <!-- 1. Select Product Category -->
+                    <div class="option-group">
+                        <div class="config-section-title">Select Bearing Type</div>
+                        <div class="product-picker">
+                            <button class="picker-btn active" data-product="taper">Taper Roller</button>
+                            <button class="picker-btn" data-product="hub">Truck Hub Unit</button>
+                            <button class="picker-btn" data-product="cylindrical">Cylindrical</button>
+                            <button class="picker-btn" data-product="axle">Axle Module</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Select Dimensions -->
+                    <div class="option-group">
+                        <div class="config-section-title">
+                            Bore Diameter (d)
+                            <span class="selected-value" id="selected-bore-display">50 mm (Standard)</span>
+                        </div>
+                        <select class="select-custom" id="bore-selector">
+                            <!-- Dynamic selector options filled by JS -->
+                        </select>
+                    </div>
+
+                    <!-- 3. Radial Clearance -->
+                    <div class="option-group">
+                        <div class="config-section-title">
+                            Radial Clearance
+                            <span class="selected-value" id="selected-clearance-display">Standard</span>
+                        </div>
+                        <div class="pills-group" id="clearance-pills">
+                            <button class="pill-btn active" data-clearance="Standard">Standard</button>
+                            <button class="pill-btn" data-clearance="C3">C3 (High)</button>
+                            <button class="pill-btn" data-clearance="C4">C4 (Extra High)</button>
+                        </div>
+                    </div>
+
+                    <!-- 4. Quantity & Dynamic Pricing Row -->
+                    <div class="pricing-qty-row">
+                        <div class="form-input-group">
+                            <label class="form-input-label">Quantity (pcs)</label>
+                            <div class="qty-picker">
+                                <button class="qty-btn" id="qty-minus" type="button"><i
+                                        class="fa-solid fa-minus"></i></button>
+                                <input class="qty-input" id="qty-input" type="number" min="1" value="1">
+                                <button class="qty-btn" id="qty-plus" type="button"><i
+                                        class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="pricing-display">
+                            <span class="discount-badge" id="discount-indicator" style="display: none;">10% Vol
+                                Discount</span>
+                            <div class="price-label">Estimated Price</div>
+                            <div class="price-val" id="price-total">$45.00</div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Purchase type Selector (Direct Order vs Bulk Quote) -->
+                    <div class="order-toggle">
+                        <button class="toggle-btn active" id="toggle-buy" type="button">
+                            <i class="fa-solid fa-credit-card"></i> Pay Now (Sample)
+                        </button>
+                        <button class="toggle-btn" id="toggle-inquire" type="button">
+                            <i class="fa-solid fa-envelope-open-text"></i> Request Bulk Quote
+                        </button>
+                    </div>
+
+                    <!-- 6. Step Checkout / Inquiry Form -->
+                    <div class="checkout-flow-container">
+
+                        <!-- Form steps progress indicator -->
+                        <div class="flow-step-bar">
+                            <div class="flow-dot active" id="dot-1">1</div>
+                            <div class="flow-line" id="line-1"></div>
+                            <div class="flow-dot" id="dot-2">2</div>
+                            <div class="flow-line" id="line-2"></div>
+                            <div class="flow-dot" id="dot-3">3</div>
+                        </div>
+
+                        <form id="order-checkout-form" autocomplete="on">
+
+                            <!-- STEP 1: Contact info (Common for both flows) -->
+                            <div class="form-pane active" id="pane-step-1">
+                                <div class="form-grid">
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="cust-name">Full Name *</label>
+                                        <input class="input-text" id="cust-name" type="text" placeholder="John Doe"
+                                            required>
+                                    </div>
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="cust-email">Work Email *</label>
+                                        <input class="input-text" id="cust-email" type="email"
+                                            placeholder="john@company.com" required>
+                                    </div>
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="cust-company">Company Name</label>
+                                        <input class="input-text" id="cust-company" type="text"
+                                            placeholder="Industrial Corp Ltd">
+                                    </div>
+                                </div>
+                                <div class="form-nav-buttons">
+                                    <button class="btn-form btn-primary-form" id="btn-next-1" type="button">
+                                        Continue <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- STEP 2: Shipping / Custom Details -->
+                            <div class="form-pane" id="pane-step-2">
+
+                                <!-- Sub-pane for Order (Direct Purchase) -->
+                                <div id="sub-pane-buy" class="form-grid">
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="shipping-address">Delivery Address
+                                            *</label>
+                                        <input class="input-text" id="shipping-address" type="text"
+                                            placeholder="123 Industrial Way, Suite A">
+                                    </div>
+                                    <div class="form-row-2">
+                                        <div class="form-input-group">
+                                            <label class="form-input-label" for="shipping-city">City *</label>
+                                            <input class="input-text" id="shipping-city" type="text"
+                                                placeholder="Chicago">
+                                        </div>
+                                        <div class="form-input-group">
+                                            <label class="form-input-label" for="shipping-zip">Postal Code *</label>
+                                            <input class="input-text" id="shipping-zip" type="text" placeholder="60601">
+                                        </div>
+                                    </div>
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="shipping-country">Country *</label>
+                                        <input class="input-text" id="shipping-country" type="text"
+                                            placeholder="United States">
+                                    </div>
+                                </div>
+
+                                <!-- Sub-pane for Inquiry (Request Quote) -->
+                                <div id="sub-pane-inquire" class="form-grid" style="display: none;">
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="inquiry-application">Application/Project
+                                            Description</label>
+                                        <textarea class="input-text textarea-custom" id="inquiry-application"
+                                            placeholder="Describe load requirements, speed, temperature, or special housing sizes..."></textarea>
+                                    </div>
+                                    <div class="form-input-group">
+                                        <label class="form-input-label" for="inquiry-delivery">Target Delivery
+                                            Date</label>
+                                        <input class="input-text" id="inquiry-delivery" type="date">
+                                    </div>
+                                </div>
+
+                                <div class="form-nav-buttons">
+                                    <button class="btn-form" id="btn-back-2" type="button">
+                                        <i class="fa-solid fa-arrow-left"></i> Back
+                                    </button>
+                                    <button class="btn-form btn-primary-form" id="btn-next-2" type="button">
+                                        Continue <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- STEP 3: Payment / Inquiry Review -->
+                            <div class="form-pane" id="pane-step-3">
+
+                                <!-- Sub-pane for payment input (Direct Purchase) -->
+                                <div id="sub-pane-payment" style="display: block;">
+                                    <!-- Credit Card Preview -->
+                                    <div class="credit-card-preview">
+                                        <div class="card-logo">VISA</div>
+                                        <div class="card-chip"></div>
+                                        <div class="card-preview-number" id="cc-preview-number">•••• •••• •••• ••••
+                                        </div>
+                                        <div class="card-preview-row">
+                                            <div>
+                                                <div style="font-size: 8px; color: #9ca3af;">Card Holder</div>
+                                                <div class="card-preview-holder" id="cc-preview-holder">CARDHOLDER NAME
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 8px; color: #9ca3af;">Expires</div>
+                                                <div class="card-preview-expiry" id="cc-preview-expiry">MM/YY</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Form fields -->
+                                    <div class="form-grid">
+                                        <div class="form-input-group">
+                                            <label class="form-input-label" for="card-holder">Cardholder Name *</label>
+                                            <input class="input-text" id="card-holder" type="text"
+                                                placeholder="John Doe">
+                                        </div>
+                                        <div class="form-input-group">
+                                            <label class="form-input-label" for="card-number">Card Number *</label>
+                                            <input class="input-text" id="card-number" type="text"
+                                                placeholder="4111 2222 3333 4444" maxlength="19">
+                                        </div>
+                                        <div class="form-row-2">
+                                            <div class="form-input-group">
+                                                <label class="form-input-label" for="card-expiry">Expiry Date *</label>
+                                                <input class="input-text" id="card-expiry" type="text"
+                                                    placeholder="MM/YY" maxlength="5">
+                                            </div>
+                                            <div class="form-input-group">
+                                                <label class="form-input-label" for="card-cvv">CVV *</label>
+                                                <input class="input-text" id="card-cvv" type="password"
+                                                    placeholder="***" maxlength="3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-pane for Inquiry Summary (Quote Request) -->
+                                <div id="sub-pane-quote-review" style="display: none;">
+                                    <div class="glass-billing-summary">
+                                        <div class="summary-row">
+                                            <span>Configured Bearing:</span>
+                                            <span style="font-weight: 700;" id="sum-product">Taper Roller</span>
+                                        </div>
+                                        <div class="summary-row">
+                                            <span>Dimensions (Bore):</span>
+                                            <span id="sum-bore">50 mm</span>
+                                        </div>
+                                        <div class="summary-row">
+                                            <span>Clearance Class:</span>
+                                            <span id="sum-clearance">Standard</span>
+                                        </div>
+                                        <div class="summary-row">
+                                            <span>Total Quantity:</span>
+                                            <span id="sum-qty">1 pcs</span>
+                                        </div>
+                                        <div class="summary-row total">
+                                            <span>Estimated Quote:</span>
+                                            <span id="sum-quote-price">$45.00</span>
+                                        </div>
+                                    </div>
+                                    <p
+                                        style="font-size: 11px; color: var(--text-muted); text-align: center; margin-bottom: 10px;">
+                                        An engineering expert will contact you within 4 business hours to provide final
+                                        customized bulk pricing and shipping terms.
+                                    </p>
+                                </div>
+
+                                <div class="form-nav-buttons">
+                                    <button class="btn-form" id="btn-back-3" type="button">
+                                        <i class="fa-solid fa-arrow-left"></i> Back
+                                    </button>
+                                    <button class="btn-form btn-primary-form" id="btn-submit-order" type="submit">
+                                        <span id="submit-btn-text">Submit Payment</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SUCCESS CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="success-modal-overlay">
+        <div class="success-modal">
+            <div class="success-icon-wrapper">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="success-title" id="modal-title">Order Placed Successfully!</h3>
+            <p class="success-desc" id="modal-description">Your payment has been processed. A confirmation email and
+                tracking link have been dispatched to your email address.</p>
+
+            <div class="order-summary-box">
+                <div class="order-summary-item">
+                    <span>Reference ID:</span>
+                    <span id="summary-ref-id"
+                        style="font-family: monospace; font-size: 14px; color: var(--text-dark);">ORB-92813-A</span>
+                </div>
+                <div class="order-summary-item">
+                    <span>Selected Product:</span>
+                    <span id="summary-product-name">Taper Roller Bearing</span>
+                </div>
+                <div class="order-summary-item">
+                    <span>Total Cost:</span>
+                    <span id="summary-total-cost">$45.00</span>
+                </div>
+            </div>
+
+            <button class="modal-close-btn" id="btn-close-modal">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Orbit Bearings India Pvt. Ltd. All rights reserved. | <a href="index.html">Back to Homepage</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // ==================== PRODUCT DATABASE ====================
+        const products = {
+            taper: {
+                title: "Taper Roller Bearings",
+                category: "Automotive & Industrial",
+                basePrice: 45.0,
+                baseWeight: 1.45,
+                imageUrls: [
+                    "https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
+                ],
+                bores: [
+                    { value: 50, label: "50 mm (Standard)", od: 110, width: 29.25, cr: 142, cor: 170, speed: 4800, weight: 1.45, modifier: 0 },
+                    { value: 75, label: "75 mm (Heavy Load) (+ $20.00)", od: 160, width: 40.0, cr: 236, cor: 285, speed: 3200, weight: 3.85, modifier: 20 },
+                    { value: 100, label: "100 mm (Industrial) (+ $55.00)", od: 215, width: 51.5, cr: 418, cor: 530, speed: 2400, weight: 8.90, modifier: 55 }
+                ],
+                specsType: "Tapered Roller Bearing",
+                apps: [
+                    "Heavy duty truck axles & wheel ends",
+                    "Agricultural tractors and machinery transmissions",
+                    "High load industrial gearboxes & reduction drives",
+                    "OEM engine components, compressors, and pumps"
+                ]
+            },
+            hub: {
+                title: "Truck Hub Bearings",
+                category: "Truck & Trailer Axles",
+                basePrice: 120.0,
+                baseWeight: 4.80,
+                imageUrls: [
+                    "https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg"
+                ],
+                bores: [
+                    { value: 68, label: "68 mm (Standard Unit)", od: 125, width: 115.0, cr: 320, cor: 440, speed: 2800, weight: 4.80, modifier: 0 },
+                    { value: 82, label: "82 mm (Heavy Hub Unit) (+ $40.00)", od: 140, width: 115.0, cr: 385, cor: 560, speed: 2400, weight: 6.10, modifier: 40 }
+                ],
+                specsType: "Integrated Hub Unit (Insert Unit)",
+                apps: [
+                    "Commercial truck trailer axles (SAF, BPW configurations)",
+                    "City buses and long-haul transport vehicle hubs",
+                    "Low maintenance wheel ends requiring lifetime grease seals"
+                ]
+            },
+            cylindrical: {
+                title: "Cylindrical Roller Bearings",
+                category: "High Speed Industrial",
+                basePrice: 55.0,
+                baseWeight: 1.15,
+                imageUrls: [
+                    "https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg",
+                    "https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg"
+                ],
+                bores: [
+                    { value: 45, label: "45 mm (Standard) - Single Row", od: 100, width: 25.0, cr: 110, cor: 115, speed: 7500, weight: 1.15, modifier: 0 },
+                    { value: 65, label: "65 mm (Medium) (+ $15.00)", od: 140, width: 33.0, cr: 186, cor: 204, speed: 5300, weight: 2.70, modifier: 15 },
+                    { value: 90, label: "90 mm (Heavy Duty) (+ $50.00)", od: 190, width: 43.0, cr: 315, cor: 360, speed: 3800, weight: 6.20, modifier: 50 }
+                ],
+                specsType: "Cylindrical Roller Bearing (Single Row)",
+                apps: [
+                    "High-speed industrial electric motors & generators",
+                    "Main shafts of wind turbines and blowers",
+                    "Machine tool spindles requiring rigid radial support",
+                    "Rail vehicle axle boxes and traction motors"
+                ]
+            },
+            axle: {
+                title: "Truck Axle Modules",
+                category: "Heavy Duty Automotive",
+                basePrice: 280.0,
+                baseWeight: 12.5,
+                imageUrls: [
+                    "https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg",
+                    "https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg",
+                    "https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg"
+                ],
+                bores: [
+                    { value: 95, label: "95 mm Standard Module Assembly", od: 180, width: 160.0, cr: 540, cor: 780, speed: 2000, weight: 12.5, modifier: 0 },
+                    { value: 110, label: "110 mm Extra Heavy Module (+ $90.00)", od: 200, width: 175.0, cr: 680, cor: 950, speed: 1800, weight: 16.8, modifier: 90 }
+                ],
+                specsType: "Complete Axle Module (Preset Wheel End)",
+                apps: [
+                    "Class 8 heavy commercial vehicles and military transports",
+                    "Rear drive axles for dumper trucks and concrete mixers",
+                    "Harsh environment off-road mining haulage trucks"
+                ]
+            }
+        };
+
+        // ==================== STATE MANAGEMENT ====================
+        let state = {
+            currentProductKey: "taper",
+            selectedBoreValue: 50,
+            selectedClearance: "Standard",
+            quantity: 1,
+            isBulkInquiry: false, // true = inquiry, false = buy
+            currentFormStep: 1
+        };
+
+        // ==================== DOM ELEMENTS ====================
+        const loader = document.getElementById("loader");
+        const categoryBadge = document.getElementById("category-badge");
+        const mainProductImage = document.getElementById("main-product-image");
+        const galleryThumbs = document.getElementById("gallery-thumbs");
+        const productTitleDisplay = document.getElementById("product-title-display");
+
+        // Specs table fields
+        const specType = document.getElementById("spec-type");
+        const specBore = document.getElementById("spec-bore");
+        const specOd = document.getElementById("spec-od");
+        const specWidth = document.getElementById("spec-width");
+        const specCr = document.getElementById("spec-cr");
+        const specCor = document.getElementById("spec-cor");
+        const specSpeed = document.getElementById("spec-speed");
+        const specWeight = document.getElementById("spec-weight");
+        const appListContainer = document.getElementById("app-list-container");
+
+        // Configuration Form elements
+        const boreSelector = document.getElementById("bore-selector");
+        const selectedBoreDisplay = document.getElementById("selected-bore-display");
+        const selectedClearanceDisplay = document.getElementById("selected-clearance-display");
+        const clearancePills = document.querySelectorAll("#clearance-pills .pill-btn");
+        const qtyInput = document.getElementById("qty-input");
+        const qtyMinusBtn = document.getElementById("qty-minus");
+        const qtyPlusBtn = document.getElementById("qty-plus");
+        const priceTotalDisplay = document.getElementById("price-total");
+        const discountIndicator = document.getElementById("discount-indicator");
+
+        // Order/Inquiry buttons & form step cards
+        const toggleBuyBtn = document.getElementById("toggle-buy");
+        const toggleInquireBtn = document.getElementById("toggle-inquire");
+        const checkoutForm = document.getElementById("order-checkout-form");
+        const paneStep1 = document.getElementById("pane-step-1");
+        const paneStep2 = document.getElementById("pane-step-2");
+        const paneStep3 = document.getElementById("pane-step-3");
+
+        // Step buttons
+        const btnNext1 = document.getElementById("btn-next-1");
+        const btnBack2 = document.getElementById("btn-back-2");
+        const btnNext2 = document.getElementById("btn-next-2");
+        const btnBack3 = document.getElementById("btn-back-3");
+        const btnSubmitOrder = document.getElementById("btn-submit-order");
+        const submitBtnText = document.getElementById("submit-btn-text");
+
+        // Progress Dots
+        const dot1 = document.getElementById("dot-1");
+        const dot2 = document.getElementById("dot-2");
+        const dot3 = document.getElementById("dot-3");
+        const line1 = document.getElementById("line-1");
+        const line2 = document.getElementById("line-2");
+
+        // Form sub-panes for context switches
+        const subPaneBuy = document.getElementById("sub-pane-buy");
+        const subPaneInquire = document.getElementById("sub-pane-inquire");
+        const subPanePayment = document.getElementById("sub-pane-payment");
+        const subPaneQuoteReview = document.getElementById("sub-pane-quote-review");
+
+        // Summary Card elements
+        const sumProduct = document.getElementById("sum-product");
+        const sumBore = document.getElementById("sum-bore");
+        const sumClearance = document.getElementById("sum-clearance");
+        const sumQty = document.getElementById("sum-qty");
+        const sumQuotePrice = document.getElementById("sum-quote-price");
+
+        // Card Preview
+        const cardHolderInput = document.getElementById("card-holder");
+        const cardNumberInput = document.getElementById("card-number");
+        const cardExpiryInput = document.getElementById("card-expiry");
+        const ccPreviewNumber = document.getElementById("cc-preview-number");
+        const ccPreviewHolder = document.getElementById("cc-preview-holder");
+        const ccPreviewExpiry = document.getElementById("cc-preview-expiry");
+
+        // Modal
+        const successModalOverlay = document.getElementById("success-modal-overlay");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDescription = document.getElementById("modal-description");
+        const summaryRefId = document.getElementById("summary-ref-id");
+        const summaryProductName = document.getElementById("summary-product-name");
+        const summaryTotalCost = document.getElementById("summary-total-cost");
+        const btnCloseModal = document.getElementById("btn-close-modal");
+
+        // ==================== LOGIC / RENDERING ====================
+
+        // Hide loader after 800ms
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => loader.style.display = "none", 400);
+            }, 800);
+        });
+
+        // Toggle mobile menu drawer
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+        if (mobileMenuBtn && mobileMenuPanel) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenuPanel.classList.toggle('active');
+            });
+        }
+
+        // Scroll Navbar effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.glass-navbar');
+            if (navbar) {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Tab Switching Logic
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        tabButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                tabButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const tabTarget = btn.getAttribute("data-tab");
+                document.querySelectorAll(".tab-pane").forEach(pane => {
+                    pane.classList.remove("active");
+                });
+
+                if (tabTarget === "specs") document.getElementById("pane-specs").classList.add("active");
+                if (tabTarget === "apps") document.getElementById("pane-apps").classList.add("active");
+                if (tabTarget === "quality") document.getElementById("pane-quality").classList.add("active");
+            });
+        });
+
+        // Initialize App
+        function initProductDisplay() {
+            const currentProd = products[state.currentProductKey];
+
+            // Updates title & description
+            productTitleDisplay.innerText = currentProd.title;
+            categoryBadge.innerText = currentProd.category;
+
+            // Load thumbnails & Main image
+            mainProductImage.src = currentProd.imageUrls[0];
+            galleryThumbs.innerHTML = "";
+            currentProd.imageUrls.forEach((url, index) => {
+                const button = document.createElement("button");
+                button.className = `thumb-btn ${index === 0 ? 'active' : ''}`;
+                button.innerHTML = `<img src="${url}" alt="${currentProd.title} view ${index + 1}">`;
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".thumb-btn").forEach(b => b.classList.remove("active"));
+                    button.classList.add("active");
+                    mainProductImage.src = url;
+                });
+                galleryThumbs.appendChild(button);
+            });
+
+            // Load Bores options
+            boreSelector.innerHTML = "";
+            currentProd.bores.forEach(bore => {
+                const opt = document.createElement("option");
+                opt.value = bore.value;
+                opt.innerText = bore.label;
+                boreSelector.appendChild(opt);
+            });
+
+            // Select first bore by default
+            state.selectedBoreValue = currentProd.bores[0].value;
+            boreSelector.value = state.selectedBoreValue;
+            selectedBoreDisplay.innerText = currentProd.bores[0].label;
+
+            // Applications lists
+            appListContainer.innerHTML = "";
+            currentProd.apps.forEach(app => {
+                const li = document.createElement("li");
+                li.innerText = app;
+                appListContainer.appendChild(li);
+            });
+
+            // Recalculate specifications values
+            updateSpecsTable(currentProd.bores[0]);
+            calculatePricing();
+        }
+
+        function updateSpecsTable(boreData) {
+            const currentProd = products[state.currentProductKey];
+            specType.innerText = currentProd.specsType;
+            specBore.innerText = `${boreData.value} mm`;
+            specOd.innerText = `${boreData.od} mm`;
+            specWidth.innerText = `${boreData.width} mm`;
+            specCr.innerText = `${boreData.cr} kN`;
+            specCor.innerText = `${boreData.cor} kN`;
+            specSpeed.innerText = `${boreData.speed.toLocaleString()} rpm`;
+            specWeight.innerText = `${boreData.weight} kg`;
+        }
+
+        function calculatePricing() {
+            const currentProd = products[state.currentProductKey];
+            const boreData = currentProd.bores.find(b => b.value === parseInt(state.selectedBoreValue));
+            if (!boreData) return;
+
+            let unitPrice = currentProd.basePrice + boreData.modifier;
+
+            // clearance modifier
+            if (state.selectedClearance === "C3") unitPrice += 10.0;
+            if (state.selectedClearance === "C4") unitPrice += 25.0;
+
+            let totalPrice = unitPrice * state.quantity;
+
+            // Volume Discount rates: 10+ gets 10% off, 50+ gets 20% off
+            let discountRate = 0;
+            if (state.quantity >= 50) {
+                discountRate = 20;
+            } else if (state.quantity >= 10) {
+                discountRate = 10;
+            }
+
+            if (discountRate > 0) {
+                totalPrice = totalPrice * (1 - (discountRate / 100));
+                discountIndicator.innerText = `${discountRate}% Volume Discount Applied`;
+                discountIndicator.style.display = "inline-block";
+            } else {
+                discountIndicator.style.display = "none";
+            }
+
+            priceTotalDisplay.innerText = `$${totalPrice.toFixed(2)}`;
+
+            // Update Review Card Specs (if user is in review step)
+            sumProduct.innerText = currentProd.title;
+            sumBore.innerText = `${state.selectedBoreValue} mm`;
+            sumClearance.innerText = state.selectedClearance;
+            sumQty.innerText = `${state.quantity} pcs`;
+            sumQuotePrice.innerText = `$${totalPrice.toFixed(2)}`;
+        }
+
+        // --- Event Listeners Configurator ---
+
+        // Category pickers
+        document.querySelectorAll(".picker-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".picker-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                state.currentProductKey = btn.getAttribute("data-product");
+                initProductDisplay();
+            });
+        });
+
+        // Bore Dropdown
+        boreSelector.addEventListener("change", (e) => {
+            state.selectedBoreValue = parseInt(e.target.value);
+            const currentProd = products[state.currentProductKey];
+            const boreData = currentProd.bores.find(b => b.value === state.selectedBoreValue);
+
+            selectedBoreDisplay.innerText = boreData.label;
+            updateSpecsTable(boreData);
+            calculatePricing();
+        });
+
+        // Clearance Pills
+        clearancePills.forEach(pill => {
+            pill.addEventListener("click", () => {
+                clearancePills.forEach(p => p.classList.remove("active"));
+                pill.classList.add("active");
+                state.selectedClearance = pill.getAttribute("data-clearance");
+                selectedClearanceDisplay.innerText = state.selectedClearance;
+                calculatePricing();
+            });
+        });
+
+        // Quantity logic
+        qtyMinusBtn.addEventListener("click", () => {
+            if (state.quantity > 1) {
+                state.quantity--;
+                qtyInput.value = state.quantity;
+                calculatePricing();
+            }
+        });
+
+        qtyPlusBtn.addEventListener("click", () => {
+            state.quantity++;
+            qtyInput.value = state.quantity;
+            calculatePricing();
+        });
+
+        qtyInput.addEventListener("change", (e) => {
+            let val = parseInt(e.target.value);
+            if (isNaN(val) || val < 1) {
+                val = 1;
+            }
+            state.quantity = val;
+            qtyInput.value = val;
+            calculatePricing();
+        });
+
+        // --- Order Flow Type Selection (Inquiry vs buy) ---
+        toggleBuyBtn.addEventListener("click", () => {
+            toggleBuyBtn.classList.add("active");
+            toggleInquireBtn.classList.remove("active");
+            state.isBulkInquiry = false;
+
+            // Switch layout cards
+            subPaneBuy.style.display = "grid";
+            subPaneInquire.style.display = "none";
+            subPanePayment.style.display = "block";
+            subPaneQuoteReview.style.display = "none";
+
+            submitBtnText.innerText = "Submit Payment";
+            calculatePricing();
+        });
+
+        toggleInquireBtn.addEventListener("click", () => {
+            toggleBuyBtn.classList.remove("active");
+            toggleInquireBtn.classList.add("active");
+            state.isBulkInquiry = true;
+
+            // Switch layout cards
+            subPaneBuy.style.display = "none";
+            subPaneInquire.style.display = "grid";
+            subPanePayment.style.display = "none";
+            subPaneQuoteReview.style.display = "block";
+
+            submitBtnText.innerText = "Submit Inquiry Quote";
+            calculatePricing();
+        });
+
+        // --- Step Checkout Form Logic ---
+        function setFormStep(step) {
+            state.currentFormStep = step;
+
+            // Toggle Panes
+            paneStep1.classList.remove("active");
+            paneStep2.classList.remove("active");
+            paneStep3.classList.remove("active");
+
+            if (step === 1) paneStep1.classList.add("active");
+            if (step === 2) paneStep2.classList.add("active");
+            if (step === 3) paneStep3.classList.add("active");
+
+            // Update dots
+            dot1.className = `flow-dot ${step > 1 ? 'completed' : 'active'}`;
+            dot2.className = `flow-dot ${step > 2 ? 'completed' : (step === 2 ? 'active' : '')}`;
+            dot3.className = `flow-dot ${step === 3 ? 'active' : ''}`;
+
+            // Update connection lines
+            line1.className = `flow-line ${step > 1 ? 'completed' : ''}`;
+            line2.className = `flow-line ${step > 2 ? 'completed' : ''}`;
+        }
+
+        // Step 1 Validation & Next
+        btnNext1.addEventListener("click", () => {
+            const name = document.getElementById("cust-name");
+            const email = document.getElementById("cust-email");
+            if (!name.checkValidity()) {
+                name.reportValidity();
+                return;
+            }
+            if (!email.checkValidity()) {
+                email.reportValidity();
+                return;
+            }
+            setFormStep(2);
+        });
+
+        // Step 2 Navigate
+        btnBack2.addEventListener("click", () => {
+            setFormStep(1);
+        });
+
+        btnNext2.addEventListener("click", () => {
+            if (!state.isBulkInquiry) {
+                // Validate address details
+                const addr = document.getElementById("shipping-address");
+                const city = document.getElementById("shipping-city");
+                const zip = document.getElementById("shipping-zip");
+                const cnty = document.getElementById("shipping-country");
+
+                if (!addr.value.trim()) { addr.focus(); return; }
+                if (!city.value.trim()) { city.focus(); return; }
+                if (!zip.value.trim()) { zip.focus(); return; }
+                if (!cnty.value.trim()) { cnty.focus(); return; }
+            }
+
+            calculatePricing(); // Ensure data matches
+            setFormStep(3);
+        });
+
+        // Step 3 Navigate
+        btnBack3.addEventListener("click", () => {
+            setFormStep(2);
+        });
+
+        // --- Payment card formatting and syncing ---
+        cardHolderInput.addEventListener("input", (e) => {
+            const val = e.target.value.toUpperCase();
+            ccPreviewHolder.innerText = val || "CARDHOLDER NAME";
+        });
+
+        cardNumberInput.addEventListener("input", (e) => {
+            let val = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formatted = "";
+            for (let i = 0; i < val.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += " ";
+                formatted += val[i];
+            }
+            e.target.value = formatted;
+            ccPreviewNumber.innerText = formatted || "•••• •••• •••• ••••";
+        });
+
+        cardExpiryInput.addEventListener("input", (e) => {
+            let val = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            if (val.length > 2) {
+                val = val.substring(0, 2) + "/" + val.substring(2, 4);
+            }
+            e.target.value = val;
+            ccPreviewExpiry.innerText = val || "MM/YY";
+        });
+
+        // --- Form Final Submit handler ---
+        checkoutForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Validate card details on client side if purchase flow is selected
+            if (!state.isBulkInquiry) {
+                const holder = cardHolderInput.value.trim();
+                const num = cardNumberInput.value.replace(/\s/g, '');
+                const exp = cardExpiryInput.value.trim();
+                const cvv = document.getElementById("card-cvv").value.trim();
+
+                if (!holder) { cardHolderInput.focus(); return; }
+                if (num.length < 15) { cardNumberInput.focus(); return; }
+                if (exp.length < 5) { cardExpiryInput.focus(); return; }
+                if (cvv.length < 3) { document.getElementById("card-cvv").focus(); return; }
+            }
+
+            // Mock submission progress
+            btnSubmitOrder.disabled = true;
+            submitBtnText.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing...`;
+
+            setTimeout(() => {
+                // Show modal overlay
+                const randRefId = `${state.isBulkInquiry ? 'INQ' : 'ORD'}-${Math.floor(10000 + Math.random() * 90000)}-${state.currentProductKey.substring(0, 2).toUpperCase()}`;
+
+                if (state.isBulkInquiry) {
+                    modalTitle.innerText = "Inquiry Request Submitted!";
+                    modalDescription.innerText = "We have received your custom configuration requirements. An engineering and logistics supervisor has been assigned to prepare your bulk pricing invoice.";
+                } else {
+                    modalTitle.innerText = "Order Dispatched Successfully!";
+                    modalDescription.innerText = "Your credit card transaction was verified. A confirmation invoice PDF and package delivery tracker details were sent to your work email.";
+                }
+
+                summaryRefId.innerText = randRefId;
+                summaryProductName.innerText = `${products[state.currentProductKey].title} (${state.selectedBoreValue}mm / ${state.selectedClearance})`;
+                summaryTotalCost.innerText = priceTotalDisplay.innerText;
+
+                successModalOverlay.classList.add("active");
+
+                // Reset form values
+                checkoutForm.reset();
+                ccPreviewNumber.innerText = "•••• •••• •••• ••••";
+                ccPreviewHolder.innerText = "CARDHOLDER NAME";
+                ccPreviewExpiry.innerText = "MM/YY";
+
+                btnSubmitOrder.disabled = false;
+                submitBtnText.innerText = state.isBulkInquiry ? "Submit Inquiry Quote" : "Submit Payment";
+
+                // Reset flow steps
+                setFormStep(1);
+            }, 1500);
+        });
+
+        // Close modal button
+        btnCloseModal.addEventListener("click", () => {
+            successModalOverlay.classList.remove("active");
+            window.location.href = "index.html";
+        });
+
+        // Check URL parameters to pre-select product category
+        const urlParams = new URLSearchParams(window.location.search);
+        const prodParam = urlParams.get('product');
+        if (prodParam && products[prodParam]) {
+            state.currentProductKey = prodParam;
+            // Update active pill button
+            document.querySelectorAll(".picker-btn").forEach(b => {
+                if (b.getAttribute("data-product") === prodParam) {
+                    b.classList.add("active");
+                } else {
+                    b.classList.remove("active");
+                }
+            });
+        }
+
+        // Initialize script call
+        initProductDisplay();
+
+    </script>
+</body>
+
+</html>
