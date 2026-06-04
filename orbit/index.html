@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Bearings</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <!--[favicon]-->
+    <link rel="icon" type="image/x-icon" href="#">
+    <!--[font]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--[Icon]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+    font-family: "Poppins";
+    font-weight: 500;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bgcolor: #202020c1;
+    --bocolor: #353535;
+}
+
+.btn {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.grids {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.grids-3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid-3 {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ffffffe3;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+#loader img {
+    width: 80px;
+}
+
+#content {
+    display: none;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.glass-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-navbar.scrolled {
+    height: 68px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.heros {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #e2deff5e;
+    backdrop-filter: blur(20px);
+}
+
+@media (max-width: 600px) {
+    .heros {
+        display: block;
+        padding: 20px;
+        background-color: #e2deff5e;
+        backdrop-filter: blur(20px);
+    }
+
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    z-index: 1001;
+}
+
+.logo-img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: darken;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-link:hover .logo-img {
+    transform: rotate(15deg) scale(1.08);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #111111;
+    background: linear-gradient(135deg, #111 40%, #e63946 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #e63946;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    display: flex;
+    align-items: center;
+}
+
+.cta-button {
+    background: rgba(230, 57, 70, 0.08);
+    color: #e63946;
+    border: 1.5px solid #e63946;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.05);
+}
+
+.cta-button:hover {
+    background: #e63946;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25);
+    transform: translateY(-2px);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #1f2937;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
+.mobile-menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    padding: 110px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 999;
+}
+
+.mobile-menu-panel.active {
+    right: 0;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 6px 0;
+}
+
+.mobile-nav-link:hover {
+    color: #e63946;
+    transform: translateX(6px);
+}
+
+.mobile-cta-button {
+    margin-top: 15px;
+    text-align: center;
+    background: #e63946;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.2);
+}
+
+.mobile-cta-button:hover {
+    background: #d62839;
+    transform: translateY(-2.5px);
+}
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-cta {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+}
+
+.hero {
+    background-color: rgb(253, 236, 236);
+    padding: 30px;
+}
+
+.herotext1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.herotext2 {
+    font-size: 15px;
+    width: 800px;
+}
+
+@media (max-width: 600px) {
+    .herotext2 {
+        font-size: 15px;
+        width: 320px;
+    }
+}
+
+.heroimg {
+    border-radius: 5px 30px 40px 5px;
+    height: 300px;
+}
+
+@media (max-width: 600px) {
+    .heroimg {
+        height: 200px;
+        margin-top: 10px;
+    }
+}
+
+.herobtn {
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+    color: black;
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.herobtn:hover {
+    letter-spacing: 3px;
+    background-color: hsl(0, 80%, 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(220, 24, 24) 0px 7px 29px 0px;
+}
+
+.aboutimg {
+    width: 170px;
+    mix-blend-mode: darken;
+    border-radius: 1000px;
+}
+
+.abouts {
+    width: 80%;
+    height: fit-content;
+    border-radius: 30px;
+    background: #efefef;
+    box-shadow: 15px 15px 30px #bebebe,
+        -15px -15px 30px #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.abouts:hover {
+    transform: scale(1.04);
+    box-shadow: 15px 15px 30px #bebebe,
+        -15px -15px 30px #ffffff;
+}
+
+.abouttext {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.aboutbtn {
+    background-color: rgb(218, 44, 44);
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.aboutbtn:hover {
+    box-shadow: 4px 4px rgb(176, 176, 176);
+}
+
+.pimg {
+    mix-blend-mode: darken;
+
+}
+
+.pimg2 {
+    width: 300px;
+    margin: 20px;
+    mix-blend-mode: darken;
+}
+
+@media (max-width: 600px) {
+    .pimg2 {
+        width: 250px;
+    }
+}
+
+.ptext1 {
+    font-size: 27px;
+    font-weight: 600;
+    width: fit-content;
+    padding: 13px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 7px 50px 50px 7px;
+    border: 2px solid black;
+}
+
+.pbtn1 {
+    color: rgb(193, 33, 33);
+    transition: all 0.3s ease-in-out;
+}
+
+.note {
+    background-color: rgb(255, 246, 246);
+    border-radius: 50px 0px 0px 50px;
+    padding: 25px;
+    border-left: 2px solid rgb(141, 141, 141);
+    border-top: 2px solid rgb(141, 141, 141);
+    border-bottom: 2px solid rgb(141, 141, 141);
+}
+
+.note2 {
+    background-color: rgb(255, 246, 246);
+    border-radius: 0px 50px 50px 0px;
+    padding: 25px;
+    border-right: 2px solid rgb(141, 141, 141);
+    border-top: 2px solid rgb(141, 141, 141);
+    border-bottom: 2px solid rgb(141, 141, 141);
+}
+
+/* Slide Left */
+.slide-left {
+    animation: slideLeft linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-fill-mode: both;
+}
+
+/* Slide Right */
+.slide-right {
+    animation: slideRight linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-fill-mode: both;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-250px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(250px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.popup-box {
+    animation: popup 0.7s ease-out forwards;
+    animation-fill-mode: both;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.heading1 {
+    background-color: #f9bcbc;
+    width: fit-content;
+    font-size: 35px;
+    font-weight: 650;
+    padding: 11px 30px 11px 30px;
+    border-radius: 30px 30px 7px 7px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .heading1 {
+        font-size: 20px;
+    }
+}
+
+.note3 {
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.518);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid rgb(141, 141, 141);
+    border-bottom: 2px solid rgb(141, 141, 141);
+}
+.note33 {
+  background-image: url(https://i.pinimg.com/1200x/94/79/1a/94791a03f73dce4ff6afbcabadb006e7.jpg);
+  border-radius: 50px;
+}
+@media (max-width: 600px) {
+    .note3 {
+        padding-left: 15px;
+        padding-right: 0px;
+    }
+}
+
+.tbtn1 {
+    border: 2px solid black;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.tbtn1:hover {
+    background-color: black;
+    color: white;
+}
+
+.neimg {
+    width: 500px;
+    box-shadow: 4px 4px black;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.note4 {
+    border: 2px solid black;
+    border-radius: 7px 60px 60px 7px;
+    padding: 20px;
+}
+
+.note5 {
+    border: 2px solid black;
+    border-radius: 60px 7px 7px 60px;
+    padding: 20px;
+    background-color: rgb(251, 232, 232);
+    align-items: center;
+    align-content: center;
+}
+
+.context {
+    border-radius: 7px 0px 20px 0px;
+    border: 2px solid black;
+    padding: 15px;
+    width: fit-content;
+    margin-top: -21px;
+    margin-left: -21px;
+    font-weight: 700;
+    background-color: rgb(251, 232, 232);
+}
+
+.box1 {
+    box-shadow: 4px 4px black;
+    border: 2px solid black;
+    border-radius: 20px;
+    height: fit-content;
+    padding: 15px;
+}
+
+.product1 {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .product1 {
+        display: none;
+    }
+}
+
+.product2 {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .product2 {
+        display: block;
+    }
+}
+
+.input {
+    border: 2px solid rgb(157, 157, 157);
+    margin: 10px;
+    padding: 15px;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f3f5;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: left;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-color: #e63946;
+}
+
+.product-card-img-wrapper {
+    background-color: #fafafa;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f5;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    mix-blend-mode: darken;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card-img {
+    transform: scale(1.05);
+}
+
+.product-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.product-card-desc {
+    font-size: 14px;
+    color: #626262;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.product-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e63946;
+    background-color: transparent;
+    border: 2px solid #e63946;
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-card-btn {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+.product-card-btn i {
+    transition: transform 0.3s ease;
+}
+
+.product-card-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+.dtext {
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #e63946 0%, #ff6b7a 50%, #e63946 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: gradientShift 4s ease-in-out infinite;
+    font-weight: 800;
+}
+  </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhP18PFgV-NOJjxsnIGw2xbz77e-JgW0Pgl2zB11hcXf2rA8ckri8rK_rUIJkdac2KNngK-x0azCcDKhMiSHvlJip9WFXYeWg8oF-RJuQ5eK27-shbQCX1D9Yg_V_FUrSVDUGkJxnriEskn4cFKSWNIgBrs0bbD1QtccYiQNHAb_V4i0k6S8O5v_ZPgVW9j/s800/31463.gif"
+            alt="Loading">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Loading...</p>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("loader");
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = "0";
+                    setTimeout(() => {
+                        loader.style.display = "none";
+                    }, 400);
+                }, 1000); // 1 sec delay
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+            const navbar = document.querySelector('.glass-navbar');
+
+            if (mobileMenuBtn && mobileMenuPanel) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenuPanel.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking menu links
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                    if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+                });
+            });
+
+            // Scroll effect
+            window.addEventListener('scroll', () => {
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            });
+        });
+    </script>
+    <nav class="glass-navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo-link">
+                <img class="logo-img"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg"
+                    alt="Orbit Bearings Logo">
+                <span class="logo-text">Orbit Bearings</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#news" class="nav-link">News & Events</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu-panel">
+            <ul class="mobile-nav-links">
+                <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+                <li><a href="#products" class="mobile-nav-link">Products</a></li>
+                <li><a href="#technology" class="mobile-nav-link">Technology</a></li>
+                <li><a href="#news" class="mobile-nav-link">News & Events</a></li>
+                <li><a href="#contact" class="mobile-cta-button">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div style="height: 80px;"></div> <!-- Spacer to prevent layout shift under fixed navbar -->
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="grids">
+            <div class="grid">
+                <h1 class="dtext">Our goal is make<br> <span class="gradient-text">customers happy!</span></h1>
+                <p class="herotext2">Orbit Bearings was established in <span
+                        style="background-color: rgb(245, 166, 166);">1990 in Rajkot, Gujarat, India</span> as a family
+                    owned business. Orbit is a manufacturer of Taper and Cylindrical Roller Bearings for Automotive &
+                    Industrial Applications for our OEM Customers manufacturing Trucks, Truck Trailers, Agriculture
+                    Tractors, Transmissions, Engines, Compressors, and Industrial Gearboxes etc. Our customers are based
+                    in <u>USA, Europe, Australia and Asia.</u></p>
+                <a class="herobtn" href="#contact">Contact us</a>
+            </div>
+            <div class="grid">
+                <img class="heroimg"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuLJ0fACh97juhfVoNEr5sRVCmelAKJOvrk-JzjTfKe94XN2z55iE8ZdqHLZ8SJOEY5o2qFzNxIKHck4LcpHLVi-nPiCmr9E5mj3rMHuXYsuQwyyLLJMI4ayvMHWhH1ipnBvPNOYEiA8LWy5Amp9dCUboUvh7l-9gKMl7rKhrWyEmVUnLH0XHxs1OTI9er/s320/WhatsApp%20Image%202026-05-30%20at%202.29.42%20PM.jpeg"
+                    alt="">
+            </div>
+        </div>
+    </div><br>
+
+    <!-- About page -->
+    <center>
+        <div class="abouts" id="about">
+
+            <div><img class="aboutimg"
+                    src="https://i.pinimg.com/originals/e9/b2/5e/e9b25e18d55b41ac65de62849606c043.gif" alt=""></div>
+
+            <div class="abouttext">Want to know more about us?</div>
+            <center><a class="aboutbtn" href="about.html">Yes, I want to know</a></center><br>
+            <hr style="margin-left: 10%; margin-right: 10%;"><br>
+        </div>
+    </center><br>
+
+ 
+
+     <!-- Products -->
+    <div id="products" style="padding: 15px;">
+        <center class="reveal">
+            <div class="heading1">Products</div>
+            <p>Explore Orbit's best quality products <i class="fa-solid fa-circle-arrow-right"></i></p>
+        </center><br>
+        <div class="grids">
+            <div class="grid reveal reveal-delay-1">
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/taper_roller_bearing_right_img.jpg"
+                            alt="Taper Roller Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Taper Roller Bearings</h3>
+                        <p class="product-card-desc">Tapered roller bearings consist of inner ring, outer ring, tapered
+                            rollers, and cage. The taper angles allow the bearing to handle both radial and thrust
+                            loads. The main feature of these bearings is that the action line of the resulting load
+                            through the rollers forms an angle with the geometric axis of the bearing, which is why
+                            these bearings are especially suitable for supporting significant combined loads.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid reveal reveal-delay-2">
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/truck_hub_bearing_right_img.jpg"
+                            alt="Truck Hub Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Truck Hub Bearings</h3>
+                        <p class="product-card-desc">The Truck Hub Unit (Insert Unit) is a fully assembled tapered
+                            roller bearing unit along with the sealing and lubrication. This unit is very convenient for
+                            a quick and easy replacement in the field. This bearing is maintenance free and has a
+                            significantly longer life. It comes with a preset initial tension and the highly efficient
+                            sealing system ensures a long and trouble-free service life.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid reveal reveal-delay-3">
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/cylindrical_roller_bearing_right_img.jpg"
+                            alt="Cylindrical Roller Bearings">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Cylindrical Roller Bearings</h3>
+                        <p class="product-card-desc">The Cylindrical roller bearings consist of inner ring, outer ring,
+                            cylindrical rollers, and cage. These bearings are used in applications which have high
+                            radial loads combined with high speed. It is easy to fit and dismantle them as they can be
+                            taken apart. The bearings are very rigid, thus they can support high radial loads. These
+                            bearings are also suitable for higher speeds.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid reveal reveal-delay-4">
+                <div class="product-card">
+                    <div class="product-card-img-wrapper">
+                        <img class="product-card-img"
+                            src="https://www.orbitbearings.com/images/products/truck_axle_module_right_img1.jpg"
+                            alt="Truck Axle Module">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Truck Axle Module</h3>
+                        <p class="product-card-desc">The Truck Hub Unit (Insert Unit) is a fully assembled tapered
+                            roller bearing unit along with the sealing and lubrication. This unit is very convenient for
+                            a quick and easy replacement in the field. This bearing is maintenance free and has a
+                            significantly longer life. It comes with a preset initial tension and highly efficient
+                            sealing system for wheel ends.</p>
+                        <a class="product-card-btn" href="">Explore product <i
+                                class="fa-regular fa-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology section -->
+    <div id="technology" style="padding: 15px;">
+        <center class="reveal">
+            <div class="heading1">Technology</div>
+            <p>Explore our Technology:-</p><br>
+        </center>
+<div class="note33">
+        <div class="note3 reveal glass3d">
+            <br><img style="mix-blend-mode:darken; border-radius: 30px;" 
+                src="https://www.orbitbearings.com/technology/images/innovation_strategy_img.jpg" alt=""><br>
+            <p style="font-size: 22px; font-weight: 600; text-decoration: underline;">Innovation Strategy</p>
+            <p>The Orbit Technology Centre focuses on engineering research and development services. It has expertise in
+                areas like metallurgy, material science, lubrication, designing, validation, manufacturing and
+                application engineering. Our engineers work with OEM customers to define application problems and
+                provide most efficient solutions that help end users get the most out of their products. Orbit's
+                adaptability approach has made us integrate new and latest technology in their production cycle. Our
+                capabilities include:</p> <br>
+            <p><span>Design and Analysis</span><br>Orbit Technology Centre designs bearings as per customer requirements
+                along with added features to enhance product performance and customer satisfaction. We evaluate and
+                refine designs to create superior and longer lasting products</p>
+            <br>
+            <p><span>Validation</span><br>Orbit has setup in-house testing capabilities and simulation tools for testing
+                our bearings in simulated real road conditions to validate performance and life of our bearings.</p>
+            <br>
+            <p><span>Advanced Manufacturing</span><br>Our integrated system optimizes manufacturing processes to ensure
+                high quality bearing production. We also offer packaged units that can reduce cost by decreasing vehicle
+                downtime during maintenance and achieve greater life.</p>
+                <br><br>
+                 <center><a class="tbtn1" href="">Show more Technology</a></center><br><br>
+            </div>
+           
+        </div>
+    </div><br>
+    <hr>
+
+    <div id="news" style="padding: 15px;">
+        <center class="reveal">
+            <div class="heading1">News & Events</div>
+            <p>Read news and explore events:-</p><br>
+        </center>
+        <div class="grids reveal">
+            <div class="grid"><img class="neimg"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFkQ_x_4T4I_P-4SCDsY8228jDj410O2sCyO5Kvl0MBJnRnmUrtrBy73rS9X8KOZaIOS9bHWdjjvAeYf6nnSbhKAm919teQQH7cmHzoQRyQbfl2N7DxELPlFaMX7ZCfCwJOjioelx4vDcHKvkFznLR8mwPjjzhua2nmEFbaBdu7OvjDv6KqOEawgaG_Sz3/s16000/31686.jpg"
+                    alt=""></div>
+            <div class="grid">
+                <br>
+                <div class="box1">
+                    <p>Orbit is successfully providing design optimization by using advanced engineering solutions for
+                        its customers.</p>
+                    <br><a class="btn btn-neutral btn-outline"
+                        href="https://www.orbitbearings.com/files/event/orbit-is-successfully-providing-design-optimization-by-using-advanced-engineering-solutions-for-its-customers.6.pdf">View</a><br><br>
+                    <p>Orbit Bearings was awarded by Ashok Leyland in their Supplier Summit 2012</p>
+                    <br><a class="btn btn-neutral btn-outline"
+                        href="https://www.orbitbearings.com/files/event/orbit-bearings-was-awarded-by-ashok-leyland-in-their-supplier-summit-20125.pdf">View</a>
+                </div>
+            </div>
+        </div><br>
+        <hr><br>
+    </div>
+
+    <div id="contact" style="padding: 15px;">
+        <center class="reveal">
+            <div class="heading1">Contact</div>
+            <p>Contact for products or inquiry:-</p><br>
+        </center>
+        <div class="grids reveal">
+            <div class="grid">
+                <div class="note5">
+                    <div style="background-color: transparent;">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="form">
+                            <input type="hidden" name="access_key" value="ba3c581f-e8b9-4ca3-b358-e0be82794c81" />
+                            <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+                            <input type="hidden" name="from_name" value="Developer Dhaval site" />
+
+                            <input id="name" class="input" name="name" placeholder="Name" type="text"><br>
+                            <input id="email" class="input" name="email" placeholder="Email" type="email"><br>
+                            <textarea id="message" style="height: 70px;" class="input" name="message"
+                                placeholder="Message" type="message"></textarea><br>
+                            <button type="submit" style="margin: 10px;" class="btn btn-natrual btn-outline">Send
+                                message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="note4">
+                    <p class="context">Orbit Bearings India Pvt. Ltd.</p><br>
+                    <p><span style="font-weight: 600;">Address:-</span><br>2313, GIDC, Lodhika <br> Kalawad Road,
+                        Metoda, <br>Rajkot - 360 021, India</p>
+                    <br>
+                    <p><span style="font-weight: 600;">Phone:-</span><br>+91-2827 287388 / 287389</p>
+                    <br>
+                    <p><span style="font-weight: 600;">Fax:-</span><br>+91-2827 287601</p>
+                    <br>
+                    <p><span style="font-weight: 600;">Email:-</span><br>info@orbitbearings.com</p>
+                    <br>
+                    <p><span style="font-weight: 600;">Location:-</span><br><a
+                            href="https://maps.google.com/maps?q=Orbit+Bearings+India+Pvt.+Ltd.+Unit+1,+Metoda,+Gujarat,+India&hl=en&ll=22.289732,70.699081&spn=0.180118,0.308647&sll=37.0625,-95.677068&sspn=39.371738,79.013672&oq=orbit+bearings+&hq=Orbit+Bearings+India+Pvt.+Ltd.+Unit+1,&hnear=Metoda,+Rajkot,+Gujarat,+India&t=m&z=12">Click
+                            here to find us on Google Map</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+  <aside>
+    <img style="width: 100px; border-radius: 10px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPX8sFtbES88n3Iry3Z_mdDjIFR5DrENJDfUMPErwQAy04E4k7rAd3VDlpROhQgKk2Lh17AD0Hu1vd1QiKN3_jPoNOz_wfBswtBaTwso19CR1kaY4o0JF2wG030QIKCEPjhWtVmLfRoLpzONL0ukpDOMM-SP8M0Wr3CWBUrZDPYVxOvki4Q00r21ywbCVN/s488/WhatsApp%20Image%202026-05-30%20at%202.29.41%20PM.jpeg" alt="">
+    <p>
+      Orbit Bearings India Pvt. Ltd.
+      <br />
+     
+    </p>
+  </aside>
+  <nav>
+    <h6 class="footer-title">Services</h6>
+    <a class="link link-hover" href="">Buy product</a>
+    <a class="link link-hover" href="#">Technology</a>
+    <a class="link link-hover" href="#">News & Events</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Company</h6>
+    <a class="link link-hover" href="">About us</a>
+    <a class="link link-hover" href="#">Contact</a>
+    <a class="link link-hover" href="">Information</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Legal</h6>
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </nav>
+</footer>
+
+    <!-- Scroll Reveal Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+
+</body>
+
+</html>
