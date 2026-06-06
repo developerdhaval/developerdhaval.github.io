@@ -21,11 +21,17 @@ Retrieved 2026-06-06, License - CC BY-SA 4.0
 
 
 body {
-    overflow-x: hidden;
+overflow-x: clip;
+
+position: relative;
     width: 100%;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
+}
+* {
+    overflow-x: clip;
+    position: relative;
 }
         
     /*-- navbar gradient text ---*/
