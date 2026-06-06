@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flawless Neon Hexagon Portfolio</title>
+    <link rel="stylesheet" href="myweb.css" link>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+    /*-- navbar gradient text ---*/
+
+.logo-gradient {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background-image: linear-gradient(135deg, #07eef7ff 0%, #034177 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Keep Navbar Steady at Top --- */
+.navbar-fixed-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* --- FULL NAVBAR GLASS EFFECT --- */
+.main-glass-navbar {
+  /* Translucent white tint */
+  background: rgba(255, 255, 255, 0.03) !important;
+
+  /* Blurs the content/hexagons moving underneath the navbar */
+  backdrop-filter: blur(12px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+  /* Safari support */
+
+  /* A sharp, elegant semi-transparent white frame line at the bottom of the bar */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* --- DROPDOWN GLASS EFFECT --- */
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.glass-dropdown li a {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-dropdown li a:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.logo-gradient {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/*----------------nanavbar gradient text ends here----------------------------*/
+
+
+/* --- SYSTEM RESET & DARK MODE --- */
+body {
+  margin: 0;
+  /* Pure dark obsidian background to make neon pop */
+  color: #000000;
+  background-color: #0b0c10 !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, ;
+  overflow-x: hidden;
+}
+
+.scroll-intro-space,
+.scroll-footer-space {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- HERO SECTION CONTAINER --- */
+/* --- KEEP YOUR HERO BACKGROUND SHARP & UNIFORM --- */
+/* --- 1. ENSURE HERO CONTAINER IS SETUP CORRECTLY --- */
+.scroll-intro-space {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* CRITICAL: This allows the blur bridge to lock perfectly to the bottom edge */
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 80px;
+
+  /* Your beautiful grid system background stays untouched here */
+  background-color: #0b0c10;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, transparent 60%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-position: center center;
+}
+
+/* --- 2. THE BLURRY GRADIENT BRIDGE ENGINE --- */
+.hero-bottom-blur-bridge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  /* Tall height guarantees a smooth, non-abrupt transition area */
+  z-index: 1;
+
+  /* Gradual color fade from completely transparent to your dark body color */
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(11, 12, 16, 0.5) 40%,
+      #0b0c10 100%);
+
+  /* This physically blurs the lines passing underneath it, making them smoky */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Safari Support */
+
+  /* Keeps the layer interactive-safe so it doesn't break scrolling or clicks */
+  pointer-events: none;
+}
+
+/* --- ADD THIS NEW TRANSITION BLUR OVERLAY --- */
+.bottom-blur-blend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  /* Controls how deep/tall the blur effect stretches */
+  z-index: 1;
+
+  /* Blends the grid background into the solid black background below */
+  background: linear-gradient(to bottom, transparent, #04061449);
+
+  /* Creates the soft, smoky frosted smudge look over the grid lines */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* Prevents any weird white line glitch at the absolute bottom edge */
+  pointer-events: none;
+}
+
+/* --- TYPOGRAPHY ENGINE --- */
+.hero-text-container {
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+/* Top elegant tracking tag line */
+.hero-greeting {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #66fcf1;
+  /* Matches your crisp navbar brand identity */
+  margin-bottom: 10px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Bold, commanding name structure */
+.hero-name {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+/* THE PREMIUM TEXT NEON BLOOM EFFECT */
+.accent-glow {
+  color: #00f3ff;
+  font-weight: 900;
+  text-shadow:
+    0 0 10px rgba(0, 243, 255, 0.6),
+    0 0 30px rgba(0, 243, 255, 0.3),
+    0 0 60px rgba(0, 243, 255, 0.1);
+}
+
+/* Professional tech subtext label */
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #c5c6c7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* -------------------------------------- HERO SECTION CONTAINER ----------------------- */
+.scroll-intro-space {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 80px;
+
+  background-color: #0b0c10;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, transparent 60%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-position: center center;
+}
+
+.hero-text-container {
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.hero-greeting {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #66fcf1;
+  margin-bottom: 10px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.hero-name {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.accent-glow {
+  color: #00f3ff;
+  font-weight: 900;
+  text-shadow:
+    0 0 10px rgba(0, 243, 255, 0.6),
+    0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #c5c6c7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* --- TYPEWRITER CURSOR EFFECT --- */
+.cursor {
+  color: #00f3ff;
+  font-weight: 100;
+  margin-left: 3px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scroll-intro-space {
+    background-size: 30px 30px, 30px 30px, 100% 100%;
+  }
+
+  .hero-greeting {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-name {
+    font-size: 2.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* --------------------------------- RESPONSIVE TUNING for desktop--------------------------- */
+
+@media screen and (max-width: 768px) {
+  .scroll-intro-space {
+    background-size: 30px 30px, 30px 30px, 100% 100%;
+    /* Dense grid variant on mobile */
+  }
+
+  .hero-greeting {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+    /* Scales text down cleanly so it doesn't clip on small screens */
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+}
+
+/*------------------------hexagonal grid starts here----------------------------*/
+
+/* --- SCROLL-DRIVEN TRIGGER LAYOUTS --- */
+.hex-scroll-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  view-timeline-name: --sectionTimeline;
+  view-timeline-axis: block;
+  box-sizing: border-box;
+}
+
+.hexagon-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  /* Attaches animation frames directly onto desktop scroll tracks */
+  animation-timeline: --sectionTimeline;
+  animation-range: entry -5% exit 105%;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+.from-left {
+  animation-name: hexFromLeft;
+}
+
+.from-right {
+  animation-name: hexFromRight;
+}
+
+/* --- GEOMETRIC BOX & TRUE NEON GLOW BLUR --- */
+.hexagon-fixed-box {
+  width: 400px;
+  aspect-ratio: 1 / 1.155;
+  /* Golden mathematical hexagon layout ratio */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neon-glow-pad {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Blends deep background color glow safely outside the clip-path borders */
+  filter: drop-shadow(0 0 5px var(--neon-color)) drop-shadow(0 0 20px var(--neon-color));
+}
+
+.hexagon-border-line {
+  width: 100%;
+  height: 100%;
+  background: var(--neon-color);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexagon-image-inner {
+  width: calc(100% - 6px);
+  /* Creates a clean 3px thick neon lit border glow string */
+  height: calc(100% - 6px);
+  background: #0d0d11;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+}
+
+.hexagon-image-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- CAPTIONS & PROJECT SUBTEXT --- */
+.hex-caption {
+  margin-top: 25px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 10px var(--neon-color);
+}
+
+.hex-description {
+  max-width: 450px;
+  font-size: 0.95rem;
+  color: #a0a5b5;
+  line-height: 1.6;
+  text-align: center;
+  margin: 10px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-glow {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* --- FLUID PORTFOLIO SCROLL ANIMATION TRACKS --- */
+@keyframes hexFromLeft {
+  0% {
+    transform: translateX(-140%) scale(0.5) rotate(-45deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(0) scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-140%) scale(0.5) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hexFromRight {
+  0% {
+    transform: translateX(140%) scale(0.5) rotate(45deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(0) scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(140%) scale(0.5) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* ---SignIn Page Box Styles --- */
+
+
+/* This controls the large background rectangle behind the login box and text */
+.login-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 900px;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  height:372px;
+  margin-left: 300px;
+  margin-bottom: 150px;;
+
+  /* 1. Translucent white background (0.1 means 10% opacity) */
+  background-color: rgba(255, 255, 255, 0.08); 
+
+  /* 2. The magic blur effect that frosts whatever is behind it */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* For Safari browser support */
+
+  /* 3. A very subtle border to simulate shiny glass edges */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* 4. Soft shadow to make the glass panel pop over the deep black wallpaper */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+}
+
+/* Fix for the text side to make sure it's crisp on the glass */
+.login-text {
+  max-width: 440px;
+  color: #ffffff;
+}
+
+.login-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0; /* Made slightly brighter for better contrast on glass */
+  margin: 0;
+}
+
+  /* CRITICAL: The solid white rectangle card setup */
+  .login-card {
+    background-color: #ffffffc7; /* Solid white background */
+    padding: 40px;
+    border-top-left-radius: 32px;       /* Smooth rounded corners */
+    border-bottom-left-radius: 32px;       /* Smooth rounded corners */
+    width: 380px;
+    box-sizing: border-box;
+
+    
+    /* Elegant shadow to give it a 3D lift off the dark background */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+  }
+
+  /* Form Styling elements inside the white card */
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #4a4a4a;            /* Dark text for visibility inside white card */
+    margin-bottom: 8px;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc; /* Subtle light gray border */
+    border-radius: 6px;
+    font-size: 15px;
+    color: #000000;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  .forgot-link {
+    display: block;
+    font-size: 14px;
+    color: #2d2d2d;
+    text-decoration: none;
+    margin-bottom: 24px;
+  }
+
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #000000; /* Solid black button matching your image */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .login-btn:hover {
+    background-color: #222222;
+  }
+
+  /* Right-side typography settings (light text for dark mode) */
+  .login-text {
+    max-width: 440px;
+    color: #8c8c8c;            /* White text to contrast with your dark page */
+  }
+
+  .login-text h1 {
+    font-size: 48px;
+    margin: 0 0 16px 0;
+    font-weight: 700;
+  }
+
+  .login-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #b3b3b3;            /* Slightly dimmed white for readability */
+    margin: 0;
+  }
+
+  /* Quick responsive rule: stacks them on smaller screens */
+  @media (max-width: 768px) {
+    .login-container {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 30px;
+    }
+  }
+  .bottom-bar  {
+    margin: 0;
+    padding: 0;
+    background-color: #07080e1e; /* Royal Blue */
+    font-family: sans-serif;
+    overflow-x: hidden; /* CRITICAL: Prevents horizontal scrollbars while waves move */
+  }
+
+  .wave-container {
+    width: 100%;
+    line-height: 0;
+    position: relative;
+    margin-top: 100px;
+    overflow: hidden; /* Hides the extra extended wave code outside the margins */
+  }
+
+  .wave-svg {
+    position: relative;
+    display: block;
+    width: 200%; /* Spans double width so there's always a wave waiting to slide into view */
+    height: 120px;
+  }
+
+  .wave-accent {
+    fill: #0062ff; /* Cyan Accent */
+    /* Infinite linear progression keeps it moving at a perfectly constant speed */
+    animation: flow-right-back 12s linear infinite;
+  }
+
+  .wave-main {
+    fill: #c1c1c1; /* Gray Floor */
+    /* A slightly faster speed (8 seconds) makes the front layer outpace the back layer */
+    animation: flow-right-front 8s linear infinite;
+    margin-top: 1px;
+    height: 50px;
+  }
+
+  .footer-section {
+    background-color: #c1c1c1;
+    padding: 60px 20px;
+    text-align: center;
+    height: 200px;
+  }
+
+  /* ========================================================
+     THE INFINITE LEFT-TO-RIGHT ENGINE
+     ======================================================== */
+
+  /* Front Gray Wave Movement */
+  @keyframes flow-right-front {
+    0% {
+      transform: translateX(-50%); /* Starts shifted left by half its total double-width */
+    }
+    100% {
+      transform: translateX(0%);  /* Glides completely rightwards to the center boundary */
+    }
+  }
+
+  /* Back Cyan Wave Movement */
+  @keyframes flow-right-back {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  /* Basic Social Styling */
+  .social-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px;}
+  .social-btn { padding: 12px 28px; background: #1a1a1a; color: white; text-decoration: none; border-radius: 30px; }
+
+/* Center alignment for the whole footer area */
+.footer-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer-content h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+/* CRITICAL: Keeps your social icon items lined up beautifully in a horizontal row */
+.social-links {
+  display: flex;
+  justify-content: center; /* Centers the whole row on the page */
+  align-items: center;
+  gap: 16px;              /* Creates the gap between buttons */
+  width: 100%;
+}
+
+/* Designing individual circular link blocks */
+.social-icon-btn {
+  width: 50px;            /* Set exact width & height for a perfect square/circle */
+  height: 50px;
+  background-color: #ffffff; 
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;     /* Changes them to perfect circles */
+  font-size: 20px;
+  color: #4a5568;         /* Dark gray icons resting state */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;  /* Removes underline from anchor links */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover Floating Animations & Brand Colors */
+.social-icon-btn:hover {
+  transform: translateY(-4px); /* Gently floats up on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.github-btn:hover {
+  background-color: #24292e;
+  color: #ffffff;
+  border-color: #24292e;
+}
+
+.google-btn:hover {
+  background-color: #f1f5f9;
+  color: #ea4335;
+  border-color: #cbd5e1;
+}
+
+.facebook-btn:hover {
+  background-color: #1877f2;
+  color: #ffffff;
+  border-color: #1877f2;
+}
+
+.linkedin-btn:hover {
+  background-color: #0077b5;
+  color: #ffffff;
+  border-color: #0077b5;
+}
+
+  /* ----------------------------for phone ---------------------------------*/
+
+@media (max-width: 480px) {
+
+  body {
+    margin: 0;
+    /* Deep obsidian base color */
+    background-color: #060608;
+
+    /* Creates the sharp grid lines using transparent linear gradients */
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+
+    /* Defines the size of each grid square optimized for mobile screens */
+    background-size: 40px 40px;
+
+    /* Keeps the grid perfectly centered */
+    background-position: center center;
+  }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <!-------------------this is my navbar----------------------------->
+
+    <nav class="navbar-fixed-container">
+        <div class="navbar main-glass-navbar shadow-sm">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl logo-gradient">PORT.SITE</a>
+            </div>
+
+            <div class="flex gap-2">
+                <a href="profile.html" class="btn btn-ghost btn-circle avatar" title="View Profile">
+                    <div class="w-10 rounded-full">
+                        <img alt="Profile Avatar"
+                            src="https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=1000" />
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!--------------------Navbar ends here------------------------>
+
+    <div class="scroll-intro-space">
+        <div class="hero-text-container">
+            <p class="hero-greeting">Hello Visitors, Glad to Meet</p>
+            <h1 class="hero-name">I am a <span id="typewriter" class="accent-glow"></span><span class="cursor">|</span>
+            </h1>
+            <div class="hero-subtitle">Creative Developer</div>
+        </div>
+
+        <div class="bottom-blur-blend"></div>
+    </div>
+
+    <!--------------------hexagonal grid starts here ------------------------>
+
+    <section class="hex-scroll-section">
+        <div class="hexagon-wrapper from-left" style="--neon-color: #00f3ff;">
+            <div class="hexagon-fixed-box">
+                <div class="neon-glow-pad">
+                    <div class="hexagon-border-line">
+                        <div class="hexagon-image-inner">
+                            <img src="https://imgs.search.brave.com/9hKK7npGb5db8hYKjL4mTOP9id-PjQvnV6n3bimWlpg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjAv/MTE0LzYzMC9zbWFs/bC9tb2JpbGUtdWkt/dXgtZGV2ZWxvcG1l/bnQtZGVzaWduLWNv/bmNlcHQtd2l0aC1j/aGFyYWN0ZXJzLWRp/Z2l0YWwtaW5kdXN0/cnktbW9iaWxlLWFw/cC1pbm5vdmF0aW9u/LWFuZC10ZWNobm9s/b2dpZXMtbW9kZXJu/LWZsYXQtc3R5bGUt/Zm9yLWxhbmRpbmct/cGFnZS13ZWItYmFu/bmVyLWluZm9ncmFw/aGljcy1oZXJvLWlt/YWdlcy12ZWN0b3Iu/anBn"
+                                alt="UI/UX Design Layouts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hex-caption">01. UI/UX & Frontend Development</div>
+            <p class="hex-description">Crafting responsive web layouts, highly interactive user interfaces, and clean
+                digital prototypes.</p>
+        </div>
+    </section>
+
+    <section class="hex-scroll-section">
+        <div class="hexagon-wrapper from-right" style="--neon-color: #bd00ff;">
+            <div class="hexagon-fixed-box">
+                <div class="neon-glow-pad">
+                    <div class="hexagon-border-line">
+                        <div class="hexagon-image-inner">
+                            <img src="https://imgs.search.brave.com/ICqx0czLp0ccnkWbBmNdLFlaVgdBv8n5ddbv9qHY8Dg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYy/MTM4MzM5Ni9waG90/by95b3VuZy1lZGl0/b3ItdmlkZW8tbWFr/ZXItZWRpdHMtbW92/aWUtb24tY29tcHV0/ZXItYXQtaG9tZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/bmN1TXlBN3Ffa1Rt/ZFRfaHIxTjFZU2Nt/R3VjcmZWV25RTTNU/dUxZY0lzaz0"
+                                alt="Video Editing Work">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hex-caption">02. Video Editing & Content</div>
+            <p class="hex-description">Producing dynamic video edits and engaging narrative cuts. Check out my creative
+                Instagram presence.</p>
+        </div>
+    </section>
+
+    <section class="hex-scroll-section">
+        <div class="hexagon-wrapper from-left" style="--neon-color: #ff0055;">
+            <div class="hexagon-fixed-box">
+                <div class="neon-glow-pad">
+                    <div class="hexagon-border-line">
+                        <div class="hexagon-image-inner">
+                            <img src="https://imgs.search.brave.com/chemeUqR1bEzaqjkvTafCjjUcZS6eeLsbrQPH3PoaUM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM0/MTExNTM3MS9waG90/by93ZWxkaW5nLWFu/ZC1pbnN0YWxsaW5n/LWNvbXBvbmVudC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/MTBqeWZtMkNQV3J5/dGEtQWFJR1JRUWRn/amlvNWJRczRRSlJU/Q3laelZCVT0"
+                                alt="Robotics Hardware">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hex-caption">03. Electronics & Robotics</div>
+            <p class="hex-description">Building autonomous systems using Arduino microcontrollers, IR sensor tracks,
+                servo motors, and custom circuit power arrays.</p>
+        </div>
+    </section>
+
+    <section class="hex-scroll-section">
+        <div class="hexagon-wrapper from-right" style="--neon-color: #ffaa00;">
+            <div class="hexagon-fixed-box">
+                <div class="neon-glow-pad">
+                    <div class="hexagon-border-line">
+                        <div class="hexagon-image-inner">
+                            <img src="https://imgs.search.brave.com/xjOXqivus6Ui6GQUPhYccs1YiamBrZdfU0C0mgeSpzw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE4LzE5LzQ3LzQ0/LzM2MF9GXzE4MTk0/NzQ0NjFfQUJheDRs/QTZLVjhhRFRmaVVB/TTNlSXNValJMdUNV/MXMuanBn"
+                                alt="Creative Arts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hex-caption">04. The Creative Phase</div>
+            <p class="hex-description">Exploring multi-disciplinary paths: traditional arts & crafts, oil paintings,
+                instrumental music learning scales, and culinary experiments.</p>
+        </div>
+    </section>
+    <!----------------------------- login info--------------------------->
+    <div class="login-container">
+        <div class="login-card">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Email">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Password">
+            </div>
+            <a href="#" class="forgot-link">Forgot password?</a>
+            <button class="login-btn">Login</button>
+        </div>
+
+        <div class="login-text">
+            <h1>Login now!</h1>
+            <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In
+                deleniti eaque aut repudiandae et a id nisi.</p>
+        </div>
+    </div>
+    </div>
+    <!---------------------------bottom bar---------------------------->
+
+    <div class="bottom-bar">
+        <div class="wave-container">
+            <svg class="wave-svg animated-wave" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none">
+                <path class="wave-accent"
+                    d="M0,96 C120,120 240,140 360,110 C480,80 600,40 720,70 C840,100 960,140 1080,120 C1200,100 1320,40 1440,80 L1440,200 L0,200 Z">
+                </path>
+                <path class="wave-main"
+                    d="M0,110 C120,130 240,150 360,125 C480,100 600,60 720,85 C840,110 960,150 1080,135 C1200,120 1320,65 1440,100 L1440,200 L0,200 Z">
+                </path>
+            </svg>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+            <h2>Connect With Me</h2>
+
+            <div class="social-links">
+
+                <a href="https://github.com/yourusername" target="_blank" class="social-icon-btn github-btn"
+                    title="Visit my GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="mailto:youremail@example.com" class="social-icon-btn google-btn" title="Email Me">
+                    <i class="fa-brands fa-google"></i>
+                </a>
+
+                <a href="https://facebook.com/yourusername" target="_blank" class="social-icon-btn facebook-btn"
+                    title="Visit my Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon-btn linkedin-btn"
+                    title="Connect on LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+    <!--------------------hexagonal grid ends here ------------------------>
+
+    <script>
+        const words = [
+            "artist",
+            "editor",
+            "web developer",
+            "good listener",
+            "cube solver",
+            "musician",
+            "at the end,",
+            "Ready to learn every thing"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const targetElement = document.getElementById("typewriter");
+
+        // Speed control values (in milliseconds)
+        const typingSpeed = 100;
+        const erasingSpeed = 60;
+        const pauseTime = 1500; // How long it stays fully typed out
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                // Remove a character
+                targetElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Add a character
+                targetElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Default loop speed variables
+            let currentSpeed = isDeleting ? erasingSpeed : typingSpeed;
+
+            // Rule: Word is fully typed out
+            if (!isDeleting && charIndex === currentWord.length) {
+                currentSpeed = pauseTime; // Pause at the end of the phrase
+                isDeleting = true;
+            }
+            // Rule: Word is entirely erased
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; // Cycle onto the next phrase smoothly
+                currentSpeed = 300; // Brief pause before typing the next word
+            }
+
+            setTimeout(typeEffect, currentSpeed);
+        }
+
+        // Fire the typewriter system initialization string on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(typeEffect, 500);
+        });
+
+    </script>
+
+</body>
+
+</html>
