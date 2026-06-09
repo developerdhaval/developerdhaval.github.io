@@ -4,1041 +4,1037 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flawless Neon Hexagon Portfolio</title>
-    <link rel="stylesheet" href="myweb.css" link>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Shyam's Portfolio</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    <!--[favicon]-->
+    <link rel="icon" type="image/x-icon" href="#">
+    <!--[font]-->
+    <link rel="stylesheet" href="#">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Luckiest+Guy&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <!--[Icon]-->
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        /*
-Source - https://stackoverflow.com/a/16981485
-
-Posted by Klaas van der Weij, modified by community. See post 'Timeline' for change history
-
-Retrieved 2026-06-06, License - CC BY-SA 4.0
-*/
-
-
-
-        
-    /*-- navbar gradient text ---*/
-
-.logo-gradient {
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  background-image: linear-gradient(135deg, #07eef7ff 0%, #034177 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-/* --- Keep Navbar Steady at Top --- */
-.navbar-fixed-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-/* --- FULL NAVBAR GLASS EFFECT --- */
-.main-glass-navbar {
-  /* Translucent white tint */
-  background: rgba(255, 255, 255, 0.03) !important;
-
-  /* Blurs the content/hexagons moving underneath the navbar */
-  backdrop-filter: blur(12px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
-  /* Safari support */
-
-  /* A sharp, elegant semi-transparent white frame line at the bottom of the bar */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-/* --- DROPDOWN GLASS EFFECT --- */
-.glass-dropdown {
-  background: rgba(255, 255, 255, 0.06) !important;
-  backdrop-filter: blur(20px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5) !important;
-}
-
-.glass-dropdown li a {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-}
-
-.glass-dropdown li a:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  color: #ffffff !important;
-}
-
-.logo-gradient {
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/*----------------nanavbar gradient text ends here----------------------------*/
-
-
-/* --- SYSTEM RESET & DARK MODE --- */
-body {
-  margin: 0;
-  /* Pure dark obsidian background to make neon pop */
-  color: #000000;
-  background-color: #0b0c10 !important;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, ;
-  overflow-x: hidden;
-}
-
-.scroll-intro-space,
-.scroll-footer-space {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* --- HERO SECTION CONTAINER --- */
-/* --- KEEP YOUR HERO BACKGROUND SHARP & UNIFORM --- */
-/* --- 1. ENSURE HERO CONTAINER IS SETUP CORRECTLY --- */
-.scroll-intro-space {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  /* CRITICAL: This allows the blur bridge to lock perfectly to the bottom edge */
-  position: relative;
-  box-sizing: border-box;
-  padding-top: 80px;
-
-  /* Your beautiful grid system background stays untouched here */
-  background-color: #0b0c10;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, transparent 60%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
-  background-position: center center;
-}
-
-/* --- 2. THE BLURRY GRADIENT BRIDGE ENGINE --- */
-.hero-bottom-blur-bridge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 250px;
-  /* Tall height guarantees a smooth, non-abrupt transition area */
-  z-index: 1;
-
-  /* Gradual color fade from completely transparent to your dark body color */
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(11, 12, 16, 0.5) 40%,
-      #0b0c10 100%);
-
-  /* This physically blurs the lines passing underneath it, making them smoky */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  /* Safari Support */
-
-  /* Keeps the layer interactive-safe so it doesn't break scrolling or clicks */
-  pointer-events: none;
-}
-
-/* --- ADD THIS NEW TRANSITION BLUR OVERLAY --- */
-.bottom-blur-blend {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  /* Controls how deep/tall the blur effect stretches */
-  z-index: 1;
-
-  /* Blends the grid background into the solid black background below */
-  background: linear-gradient(to bottom, transparent, #04061449);
-
-  /* Creates the soft, smoky frosted smudge look over the grid lines */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  /* Prevents any weird white line glitch at the absolute bottom edge */
-  pointer-events: none;
-}
-
-/* --- TYPOGRAPHY ENGINE --- */
-.hero-text-container {
-  z-index: 2;
-  padding: 0 20px;
-  max-width: 800px;
-}
-
-/* Top elegant tracking tag line */
-.hero-greeting {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #66fcf1;
-  /* Matches your crisp navbar brand identity */
-  margin-bottom: 10px;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-/* Bold, commanding name structure */
-.hero-name {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: #ffffff;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
-}
-
-/* THE PREMIUM TEXT NEON BLOOM EFFECT */
-.accent-glow {
-  color: #00f3ff;
-  font-weight: 900;
-  text-shadow:
-    0 0 10px rgba(0, 243, 255, 0.6),
-    0 0 30px rgba(0, 243, 255, 0.3),
-    0 0 60px rgba(0, 243, 255, 0.1);
-}
-
-/* Professional tech subtext label */
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: #c5c6c7;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-/* -------------------------------------- HERO SECTION CONTAINER ----------------------- */
-.scroll-intro-space {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  box-sizing: border-box;
-  padding-top: 80px;
-
-  background-color: #0b0c10;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, transparent 60%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
-  background-position: center center;
-}
-
-.hero-text-container {
-  z-index: 2;
-  padding: 0 20px;
-  max-width: 900px;
-}
-
-.hero-greeting {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #66fcf1;
-  margin-bottom: 10px;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-.hero-name {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: #ffffff;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
-}
-
-.accent-glow {
-  color: #00f3ff;
-  font-weight: 900;
-  text-shadow:
-    0 0 10px rgba(0, 243, 255, 0.6),
-    0 0 30px rgba(0, 243, 255, 0.3);
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: #c5c6c7;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-/* --- TYPEWRITER CURSOR EFFECT --- */
-.cursor {
-  color: #00f3ff;
-  font-weight: 100;
-  margin-left: 3px;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .scroll-intro-space {
-    background-size: 30px 30px, 30px 30px, 100% 100%;
-  }
-
-  .hero-greeting {
-    font-size: 0.95rem;
-    letter-spacing: 3px;
-  }
-
-  .hero-name {
-    font-size: 2.3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-}
-
-/* --------------------------------- RESPONSIVE TUNING for desktop--------------------------- */
-
-@media screen and (max-width: 768px) {
-  .scroll-intro-space {
-    background-size: 30px 30px, 30px 30px, 100% 100%;
-    /* Dense grid variant on mobile */
-  }
-
-  .hero-greeting {
-    font-size: 0.95rem;
-    letter-spacing: 3px;
-  }
-
-  .hero-name {
-    font-size: 2.5rem;
-    /* Scales text down cleanly so it doesn't clip on small screens */
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-}
-
-/*------------------------hexagonal grid starts here----------------------------*/
-
-/* --- SCROLL-DRIVEN TRIGGER LAYOUTS --- */
-.hex-scroll-section {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  view-timeline-name: --sectionTimeline;
-  view-timeline-axis: block;
-  box-sizing: border-box;
-}
-
-.hexagon-wrapper {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-
-  /* Attaches animation frames directly onto desktop scroll tracks */
-  animation-timeline: --sectionTimeline;
-  animation-range: entry -5% exit 105%;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-}
-
-.from-left {
-  animation-name: hexFromLeft;
-}
-
-.from-right {
-  animation-name: hexFromRight;
-}
-
-/* --- GEOMETRIC BOX & TRUE NEON GLOW BLUR --- */
-.hexagon-fixed-box {
-  width: 400px;
-  aspect-ratio: 1 / 1.155;
-  /* Golden mathematical hexagon layout ratio */
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.neon-glow-pad {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* Blends deep background color glow safely outside the clip-path borders */
-  filter: drop-shadow(0 0 5px var(--neon-color)) drop-shadow(0 0 20px var(--neon-color));
-}
-
-.hexagon-border-line {
-  width: 100%;
-  height: 100%;
-  background: var(--neon-color);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hexagon-image-inner {
-  width: calc(100% - 6px);
-  /* Creates a clean 3px thick neon lit border glow string */
-  height: calc(100% - 6px);
-  background: #0d0d11;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  overflow: hidden;
-}
-
-.hexagon-image-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* --- CAPTIONS & PROJECT SUBTEXT --- */
-.hex-caption {
-  margin-top: 25px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 0 0 10px var(--neon-color);
-}
-
-.hex-description {
-  max-width: 450px;
-  font-size: 0.95rem;
-  color: #a0a5b5;
-  line-height: 1.6;
-  text-align: center;
-  margin: 10px 0 0 0;
-  letter-spacing: 0.5px;
-}
-
-.footer-glow {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #ffffff;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-/* --- FLUID PORTFOLIO SCROLL ANIMATION TRACKS --- */
-@keyframes hexFromLeft {
-  0% {
-    transform: translateX(-140%) scale(0.5) rotate(-45deg);
-    opacity: 0;
-  }
-
-  50% {
-    transform: translateX(0) scale(1.1) rotate(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(-140%) scale(0.5) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-@keyframes hexFromRight {
-  0% {
-    transform: translateX(140%) scale(0.5) rotate(45deg);
-    opacity: 0;
-  }
-
-  50% {
-    transform: translateX(0) scale(1.1) rotate(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(140%) scale(0.5) rotate(-45deg);
-    opacity: 0;
-  }
-}
-
-/* ---SignIn Page Box Styles --- */
-
-
-/* This controls the large background rectangle behind the login box and text */
-.login-container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  max-width: 900px;
-  border-top-right-radius: 32px;
-  border-bottom-right-radius: 32px;
-  border-top-left-radius: 32px;
-  border-bottom-left-radius: 32px;
-  height:372px;
-  margin-left: 300px;
-  margin-bottom: 150px;;
-
-  /* 1. Translucent white background (0.1 means 10% opacity) */
-  background-color: rgba(255, 255, 255, 0.08); 
-
-  /* 2. The magic blur effect that frosts whatever is behind it */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* For Safari browser support */
-
-  /* 3. A very subtle border to simulate shiny glass edges */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-
-  /* 4. Soft shadow to make the glass panel pop over the deep black wallpaper */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
-}
-
-/* Fix for the text side to make sure it's crisp on the glass */
-.login-text {
-  max-width: 440px;
-  color: #ffffff;
-}
-
-.login-text p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #e0e0e0; /* Made slightly brighter for better contrast on glass */
-  margin: 0;
-}
-
-  /* CRITICAL: The solid white rectangle card setup */
-  .login-card {
-    background-color: #ffffffc7; /* Solid white background */
-    padding: 40px;
-    border-top-left-radius: 32px;       /* Smooth rounded corners */
-    border-bottom-left-radius: 32px;       /* Smooth rounded corners */
-    width: 380px;
+        * {
+    font-family: "Gabarito", sans-serif;
+    font-weight: 400;
+    scroll-behavior: smooth;
     box-sizing: border-box;
-
-    
-    /* Elegant shadow to give it a 3D lift off the dark background */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
-  }
-
-  /* Form Styling elements inside the white card */
-  .input-group {
-    margin-bottom: 20px;
-  }
-
-  .input-group label {
-    display: block;
-    font-size: 14px;
-    color: #4a4a4a;            /* Dark text for visibility inside white card */
-    margin-bottom: 8px;
-  }
-
-  .input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #dcdcdc; /* Subtle light gray border */
-    border-radius: 6px;
-    font-size: 15px;
-    color: #000000;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    outline: none;
-  }
-
-  .forgot-link {
-    display: block;
-    font-size: 14px;
-    color: #2d2d2d;
-    text-decoration: none;
-    margin-bottom: 24px;
-  }
-
-  .forgot-link:hover {
-    text-decoration: underline;
-  }
-
-  .login-btn {
-    width: 100%;
-    padding: 14px;
-    background-color: #000000; /* Solid black button matching your image */
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-
-  .login-btn:hover {
-    background-color: #222222;
-  }
-
-  /* Right-side typography settings (light text for dark mode) */
-  .login-text {
-    max-width: 440px;
-    color: #8c8c8c;            /* White text to contrast with your dark page */
-  }
-
-  .login-text h1 {
-    font-size: 48px;
-    margin: 0 0 16px 0;
-    font-weight: 700;
-  }
-
-  .login-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #b3b3b3;            /* Slightly dimmed white for readability */
-    margin: 0;
-  }
-
-  /* Quick responsive rule: stacks them on smaller screens */
-  @media (max-width: 768px) {
-    .login-container {
-      flex-direction: column-reverse;
-      text-align: center;
-      gap: 30px;
-    }
-  }
-  .bottom-bar  {
     margin: 0;
     padding: 0;
-    background-color: #07080e1e; /* Royal Blue */
-    font-family: sans-serif;
-    overflow-x: hidden; /* CRITICAL: Prevents horizontal scrollbars while waves move */
-  }
+}
 
-  .wave-container {
+.font2 {
+    font-family: "Luckiest Guy";
+    background-color: transparent;
+}
+
+.font3 {
+    font-family: "Lilita One";
+    background-color: transparent;
+}
+
+body {
+    font-style: normal;
+    font-weight: 500;
+    box-sizing: border-box;
     width: 100%;
-    line-height: 0;
-    position: relative;
-    margin-top: 100px;
-    overflow: hidden; /* Hides the extra extended wave code outside the margins */
-  }
+    overflow-x: hidden;
+}
 
-  .wave-svg {
-    position: relative;
-    display: block;
-    width: 200%; /* Spans double width so there's always a wave waiting to slide into view */
-    height: 120px;
-  }
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.cursor {
+    position: fixed;
+    height: 20px;
+    width: 20px;
+    background-color: #000000;
+    border-radius: 100%;
+    margin-left: -2px;
+    margin-top: -2px;
+    z-index: 1000;
+    backdrop-filter: grayscale(1);
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-  .wave-accent {
-    fill: #0062ff; /* Cyan Accent */
-    /* Infinite linear progression keeps it moving at a perfectly constant speed */
-    animation: flow-right-back 12s linear infinite;
-  }
+.cursor.active {
+    transform: scale(1.5);
+}
+.grids {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
 
-  .wave-main {
-    fill: #c1c1c1; /* Gray Floor */
-    /* A slightly faster speed (8 seconds) makes the front layer outpace the back layer */
-    animation: flow-right-front 8s linear infinite;
-    margin-top: 1px;
-    height: 50px;
-  }
+.grid {
+    padding: 1px;
+}
 
-  .footer-section {
-    background-color: #c1c1c1;
-    padding: 60px 20px;
+@media (min-width: 900px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grids-3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid-3 {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff9a;
+    backdrop-filter: blur(30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+#content {
+    display: none;
     text-align: center;
-    height: 200px;
-  }
-
-  /* ========================================================
-     THE INFINITE LEFT-TO-RIGHT ENGINE
-     ======================================================== */
-
-  /* Front Gray Wave Movement */
-  @keyframes flow-right-front {
-    0% {
-      transform: translateX(-50%); /* Starts shifted left by half its total double-width */
-    }
-    100% {
-      transform: translateX(0%);  /* Glides completely rightwards to the center boundary */
-    }
-  }
-
-  /* Back Cyan Wave Movement */
-  @keyframes flow-right-back {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
-
-  /* Basic Social Styling */
-  .social-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px;}
-  .social-btn { padding: 12px 28px; background: #1a1a1a; color: white; text-decoration: none; border-radius: 30px; }
-
-/* Center alignment for the whole footer area */
-.footer-section {
-  text-align: center;
-  padding: 40px 20px;
+    padding-top: 100px;
 }
 
-.footer-content h2 {
-  font-size: 28px;
-  margin-bottom: 24px;
+/* From Uiverse.io by alexruix */
+.loader {
+    width: 80px;
+    height: 50px;
+    position: relative;
 }
 
-/* CRITICAL: Keeps your social icon items lined up beautifully in a horizontal row */
-.social-links {
-  display: flex;
-  justify-content: center; /* Centers the whole row on the page */
-  align-items: center;
-  gap: 16px;              /* Creates the gap between buttons */
-  width: 100%;
-}
-
-/* Designing individual circular link blocks */
-.social-icon-btn {
-  width: 50px;            /* Set exact width & height for a perfect square/circle */
-  height: 50px;
-  background-color: #ffffff; 
-  border: 1px solid #e2e8f0;
-  border-radius: 50%;     /* Changes them to perfect circles */
-  font-size: 20px;
-  color: #4a5568;         /* Dark gray icons resting state */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;  /* Removes underline from anchor links */
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Hover Floating Animations & Brand Colors */
-.social-icon-btn:hover {
-  transform: translateY(-4px); /* Gently floats up on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.github-btn:hover {
-  background-color: #24292e;
-  color: #ffffff;
-  border-color: #24292e;
-}
-
-.google-btn:hover {
-  background-color: #f1f5f9;
-  color: #ea4335;
-  border-color: #cbd5e1;
-}
-
-.facebook-btn:hover {
-  background-color: #1877f2;
-  color: #ffffff;
-  border-color: #1877f2;
-}
-
-.linkedin-btn:hover {
-  background-color: #0077b5;
-  color: #ffffff;
-  border-color: #0077b5;
-}
-
-  /* ----------------------------for phone ---------------------------------*/
-
-@media (max-width: 480px) {
-
-  body {
+.loader-text {
+    position: absolute;
+    top: 0;
+    padding: 0;
     margin: 0;
-    /* Deep obsidian base color */
-    background-color: #060608;
+    color: #130f1f;
+    animation: text_713 3.5s ease both infinite;
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
 
-    /* Creates the sharp grid lines using transparent linear gradients */
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+.load {
+    background-color: #9A79FF;
+    border-radius: 50px;
+    display: block;
+    height: 16px;
+    width: 16px;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(64px);
+    animation: loading_713 3.5s ease both infinite;
+}
 
-    /* Defines the size of each grid square optimized for mobile screens */
-    background-size: 40px 40px;
+.load::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #b8a5ef;
+    border-radius: inherit;
+    animation: loading2_713 3.5s ease both infinite;
+}
 
-    /* Keeps the grid perfectly centered */
-    background-position: center center;
-  }
+@keyframes text_713 {
+    0% {
+        letter-spacing: 1px;
+        transform: translateX(0px);
+    }
 
+    40% {
+        letter-spacing: 2px;
+        transform: translateX(26px);
+    }
+
+    80% {
+        letter-spacing: 1px;
+        transform: translateX(32px);
+    }
+
+    90% {
+        letter-spacing: 2px;
+        transform: translateX(0px);
+    }
+
+    100% {
+        letter-spacing: 1px;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes loading_713 {
+    0% {
+        width: 16px;
+        transform: translateX(0px);
+    }
+
+    40% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    80% {
+        width: 16px;
+        transform: translateX(64px);
+    }
+
+    90% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    100% {
+        width: 16px;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes loading2_713 {
+    0% {
+        transform: translateX(0px);
+        width: 16px;
+    }
+
+    40% {
+        transform: translateX(0%);
+        width: 80%;
+    }
+
+    80% {
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+    90% {
+        width: 80%;
+        transform: translateX(15px);
+    }
+
+    100% {
+        transform: translateX(0px);
+        width: 16px;
+    }
+}
+
+.shadow-pop-br {
+    animation: shadow-pop-br 3s cubic-bezier(0.470, 0.000, 0.745, 0.715) infinite both;
+}
+
+@keyframes shadow-pop-br {
+    0% {
+        box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        box-shadow: 1px 1px #3e3e3e, 2px 2px #3e3e3e, 3px 3px #3e3e3e, 4px 4px #3e3e3e, 5px 5px #3e3e3e, 6px 6px #3e3e3e, 7px 7px #3e3e3e, 8px 8px #3e3e3e;
+        transform: translateX(-8px) translateY(-8px);
+    }
+}
+
+.load-box {
+    padding: 15px;
+    background-color: #9A79FF;
+    color: white;
+    width: fit-content;
+}
+
+/* NAVBAR */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background-color: #d4c8f8;
+    margin: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 5px 5px black;
+    border: 2px solid black;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+}
+
+.nav-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.outline-btn,
+.fill-btn {
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.fill-btn:hover,
+.outline-btn:hover {
+    box-shadow: 4px 4px black;
+    transform: translate(-4px, -4px);
+}
+
+.outline-btn {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.fill-btn {
+    background: #7b2cff;
+    color: white;
+}
+
+@media(max-width:1000px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    row-gap: 30px;
+}
+
+.item-1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    margin-left: 25%;
+}
+
+.item-2 {
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .item-1,
+    .item-2 {
+        grid-column: 1 / 3;
+        grid-row: auto;
+    }
+
+    .item-1 {
+        margin-left: 10%;
+    }
+}
+
+.hero-img {
+    width: 400px;
+    margin-left: 10%;
+    box-shadow: 5px 5px black;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.hero-text1 {
+    color: #3e3e3e;
+    font-size: 20px;
+}
+
+.hero-title {
+    font-size: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.hero-btn {
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+    box-shadow: 4px 4px black;
+    transform: translate(-4px, -4px);
+    background-color: #d3cafe;
+    color: white;
+}
+
+.hero-btn a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-box:hover {
+    box-shadow: 4px 4px black;
+    transform: translate(-4px, -4px);
+}
+
+.social-links a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width: 600px) {
+
+    .hero-img {
+        width: 300px;
+        margin-left: 10%;
+        box-shadow: 5px 5px black;
+        border-radius: 20px;
+        border: 2px solid black;
+    }
+
+    .hero-text1 {
+        color: #3e3e3e;
+    }
+
+    .hero-title {
+        font-size: 30px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .hero-btn {
+        background-color: transparent;
+        border: 2px solid black;
+        padding: 12px 24px;
+        border-radius: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hero-btn:hover {
+        box-shadow: 4px 4px black;
+        transform: translate(-4px, -4px);
+        background-color: #d3cafe;
+        color: white;
+    }
+
+    .hero-btn a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-box {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .social-box:hover {
+        box-shadow: 4px 4px black;
+        transform: translate(-4px, -4px);
+    }
+
+    .social-links a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.box {
+    position: relative;
+}
+
+.about-section {
+    padding: 90px 7% 70px;
+}
+
+.about-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.about-content,
+.about-panel {
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 6px 6px black;
+}
+
+.about-content {
+    background: #f7f3ff;
+    padding: 44px;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 9px 16px;
+    margin-bottom: 18px;
+    border: 2px solid black;
+    border-radius: 999px;
+    background: #fff;
+    color: #7b2cff;
+    font-weight: 700;
+    box-shadow: 3px 3px black;
+}
+
+.about-content h2 {
+    max-width: 760px;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.02;
+    font-weight: 700;
+    color: #14111f;
+}
+
+.about-content p {
+    max-width: 680px;
+    margin-top: 18px;
+    color: #3e3e3e;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.about-primary,
+.about-secondary {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border: 2px solid black;
+    border-radius: 16px;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-primary {
+    background: #9A79FF;
+    color: white;
+}
+
+.about-secondary {
+    background: white;
+}
+
+.about-primary:hover,
+.about-secondary:hover {
+    box-shadow: 4px 4px black;
+    transform: translate(-4px, -4px);
+}
+
+.about-panel {
+    background: #d4c8f8;
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+}
+
+.about-stat {
+    min-height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    border: 2px solid black;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.about-stat span {
+    font-size: 42px;
+    line-height: 1;
+    font-weight: 800;
+    color: #7b2cff;
+}
+
+.about-stat p {
+    margin-top: 10px;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.coding {
+    position: absolute;
+    bottom: 300px;
+    right: 550px;
+    font-size: 30px;
+    background-color: rgb(241, 241, 26);
+    box-shadow: 4px 4px black;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    z-index: -1000;
+    rotate: -20deg;
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: 70px 20px 50px;
+    }
+
+    .about-shell {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-content,
+    .about-panel {
+        border-radius: 16px;
+        box-shadow: 5px 5px black;
+    }
+
+    .about-content {
+        padding: 28px 22px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-content p {
+        font-size: 16px;
+    }
+
+    .about-actions {
+        flex-direction: column;
+    }
+
+    .about-primary,
+    .about-secondary {
+        width: 100%;
+    }
+
+    .about-panel {
+        padding: 18px;
+    }
+
+    .about-stat {
+        min-height: 112px;
+    }
+
+    .coding {
+        position: absolute;
+        bottom: 200px;
+        right: 420px;
+        font-size: 30px;
+        background-color: rgb(241, 241, 26);
+        box-shadow: 4px 4px black;
+        color: rgb(0, 0, 0);
+        padding: 20px;
+        border-radius: 20px;
+        border: 2px solid black;
+        z-index: -1000;
+        rotate: -20deg;
+    }
+}
+
+.shake-vertical {
+    animation: shake-vertical 9s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+}
+
+@keyframes shake-vertical {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateY(-8px);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateY(8px);
+    }
+
+    80% {
+        transform: translateY(6.4px);
+    }
+
+    90% {
+        transform: translateY(-6.4px);
+    }
+}
+.emoji {
+        position: absolute;
+        top: -100px;
+        right: 60px;
+        font-size: 30px;
+        background-color: rgb(26, 241, 194);
+        box-shadow: 4px 4px black;
+        color: rgb(0, 0, 0);
+        padding: 20px;
+        border-radius: 20px;
+        border: 2px solid black;
+        z-index: -1000;
+        rotate: 20deg;
+}
+.name {
+    position: absolute;
+    top: -180px;
+    right: 500px;
+    font-size: 30px;
+    background-color: rgb(212, 196, 255);
+    box-shadow: 4px 4px black;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    z-index: -1000;
+    rotate: -90deg;
+}
+.custom-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: #000000;
+    color: #000000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+        background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+    z-index: 10000;
+}
+
+.custom-cursor span {
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background: transparent;
+}
+
+.custom-cursor.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-cursor.is-hovering {
+    width: 42px;
+    height: 42px;
+    background: #8f5ee3;
+    color: #ffffff;
+    box-shadow: 3px 3px black;
+    z-index: 1000;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        display: flex;
+    }
 }
     </style>
+
 </head>
 
 <body>
 
-    <!-------------------this is my navbar----------------------------->
-
-    <nav class="navbar-fixed-container">
-        <div class="navbar main-glass-navbar shadow-sm">
-            <div class="flex-1">
-                <a class="btn btn-ghost text-xl logo-gradient">PORT.SITE</a>
-            </div>
-
-            <div class="flex gap-2">
-                <a href="profile.html" class="btn btn-ghost btn-circle avatar" title="View Profile">
-                    <div class="w-10 rounded-full">
-                        <img alt="Profile Avatar"
-                            src="https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=1000" />
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </nav>
-
-    <!--------------------Navbar ends here------------------------>
-
-    <div class="scroll-intro-space">
-        <div class="hero-text-container">
-            <p class="hero-greeting">Hello Visitors, Glad to Meet</p>
-            <h1 class="hero-name">I am a <span id="typewriter" class="accent-glow"></span><span class="cursor">|</span>
-            </h1>
-            <div class="hero-subtitle">Creative Developer</div>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader">
+            <span class="loader-text">loading</span>
+            <span class="load"></span><br><br><br><br><br>
+            <div class="shadow-pop-br load-box">It's Shyam</div>
         </div>
 
-        <div class="bottom-blur-blend"></div>
     </div>
-
-    <!--------------------hexagonal grid starts here ------------------------>
-
-    <section class="hex-scroll-section">
-        <div class="hexagon-wrapper from-left" style="--neon-color: #00f3ff;">
-            <div class="hexagon-fixed-box">
-                <div class="neon-glow-pad">
-                    <div class="hexagon-border-line">
-                        <div class="hexagon-image-inner">
-                            <img src="https://imgs.search.brave.com/9hKK7npGb5db8hYKjL4mTOP9id-PjQvnV6n3bimWlpg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjAv/MTE0LzYzMC9zbWFs/bC9tb2JpbGUtdWkt/dXgtZGV2ZWxvcG1l/bnQtZGVzaWduLWNv/bmNlcHQtd2l0aC1j/aGFyYWN0ZXJzLWRp/Z2l0YWwtaW5kdXN0/cnktbW9iaWxlLWFw/cC1pbm5vdmF0aW9u/LWFuZC10ZWNobm9s/b2dpZXMtbW9kZXJu/LWZsYXQtc3R5bGUt/Zm9yLWxhbmRpbmct/cGFnZS13ZWItYmFu/bmVyLWluZm9ncmFw/aGljcy1oZXJvLWlt/YWdlcy12ZWN0b3Iu/anBn"
-                                alt="UI/UX Design Layouts">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hex-caption">01. UI/UX & Frontend Development</div>
-            <p class="hex-description">Crafting responsive web layouts, highly interactive user interfaces, and clean
-                digital prototypes.</p>
-        </div>
-    </section>
-
-    <section class="hex-scroll-section">
-        <div class="hexagon-wrapper from-right" style="--neon-color: #bd00ff;">
-            <div class="hexagon-fixed-box">
-                <div class="neon-glow-pad">
-                    <div class="hexagon-border-line">
-                        <div class="hexagon-image-inner">
-                            <img src="https://imgs.search.brave.com/ICqx0czLp0ccnkWbBmNdLFlaVgdBv8n5ddbv9qHY8Dg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYy/MTM4MzM5Ni9waG90/by95b3VuZy1lZGl0/b3ItdmlkZW8tbWFr/ZXItZWRpdHMtbW92/aWUtb24tY29tcHV0/ZXItYXQtaG9tZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/bmN1TXlBN3Ffa1Rt/ZFRfaHIxTjFZU2Nt/R3VjcmZWV25RTTNU/dUxZY0lzaz0"
-                                alt="Video Editing Work">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hex-caption">02. Video Editing & Content</div>
-            <p class="hex-description">Producing dynamic video edits and engaging narrative cuts. Check out my creative
-                Instagram presence.</p>
-        </div>
-    </section>
-
-    <section class="hex-scroll-section">
-        <div class="hexagon-wrapper from-left" style="--neon-color: #ff0055;">
-            <div class="hexagon-fixed-box">
-                <div class="neon-glow-pad">
-                    <div class="hexagon-border-line">
-                        <div class="hexagon-image-inner">
-                            <img src="https://imgs.search.brave.com/chemeUqR1bEzaqjkvTafCjjUcZS6eeLsbrQPH3PoaUM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM0/MTExNTM3MS9waG90/by93ZWxkaW5nLWFu/ZC1pbnN0YWxsaW5n/LWNvbXBvbmVudC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/MTBqeWZtMkNQV3J5/dGEtQWFJR1JRUWRn/amlvNWJRczRRSlJU/Q3laelZCVT0"
-                                alt="Robotics Hardware">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hex-caption">03. Electronics & Robotics</div>
-            <p class="hex-description">Building autonomous systems using Arduino microcontrollers, IR sensor tracks,
-                servo motors, and custom circuit power arrays.</p>
-        </div>
-    </section>
-
-    <section class="hex-scroll-section">
-        <div class="hexagon-wrapper from-right" style="--neon-color: #ffaa00;">
-            <div class="hexagon-fixed-box">
-                <div class="neon-glow-pad">
-                    <div class="hexagon-border-line">
-                        <div class="hexagon-image-inner">
-                            <img src="https://imgs.search.brave.com/xjOXqivus6Ui6GQUPhYccs1YiamBrZdfU0C0mgeSpzw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE4LzE5LzQ3LzQ0/LzM2MF9GXzE4MTk0/NzQ0NjFfQUJheDRs/QTZLVjhhRFRmaVVB/TTNlSXNValJMdUNV/MXMuanBn"
-                                alt="Creative Arts">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hex-caption">04. The Creative Phase</div>
-            <p class="hex-description">Exploring multi-disciplinary paths: traditional arts & crafts, oil paintings,
-                instrumental music learning scales, and culinary experiments.</p>
-        </div>
-    </section>
-    <!----------------------------- login info--------------------------->
-    <div class="login-container">
-        <div class="login-card">
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="Email">
-            </div>
-
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" placeholder="Password">
-            </div>
-            <a href="#" class="forgot-link">Forgot password?</a>
-            <button class="login-btn">Login</button>
-        </div>
-
-        <div class="login-text">
-            <h1>Login now!</h1>
-            <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In
-                deleniti eaque aut repudiandae et a id nisi.</p>
-        </div>
-    </div>
-    </div>
-    <!---------------------------bottom bar---------------------------->
-
-    <div class="bottom-bar">
-        <div class="wave-container">
-            <svg class="wave-svg animated-wave" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none">
-                <path class="wave-accent"
-                    d="M0,96 C120,120 240,140 360,110 C480,80 600,40 720,70 C840,100 960,140 1080,120 C1200,100 1320,40 1440,80 L1440,200 L0,200 Z">
-                </path>
-                <path class="wave-main"
-                    d="M0,110 C120,130 240,150 360,125 C480,100 600,60 720,85 C840,110 960,150 1080,135 C1200,120 1320,65 1440,100 L1440,200 L0,200 Z">
-                </path>
-            </svg>
-        </div>
-    </div>
-
-    <footer class="footer-section">
-        <div class="footer-content">
-            <h2>Connect With Me</h2>
-
-            <div class="social-links">
-
-                <a href="https://github.com/yourusername" target="_blank" class="social-icon-btn github-btn"
-                    title="Visit my GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <a href="mailto:youremail@example.com" class="social-icon-btn google-btn" title="Email Me">
-                    <i class="fa-brands fa-google"></i>
-                </a>
-
-                <a href="https://facebook.com/yourusername" target="_blank" class="social-icon-btn facebook-btn"
-                    title="Visit my Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-
-                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon-btn linkedin-btn"
-                    title="Connect on LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-            </div>
-        </div>
-    </footer>
-    <!--------------------hexagonal grid ends here ------------------------>
-
     <script>
-        const words = [
-            "artist",
-            "editor",
-            "web developer",
-            "good listener",
-            "cube solver",
-            "musician",
-            "at the end,",
-            "Ready to learn every thing"
-        ];
-
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const targetElement = document.getElementById("typewriter");
-
-        // Speed control values (in milliseconds)
-        const typingSpeed = 100;
-        const erasingSpeed = 60;
-        const pauseTime = 1500; // How long it stays fully typed out
-
-        function typeEffect() {
-            const currentWord = words[wordIndex];
-
-            if (isDeleting) {
-                // Remove a character
-                targetElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                // Add a character
-                targetElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("loader");
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = "0";
+                    setTimeout(() => {
+                        loader.style.display = "none";
+                    }, 400);
+                }, 2000); // 2 sec delay
             }
-
-            // Default loop speed variables
-            let currentSpeed = isDeleting ? erasingSpeed : typingSpeed;
-
-            // Rule: Word is fully typed out
-            if (!isDeleting && charIndex === currentWord.length) {
-                currentSpeed = pauseTime; // Pause at the end of the phrase
-                isDeleting = true;
-            }
-            // Rule: Word is entirely erased
-            else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length; // Cycle onto the next phrase smoothly
-                currentSpeed = 300; // Brief pause before typing the next word
-            }
-
-            setTimeout(typeEffect, currentSpeed);
-        }
-
-        // Fire the typewriter system initialization string on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(typeEffect, 500);
         });
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+            const navbar = document.querySelector('.glass-navbar');
+
+            if (mobileMenuBtn && mobileMenuPanel) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenuPanel.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking menu links
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                    if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+                });
+            });
+
+            // Scroll effect
+            window.addEventListener('scroll', () => {
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            });
+        });
     </script>
+
+     <div class="custom-cursor" aria-hidden="true">
+    <span>Move</span>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cursor = document.querySelector(".custom-cursor");
+        const cursorText = cursor ? cursor.querySelector("span") : null;
+        const canUseCustomCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+        if (cursor && cursorText && canUseCustomCursor) {
+            window.addEventListener("mousemove", (event) => {
+                cursor.style.left = `${event.clientX}px`;
+                cursor.style.top = `${event.clientY}px`;
+                cursor.classList.add("is-visible");
+            });
+
+            window.addEventListener("mouseleave", () => {
+                cursor.classList.remove("is-visible");
+            });
+
+            document.addEventListener("mouseover", (event) => {
+                const hoverTarget = event.target.closest("a, button");
+
+                if (hoverTarget && !hoverTarget.classList.contains("custom-cursor")) {
+                    cursor.classList.add("is-hovering");
+                    cursorText.textContent = hoverTarget.matches("a, button") ? "Click" : "View";
+                } else {
+                    cursor.classList.remove("is-hovering");
+                    cursorText.textContent = "Move";
+                }
+            });
+        }
+    });
+</script>
+
+    <!-- Navbar -->
+    <nav>
+
+        <div class="logo font2">Shyam</div>
+
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Experience</a>
+            <a href="#">Skills</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="nav-btns">
+            <button class="outline-btn">About Me</button>
+            <button class="fill-btn">Contact</button>
+        </div>
+
+    </nav><br>
+
+    <!-- Herosection  -->
+    <div class="grid-container">
+        <div class="item-1">
+            <p class="hero-text1">Hi there!</p>
+            <p class="hero-title">I am Shyam Mandaviya</p>
+            <p class="hero-text2">About myself</p><br>
+            <div class="social-links">
+                <a class="social-box" href=""><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-box" href=""><i class="fa-brands fa-square-linkedin"></i></a>
+                <a class="social-box" href=""><i class="fa-brands fa-github"></i></a>
+                <a class="social-box" href=""><i class="fa-regular fa-envelope-open"></i></a>
+            </div><br>
+            <button class="hero-btn"><a href="">Get started</a></button>
+        </div>
+        <div class="item-2">
+            <img class="hero-img" src="https://i.pinimg.com/736x/e4/a6/08/e4a6083a83b6b12cbad2b7090ea10a96.jpg" alt="">
+        </div>
+    </div>
+    <div class="box">
+        <div class="coding shake-vertical"><i class="fa-solid fa-code"></i></div>
+        <div class="emoji shake-vertical"><i class="fa-regular fa-face-laugh-wink"></i></div>
+        <div class="name">Shyam</div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-shell">
+            <div class="about-content">
+                <span class="section-tag">About me</span>
+
+                <h2>Creative frontend learner building clean, playful web experiences.</h2>
+
+                <p>
+                    I enjoy turning ideas into responsive websites with strong visuals,
+                    simple interactions, and user-friendly layouts. My focus is on HTML,
+                    CSS, JavaScript, and designs that feel polished on every screen size.
+                </p>
+
+                <div class="about-actions">
+                    <a class="about-primary" href="#">
+                        <i class="fa-solid fa-download"></i>
+                        Resume
+                    </a>
+
+                    <a class="about-secondary" href="#">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Hire me
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-panel">
+                <div class="about-stat">
+                    <span>01+</span>
+                    <p>Years learning web design</p>
+                </div>
+
+                <div class="about-stat">
+                    <span>10+</span>
+                    <p>Practice projects completed</p>
+                </div>
+
+                <div class="about-stat">
+                    <span>100%</span>
+                    <p>Responsive layout mindset</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 
