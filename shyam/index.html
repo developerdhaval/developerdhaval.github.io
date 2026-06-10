@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        * {
+<style>
+* {
     font-family: "Gabarito", sans-serif;
     font-weight: 400;
     scroll-behavior: smooth;
@@ -53,23 +52,61 @@ a {
     -webkit-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.cursor {
+
+.custom-cursor {
     position: fixed;
-    height: 20px;
-    width: 20px;
-    background-color: #000000;
-    border-radius: 100%;
-    margin-left: -2px;
-    margin-top: -2px;
-    z-index: 1000;
-    backdrop-filter: grayscale(1);
+    left: 0;
+    top: 0;
+    width: 68px;
+    height: 68px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #14111f;
+    box-shadow: 4px 4px black;
     pointer-events: none;
-    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+    z-index: 10000;
 }
 
-.cursor.active {
-    transform: scale(1.5);
+.custom-cursor span {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background: transparent;
 }
+
+.custom-cursor.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-cursor.is-hovering {
+    width: 82px;
+    height: 82px;
+    background: #7b2cff;
+    color: #ffffff;
+    box-shadow: 5px 5px black;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        display: flex;
+    }
+}
+
 .grids {
     max-width: 1200px;
     margin: 0 auto;
@@ -721,8 +758,8 @@ nav {
 
     .coding {
         position: absolute;
-        bottom: 200px;
-        right: 420px;
+        bottom: 100px;
+        right: 550px;
         font-size: 30px;
         background-color: rgb(241, 241, 26);
         box-shadow: 4px 4px black;
@@ -767,93 +804,13 @@ nav {
         transform: translateY(-6.4px);
     }
 }
-.emoji {
-        position: absolute;
-        top: -100px;
-        right: 60px;
-        font-size: 30px;
-        background-color: rgb(26, 241, 194);
-        box-shadow: 4px 4px black;
-        color: rgb(0, 0, 0);
-        padding: 20px;
-        border-radius: 20px;
-        border: 2px solid black;
-        z-index: -1000;
-        rotate: 20deg;
-}
-.name {
-    position: absolute;
-    top: -180px;
-    right: 500px;
-    font-size: 30px;
-    background-color: rgb(212, 196, 255);
-    box-shadow: 4px 4px black;
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    border-radius: 20px;
-    border: 2px solid black;
-    z-index: -1000;
-    rotate: -90deg;
-}
-.custom-cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 28px;
-    height: 28px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 50%;
-    background: #000000;
-    color: #000000;
-    pointer-events: none;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
-        background 0.2s ease, color 0.2s ease, transform 0.12s ease;
-    z-index: 10000;
-}
-
-.custom-cursor span {
-    font-size: 10px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    background: transparent;
-}
-
-.custom-cursor.is-visible {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.custom-cursor.is-hovering {
-    width: 42px;
-    height: 42px;
-    background: #8f5ee3;
-    color: #ffffff;
-    box-shadow: 3px 3px black;
-    z-index: 1000;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    body,
-    body * {
-        cursor: none !important;
-    }
-
-    .custom-cursor {
-        display: flex;
-    }
-}
     </style>
-
 </head>
 
 <body>
+    <div class="custom-cursor" aria-hidden="true">
+        <span>Move</span>
+    </div>
 
     <!-- Loader -->
     <div id="loader">
@@ -908,44 +865,36 @@ nav {
                     }
                 }
             });
+
+            const cursor = document.querySelector('.custom-cursor');
+            const cursorText = cursor ? cursor.querySelector('span') : null;
+            const canUseCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+            if (cursor && cursorText && canUseCustomCursor) {
+                window.addEventListener('mousemove', (event) => {
+                    cursor.style.left = `${event.clientX}px`;
+                    cursor.style.top = `${event.clientY}px`;
+                    cursor.classList.add('is-visible');
+                });
+
+                window.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('is-visible');
+                });
+
+                document.addEventListener('mouseover', (event) => {
+                    const hoverTarget = event.target.closest('a, button, div');
+
+                    if (hoverTarget && !hoverTarget.classList.contains('custom-cursor')) {
+                        cursor.classList.add('is-hovering');
+                        cursorText.textContent = hoverTarget.matches('a, button') ? 'Click' : 'View';
+                    } else {
+                        cursor.classList.remove('is-hovering');
+                        cursorText.textContent = 'Move';
+                    }
+                });
+            }
         });
     </script>
-
-     <div class="custom-cursor" aria-hidden="true">
-    <span>Move</span>
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const cursor = document.querySelector(".custom-cursor");
-        const cursorText = cursor ? cursor.querySelector("span") : null;
-        const canUseCustomCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-        if (cursor && cursorText && canUseCustomCursor) {
-            window.addEventListener("mousemove", (event) => {
-                cursor.style.left = `${event.clientX}px`;
-                cursor.style.top = `${event.clientY}px`;
-                cursor.classList.add("is-visible");
-            });
-
-            window.addEventListener("mouseleave", () => {
-                cursor.classList.remove("is-visible");
-            });
-
-            document.addEventListener("mouseover", (event) => {
-                const hoverTarget = event.target.closest("a, button");
-
-                if (hoverTarget && !hoverTarget.classList.contains("custom-cursor")) {
-                    cursor.classList.add("is-hovering");
-                    cursorText.textContent = hoverTarget.matches("a, button") ? "Click" : "View";
-                } else {
-                    cursor.classList.remove("is-hovering");
-                    cursorText.textContent = "Move";
-                }
-            });
-        }
-    });
-</script>
 
     <!-- Navbar -->
     <nav>
@@ -953,14 +902,14 @@ nav {
         <div class="logo font2">Shyam</div>
 
         <div class="nav-links">
-            <a href="#">About</a>
+            <a href="#about">About</a>
             <a href="#">Experience</a>
             <a href="#">Skills</a>
             <a href="#">Contact</a>
         </div>
 
         <div class="nav-btns">
-            <button class="outline-btn">About Me</button>
+            <button class="outline-btn" onclick="location.href='#about'">About Me</button>
             <button class="fill-btn">Contact</button>
         </div>
 
@@ -986,8 +935,6 @@ nav {
     </div>
     <div class="box">
         <div class="coding shake-vertical"><i class="fa-solid fa-code"></i></div>
-        <div class="emoji shake-vertical"><i class="fa-regular fa-face-laugh-wink"></i></div>
-        <div class="name">Shyam</div>
     </div>
 
     <!-- About Section -->
@@ -995,13 +942,11 @@ nav {
         <div class="about-shell">
             <div class="about-content">
                 <span class="section-tag">About me</span>
-
                 <h2>Creative frontend learner building clean, playful web experiences.</h2>
-
                 <p>
-                    I enjoy turning ideas into responsive websites with strong visuals,
-                    simple interactions, and user-friendly layouts. My focus is on HTML,
-                    CSS, JavaScript, and designs that feel polished on every screen size.
+                    I enjoy turning ideas into responsive websites with strong visuals, simple interactions,
+                    and user-friendly layouts. My focus is on HTML, CSS, JavaScript, and designs that feel
+                    polished on every screen size.
                 </p>
 
                 <div class="about-actions">
@@ -1009,7 +954,6 @@ nav {
                         <i class="fa-solid fa-download"></i>
                         Resume
                     </a>
-
                     <a class="about-secondary" href="#">
                         <i class="fa-solid fa-paper-plane"></i>
                         Hire me
@@ -1022,12 +966,10 @@ nav {
                     <span>01+</span>
                     <p>Years learning web design</p>
                 </div>
-
                 <div class="about-stat">
                     <span>10+</span>
                     <p>Practice projects completed</p>
                 </div>
-
                 <div class="about-stat">
                     <span>100%</span>
                     <p>Responsive layout mindset</p>
