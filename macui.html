@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MACUI</title>
   <!-- CSS Link -->
+
   <!--[favicon]-->
   <link rel="icon" type="image/x-icon"
     href="https://blogger.googleusercontent.com/img/a/AVvXsEjsJ7twQoI89h9MkkvRwVrzyvElk-YFLF32Xqq9Gx-dUXsxClTcox7DNAo3B6M-VI4F3uLSCDOcoalRrhxb5B51IPFeWr7o2hLc4copdR7fImRms2GNFzGbwfjpHKtykCamXn6ZtB2ziR0NGFYSu_q8tSiHJUhgr4-ntql3IydRLrKc4W2chnOXFVTz7pGs=s512">
@@ -22,8 +23,8 @@
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <style>
-    :root {
+	<style>
+	:root {
     --hover: #925ff8;
     --btn: #7838f8;
 }
@@ -660,7 +661,7 @@ button {
 }
 
 .section2 {
-    padding: 15px;
+    padding: 1px;
 }
 
 .heading-1 {
@@ -800,7 +801,7 @@ button {
 
 @media (max-width: 768px) {
     .cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         margin: 0 auto;
     }
 }
@@ -849,7 +850,7 @@ summary a {
 }
 
 .section-3 {
-    padding: 15px;
+    padding: 1px;
 }
 
 .heading-3 {
@@ -894,7 +895,7 @@ summary a {
 }
 
 .section-4 {
-    padding: 15px;
+    padding: 1px;
 }
 
 .card-4 {
@@ -983,13 +984,13 @@ background-size: 20px 20px;
 @media (max-width: 600px) {
     .shape-1 {
         font-size: 15px;
-        width: 300px;
-        left: 75px;
-        bottom: -5px;
+        width: fit-content;
+        left: 9px;
+        bottom: -15px;
     }
     .shape-2 {
-        top: -240px;
-        left: 1px;
+        top: -180px;
+        left: -5px;
         font-size: 20px;
     }
 }
@@ -1020,7 +1021,7 @@ background-size: 20px 20px;
   }
 }
 
-  </style>
+	</style>
 </head>
 
 <body>
@@ -1043,7 +1044,7 @@ background-size: 20px 20px;
           setTimeout(() => {
             loader.style.display = "none";
           }, 400);
-        }, 10); // 2 sec delay
+        }, 1000); // 1 sec delay
       }
     });
 
@@ -1402,7 +1403,7 @@ background-size: 20px 20px;
               href="https://fonts.google.com/share?selection.family=Gabarito:wght@400..900">Gabarito</a><br><br>
             <a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
               href="https://fonts.google.com/share?selection.family=Momo+Trust+Display">Momo Trust Display</a>
-            <a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+            <br><br><a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
               href="https://fonts.google.com/">View all</a>
           </div>
         </div>
@@ -1412,7 +1413,7 @@ background-size: 20px 20px;
             <p>Choose stylish icon to use it on your project :</p><br>
             <a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
               href="https://tricks-project.blogspot.com/2024/01/full-set-svg-icons-for-median-ui-and.html">Blogger Plus
-              UI</a>
+              UI</a><br><br>
             <a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
               href="https://cdnjs.com/libraries/font-awesome">Apply fontawesome</a><br><br>
             <a class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
@@ -1467,27 +1468,28 @@ background-size: 20px 20px;
           <div class="grid-4">
             <p class="heading-4 radius">UI Design & Inspiration</p><br>
             <a class="link-4" target="_blank" href="https://uiverse.io/">Uiverse</a>
-            <a class="link-4" target="_blank" href="https://patterns.page/">Patterns Page</a><br><br><br>
-            <a class="link-4" target="_blank" href="https://freefrontend.com/">FreeFrontend</a>
-            <a class="link-4" target="_blank" href="https://design.dev/">Design.dev</a><br>
+            <a class="link-4" target="_blank" href="https://design.dev/">Design.dev</a><br><br><br>
+            <a class="link-4" target="_blank" href="https://patterns.page/">Patterns Page</a>
+            <a class="link-4" target="_blank" href="https://freefrontend.com/">FreeFrontend</a><br><br>
+            
           </div>
           <div class="grid-4">
-            <p class="heading-4 radius" style="background-color: #e0d8ff;">CSS & Animation</p><br>
-            <a class="link-4" target="_blank" style="color: #4533c0;" href="https://animista.net/">Animista</a>
-            <a class="link-4" target="_blank" style="color: #4533c0;"
-              href="https://kinetools.com/">Kinetools</a><br><br><br>
-            <a class="link-4" target="_blank" style="color: #4533c0;" href="https://gradienty.codes/">Gradienty</a>
-            <a class="link-4" target="_blank" style="color: #4533c0;" href="https://glass3d.dev/">Glass3D Generator</a>
+            <p class="heading-4 radius" style="background-color: #e0d8ff;">Developer Tools</p><br>
+
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://www.jsdelivr.com/github">JSDelivr CDN</a>
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://10015.io/">10015 Tools</a><br><br><br>
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://pairdrop.net/">PairDrop</a>
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://web3forms.com/#start">Web3Forms</a><br><br>
           </div>
           <div class="grid-4">
-            <p class="heading-4 radius" style="background-color: #f7f6cd;">Developer Tools</p><br>
+            <p class="heading-4 radius" style="background-color: #f7f6cd;">CSS & Animation</p><br>
             <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);" href="https://animista.net/">Animista</a>
             <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);"
               href="https://kinetools.com/">Kinetools</a><br><br><br>
             <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);"
-              href="https://gradienty.codes/">Gradienty</a>
+              href="https://gradienty.codes/">Gradienty</a><br><br><br>
             <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);" href="https://glass3d.dev/">Glass3D
-              Generator</a>
+              Generator</a><br><br>
           </div>
           <div class="grid-4">
             <p class="heading-4 radius" style="background-color: #d8f7cd;">Others site</p><br>
