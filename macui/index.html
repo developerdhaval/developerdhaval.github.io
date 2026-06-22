@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MACUI</title>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="/macui/macui.css">
+  <!--[favicon]-->
+  <link rel="icon" type="image/x-icon"
+    href="https://blogger.googleusercontent.com/img/a/AVvXsEjsJ7twQoI89h9MkkvRwVrzyvElk-YFLF32Xqq9Gx-dUXsxClTcox7DNAo3B6M-VI4F3uLSCDOcoalRrhxb5B51IPFeWr7o2hLc4copdR7fImRms2GNFzGbwfjpHKtykCamXn6ZtB2ziR0NGFYSu_q8tSiHJUhgr4-ntql3IydRLrKc4W2chnOXFVTz7pGs=s512">
+  <!--[font]-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Momo+Trust+Display&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <!--[Icon]-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <script>
+    document.querySelectorAll('.mobile-links a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('menu-toggle').checked = false;
+      });
+    });
+  </script>
+  <!-- Loader -->
+  <div id="loader">
+
+    <div class="loader">
+      <svg viewBox="0 0 80 80">
+        <circle r="32" cy="40" cx="40" id="test"></circle>
+      </svg>
+    </div>
+
+  </div>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      if (loader) {
+        setTimeout(() => {
+          loader.style.opacity = "0";
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 400);
+        }, 1000); // 1 sec delay
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+      const navbar = document.querySelector('.glass-navbar');
+
+      if (mobileMenuBtn && mobileMenuPanel) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenuBtn.classList.toggle('active');
+          mobileMenuPanel.classList.toggle('active');
+        });
+      }
+
+      // Close mobile menu when clicking menu links
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+          if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+        });
+      });
+
+      // Scroll effect
+      window.addEventListener('scroll', () => {
+        if (navbar) {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Copy Notification -->
+  <div id="new-toast" class="new-toast"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const copyButtons = document.querySelectorAll('.copy-button');
+
+      copyButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const targetId = button.getAttribute('data-target');
+          copyCode(targetId, button);
+        });
+      });
+    });
+
+    function copyCode(contentId, button) {
+      const content = document.getElementById(contentId);
+      const range = document.createRange();
+      const selection = window.getSelection();
+
+      selection.removeAllRanges();
+      range.selectNodeContents(content);
+      selection.addRange(range);
+
+      try {
+        document.execCommand("copy");
+        showToast("Code copied to clipboard!", "success");
+        button.classList.add("copied");
+      } catch (err) {
+        console.error("Failed to copy", err);
+        showToast("Failed to copy the code!", "error");
+      }
+
+      selection.removeAllRanges();
+      setTimeout(() => button.classList.remove("copied"), 2000);
+    }
+
+    function showToast(message, type = "info") {
+      const toast = document.getElementById("new-toast");
+      toast.textContent = message;
+      toast.classList.add("show", type);
+
+      setTimeout(() => toast.classList.remove("show", type), 3000);
+    }
+
+  </script>
+
+
+  <div class="custom-cursor" aria-hidden="true">
+    <span>Move</span>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cursor = document.querySelector(".custom-cursor");
+      const cursorText = cursor ? cursor.querySelector("span") : null;
+      const canUseCustomCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+      if (cursor && cursorText && canUseCustomCursor) {
+        window.addEventListener("mousemove", (event) => {
+          cursor.style.left = `${event.clientX}px`;
+          cursor.style.top = `${event.clientY}px`;
+          cursor.classList.add("is-visible");
+        });
+
+        window.addEventListener("mouseleave", () => {
+          cursor.classList.remove("is-visible");
+        });
+
+        document.addEventListener("mouseover", (event) => {
+          const hoverTarget = event.target.closest("a, button");
+
+          if (hoverTarget && !hoverTarget.classList.contains("custom-cursor")) {
+            cursor.classList.add("is-hovering");
+            cursorText.textContent = hoverTarget.matches("a, button") ? "C" : "V";
+          } else {
+            cursor.classList.remove("is-hovering");
+            cursorText.textContent = "M";
+          }
+        });
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+  </script>
+
+
+
+  <nav class="navbar radius">
+    <div style="display: flex; align-items: center; gap: 10px;"><img class="radius"
+        style="width: 40px; border-radius: 100px;"
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90"
+        alt="">
+      <a href="#" class="logo font-1">MACUI</a>
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#comp">Components</a>
+      <a target="_blank" href="https://developerdhaval.github.io/">Meet Developer</a>
+      <a target="_blank" href="https://developerdhaval.github.io/#contact">Contact</a>
+      <button class="nav-btn radius">Get Started</button>
+    </div>
+
+    <label for="menu-toggle" class="menu-icon radius"><svg
+        style="width: 40px; height: 40px; align-items: center; margin-top: 12px; cursor: pointer;"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6h16.5m-16.5 6.75h16.5" />
+      </svg></label>
+  </nav>
+
+
+  <input type="checkbox" id="menu-toggle" />
+
+  <div class="mobile-modal">
+    <div class="modal-box radius">
+      <div class="modal-header">
+        <h2 class="font-1">MACUI</h2>
+        <label for="menu-toggle" class="close-btn">&times;</label>
+      </div>
+
+      <div class="mobile-links">
+        <a href="#">Home</a>
+        <a href="#comp">Components</a>
+        <a target="_blank" href="https://developerdhaval.github.io/">Meet Developer</a>
+        <a target="_blank" href="https://developerdhaval.github.io/#contact">Contact</a>
+        <button class="nav-btn">Get Started</button>
+      </div>
+    </div>
+  </div><br>
+
+  <!-- Hero section -->
+
+  <div class="hero-section">
+    <div class="left-hero">
+      <p class="font-5 hero-text">Build a beautiful UI design with MACUI</p>
+      <p>We use the latest technologies to create the best user experience. Use MACUI for your next project and see the
+        difference.</p>
+      <button class="hero-btn radius"><a href="#">Get Started </a></button>
+    </div>
+    <div class="right-hero">
+      <img class="hero-img radius" src="https://i.pinimg.com/1200x/4c/aa/f9/4caaf99d85ff6e09bb0a24eae2e67b9f.jpg"
+        alt="">
+    </div>
+  </div>
+
+  <div class="shapes">
+    <div class="shape-1 shake-vertical radius font-1">
+      <i class="fa-solid fa-circle-user"></i> MACUI - Dhaval Mandaviya
+    </div>
+    <div class="shape-2 shake-vertical radius"><i class="fa-solid fa-code"></i></div>
+  </div>
+
+  <p style="border-top: 1px solid; padding-left: 60%;"></p>
+
+  <div class="section2">
+    <div class="heading-1 font-1">Install via CDN</div><br>
+    <div style="text-align: center;" class="font-3">To install it copy the below code and paste it in your html file
+      head section:</div><br>
+    <!-- Code Box 1 -->
+    <br>
+    <div class="code-container">
+      <div class="code-header">
+        <h3>CDN v4.0</h3>
+        <button class="copy-button" data-target="code-content1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="copy-icon" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
+      <!--Add Your Parse HTML, CSS and Js code Here-->
+      <div id="code-content1" class="code-block">
+        <pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/developerdhaval/MACUI@main/macui@3.1.css&quot; text=&quot;text/css&quot;/&gt;</pre>
+      </div>
+    </div>
+    <br><br>
+    <div class="heading-1 font-1" id="qf"> Quick Features</div><br>
+    <div class="cards">
+      <div class="card radius">
+        <div class="heading-icon radius"></div>
+        <div class="heading-card">Installation</div>
+        <p>Choose library to apply css :</p>
+        <details class="dropdown">
+          <summary role="button">
+            <a class="button">Choose <i class="fa-solid fa-angle-down"></i></a>
+          </summary>
+          <ul>
+            <li><a target="_blank" href="https://themacui.blogspot.com/2025/01/macui.html">MACUI</a>
+            </li>
+            <li><a target="_blank" href="https://daisyui.com/docs/cdn/">DasiyUI</a></li>
+            <li><a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite">Tailwind
+                css</a></li>
+            <li><a target="_blank" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap</a>
+            </li>
+            <li><a target="_blank" href="https://pagedone.io/docs/installation">Pagedone</a></li>
+            <li><a target="_blank" href="https://flowbite.com/docs/getting-started/introduction/">Flowbite</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="card radius">
+        <div class="icon"></div>
+        <div class="heading-card">Components</div>
+        <p>Choose library to use components :</p>
+        <details class="dropdown">
+          <summary role="button">
+            <a class="button">Choose <i class="fa-solid fa-angle-down"></i></a>
+          </summary>
+          <ul>
+            <li><a target="_blank" href="https://themacui.blogspot.com/2025/03/components.html">MACUI</a></li>
+            <li><a target="_blank" href="https://daisyui.com/components/">DasiyUI</a></li>
+            <li><a target="_blank" href="https://tailwindui.com/components">Tailwind css</a></li>
+            <li><a target="_blank" href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap</a></li>
+            <li><a target="_blank" href="https://pagedone.io/docs/accordion">Pagedone</a></li>
+            <li><a target="_blank" href="https://flowbite.com/docs/components/accordion/">Flowbite</a>
+            </li>
+          </ul>
+        </details>
+      </div>
+      <div class="card radius">
+        <div class="icon"></div>
+        <div class="heading-card">Themes</div>
+        <p>Choose themes for your project :</p>
+        <details class="dropdown">
+          <summary role="button">
+            <a class="button">Choose <i class="fa-solid fa-angle-down"></i></a>
+          </summary>
+          <ul>
+            <li><a target="_blank" href="#">MACUI</a></li>
+            <li><a target="_blank" href="https://daisyui.com/docs/themes/">DasiyUI</a></li>
+
+          </ul>
+        </details>
+      </div>
+
+      <div class="card radius">
+        <div class="icon"></div>
+        <div class="heading-card">Materials</div>
+        <p>Choose material type to use it :</p>
+        <details class="dropdown">
+          <summary role="button">
+            <a class="button">Choose <i class="fa-solid fa-angle-down"></i></a>
+          </summary>
+          <ul>
+            <li><a href="#temp">Templates</a></li>
+            <li><a href="#font">Fonts</a></li>
+            <li><a href="#font">Icons</a></li>
+            <li><a href="#colo">Colors</a></li>
+            <li><a href="#colo">Illustration</a></li>
+            <li><a href="#usef">Useful site</a></li>
+            <li><a href="https://themacui.blogspot.com/2025/01/design.html">View all</a></li>
+
+          </ul>
+        </details>
+      </div>
+    </div><br>
+    <p style="border-top: 1px solid black;"></p>
+
+    <div class="back-3">
+      <div class="section-3" id="temp">
+        <div class="heading-3 shake-bottom"><i class="fa-solid fa-brush"></i> Templates</div>
+        <div class="grids-3">
+          <div class="grid-3">
+            <img class="img-3" src="https://i.pinimg.com/736x/e3/2f/c0/e32fc0ca5b4b3cebfd0a51a177923532.jpg" alt="">
+          </div>
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius">
+              <div class="card-3-head">Blogger</div>
+              <p>Choose templates to download and use it :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://drive.google.com/drive/folders/1PHHhT2eIjGvJsDStz2BMZ3rEmpF6zAUy?usp=sharing">Plus UI</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://drive.google.com/drive/folders/1Ij8M9eHCxQW_3UADnCbiFqongVZeFnfW?usp=sharing">Median
+                UI</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://drive.google.com/file/d/1BiAu7NzpXjw1VBLuIlHtlnso10YYfu3A/view?usp=sharing">Fletro Pro</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://drive.google.com/file/d/1uwYQ-1s_cGhfK_IQXXW2D_Ao5kV3SMWt/view?usp=sharing">iMagz</a>
+            </div>
+          </div>
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius" style="background-color: #fdf4dd;">
+              <div style="color: #7e6628;" class="card-3-head">HTML & CSS</div>
+              <p>Choose templates to download and use it :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://themewagon.com/theme-category/landing-website/?swoof=1&pa_price=free&paged=1&really_curr_tax=17-product_cat">Landing
+                Page</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://themewagon.com/theme-tag/portfolio-template/">Portfolio</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://themewagon.com/">Themewagon</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://www.free-css.com/">Free CSS</a>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="section-3" id="font">
+        <div class="heading-3 shake-bottom"><i class="fa-solid fa-pen-fancy"></i> Fonts & Icons</div><br><br>
+        <div class="grids-3">
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius" style="background-color: #dadbfb;">
+              <div class="card-3-head" style="color: #2c2e75;">Fonts</div>
+              <p>Choose stylish font to use it on your project :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://fonts.google.com/share?selection.family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">Poppins</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://fonts.google.com/share?selection.family=Gabarito:wght@400..900">Gabarito</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://fonts.google.com/share?selection.family=Momo+Trust+Display">Momo Trust Display</a>
+              <br><br><a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://fonts.google.com/">View all</a>
+            </div>
+          </div>
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius" style="background-color: #f9dae2;">
+              <div style="color: #691f33;" class="card-3-head">Icons</div>
+              <p>Choose stylish icon to use it on your project :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://tricks-project.blogspot.com/2024/01/full-set-svg-icons-for-median-ui-and.html">Blogger
+                Plus
+                UI</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://cdnjs.com/libraries/font-awesome">Apply fontawesome</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://fontawesome.com/search">Use fontawesome</a>
+
+            </div>
+          </div>
+          <div class="grid-3">
+            <img class="img-3" src="https://i.pinimg.com/736x/d4/06/17/d40617f9a3a8a8709fefa249ffa34140.jpg" alt="">
+          </div>
+        </div>
+      </div><br><br>
+
+      <div class="section-3" id="colo">
+        <div class="heading-3 shake-bottom"><i class="fa-solid fa-wand-magic-sparkles"></i> Colors & Illustration</div>
+        <br><br>
+        <div class="grids-3">
+          <div class="grid-3">
+            <img class="img-3" src="https://i.pinimg.com/1200x/be/75/76/be7576be08c7072ed9196d5053978324.jpg" alt="">
+          </div>
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius" style="background-color: #d6f5f8;">
+              <div class="card-3-head" style="color: #1f6268;">Colors</div>
+              <p>Choose site to use color on your project :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://coolors.co/">Coolors</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://colorhunt.co/">Colorhunt</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://colorffy.com/">Colorffy</a>
+            </div>
+          </div>
+          <div class="grid-3" style="align-content: center;">
+            <div class="card-3 radius" style="background-color: #e2ffd5;">
+              <div style="color: #265112;" class="card-3-head">Illustration</div>
+              <p>Choose site to use illustration on your project :</p><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://storyset.com/">Storyset</a>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://undraw.co/illustrations">Undraw</a><br><br>
+              <a target="_blank" class="card-btn" style="text-decoration: none; color: rgb(38, 32, 63);"
+                href="https://in.pinterest.com/">Pinterest</a>
+
+            </div>
+          </div>
+        </div>
+      </div><br><br>
+    </div>
+    <div class="section-4" id="usef">
+      <div class="heading-3 shake-bottom"><i class="fa-solid fa-heart-circle-check"></i> Useful site</div><br><br>
+      <div class="card-4 radius">
+        <div class="grids-4">
+          <div class="grid-4">
+            <p class="heading-4 radius">UI Design & Inspiration</p><br>
+            <a class="link-4" target="_blank" href="https://uiverse.io/">Uiverse</a>
+            <a class="link-4" target="_blank" href="https://design.dev/">Design.dev</a><br><br><br>
+            <a class="link-4" target="_blank" href="https://patterns.page/">Patterns Page</a>
+            <a class="link-4" target="_blank" href="https://freefrontend.com/">FreeFrontend</a><br><br>
+
+          </div>
+          <div class="grid-4">
+            <p class="heading-4 radius" style="background-color: #e0d8ff;">Developer Tools</p><br>
+
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://www.jsdelivr.com/github">JSDelivr
+              CDN</a>
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://10015.io/">10015
+              Tools</a><br><br><br>
+            <a class="link-4" style="color: #4533c0;" target="_blank" href="https://pairdrop.net/">PairDrop</a>
+            <a class="link-4" style="color: #4533c0;" target="_blank"
+              href="https://web3forms.com/#start">Web3Forms</a><br><br><br>
+              <a class="link-4" style="color: #4533c0;" target="_blank"
+              href="https://tools.vexax.com/tools/escape-unescape/html-escape-unescape-generator">HTML Tools</a><br><br>
+          </div>
+          <div class="grid-4">
+            <p class="heading-4 radius" style="background-color: #f7f6cd;">CSS & Animation</p><br>
+            <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);" href="https://animista.net/">Animista</a>
+            <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);"
+              href="https://kinetools.com/">Kinetools</a><br><br><br>
+            <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);"
+              href="https://gradienty.codes/">Gradienty</a><br><br><br>
+            <a class="link-4" target="_blank" style="color: rgb(60, 57, 25);" href="https://glass3d.dev/">Glass3D
+              Generator</a><br><br>
+          </div>
+          <div class="grid-4">
+            <p class="heading-4 radius" style="background-color: #d8f7cd;">Others site</p><br>
+            <a class="link-4" target="_blank" href="https://css-tricks.com/">CSS Tricks</a>
+            <a class="link-4" target="_blank" href="https://www.w3schools.com/">W3Schools</a><br><br><br>
+            <a class="link-4" target="_blank" href="https://www.ilovepdf.com/edit-pdf">PDF Editor</a>
+            <a class="link-4" target="_blank" href="https://github.com/">GitHub</a><br><br><br>
+            <a class="link-4" target="_blank" href="https://www.freeprivacypolicy.com/">Privacy Policy
+              Generator</a><br><br><br>
+          </div>
+          <div class="grid-4">
+            <p class="heading-4 radius" style="background-color: #d8f7cd;">Deploy Website</p><br>
+            <a class="link-4" target="_blank" href="https://vercel.com/">Vercel</a>
+            <a class="link-4" target="_blank" href="https://www.netlify.com/">Netlify</a><br><br><br>
+            <a class="link-4" target="_blank" href="https://render.com/">Render</a>
+            <a class="link-4" target="_blank" href="https://github.com/">GitHub</a><br><br><br>
+          </div>
+        </div>
+      </div>
+    </div><br><br><br>
+
+    <div class="section-5" id="comp">
+      <div class="heading-3 shake-bottom"><i class="fa-solid fa-cubes"></i> Components</div><br><br>
+      <div class="comp-cards">
+        <div class="comp-card">
+          <img class="comp-img" src="https://i.pinimg.com/1200x/05/21/1e/05211e97daed89bf46c9bb9eea1e4820.jpg" alt="">
+        </div>
+        <div class="comp-card">
+          <p class="comp-heading">Use readymade Components to build your website</p><br><br>
+          <p>Make a responsive website UI with CSS and make it attractive using our MACUI.</p>
+          <button class="comp-btn"><a target="_blank" href="">Explore MACUI Components</a></button>
+        </div>
+      </div>
+    </div>
+
+
+</body>
+
+</html>
