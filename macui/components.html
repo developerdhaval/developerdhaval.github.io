@@ -465,6 +465,24 @@
         border-radius: 1000px;
       }
     }
+
+    .btn-btn {
+      background-color: #e6e6e6;
+      border-radius: 200px;
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      font-weight: 500;
+      transition: all 0.3s ease-in-out;
+      width: fit-content;
+      border: none;
+      margin-top: 20px;
+    }
+
+    .btn-btn a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: 600;
+    }
   </style>
 </head>
 
@@ -474,6 +492,9 @@
       <p class="font-5 hero-text">Components Library</p>
       <p>Search components, preview them, and copy source code.</p>
       <input accesskey="s" type="text" class="search-box" id="searchInput" placeholder="Search component (Alt + S)" />
+      <button class="btn-btn"><a href="https://developerdhaval.github.io/macui/index.html"><i
+            class="fa-regular fa-circle-left"></i> Back to Home</a></button>
+
     </div>
     <div class="right-hero">
       <img class="hero-img radius" src="https://i.pinimg.com/1200x/c6/5f/9e/c65f9ed500fb983d82ab74935ccb5e09.jpg"
@@ -487,6 +508,307 @@
 
     <div class="library" id="library">
 
+            <section class="component">
+        <div class="component-header">
+          <h2>MACUI code v1.0</h2>
+          <p>A MACUI mega code with resposive design</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Mega Code</span>
+        </div>
+
+        <div class="preview">
+          <p>Loading screen</p>
+          <p>CSS Fonts (Lilita One, Momo Trust Display, Outfit, Gabarito, Luckiest Guy)</p>
+          <p>Grids CSS code</p>
+          <p>Radius Code</p>
+        </div>
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;MACUI&lt;/title&gt;
+  &lt;!-- CSS Link --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;#&quot;&gt;
+  &lt;!--[favicon]--&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;#&quot;&gt;
+  &lt;!--[font]--&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link
+    href=&quot;https://fonts.googleapis.com/css2?family=Lilita+One&amp;family=Momo+Trust+Display&amp;family=Outfit:wght@100..900&amp;display=swap&quot;
+    rel=&quot;stylesheet&quot;&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Luckiest+Guy&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;!--[Icon]--&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css&quot;
+    integrity=&quot;sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==&quot;
+    crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;!-- Script --&gt;
+  &lt;script&gt;
+    window.addEventListener(&quot;load&quot;, function () {
+      const loader = document.getElementById(&quot;loader&quot;);
+      if (loader) {
+        setTimeout(() =&gt; {
+          loader.style.opacity = &quot;0&quot;;
+          setTimeout(() =&gt; {
+            loader.style.display = &quot;none&quot;;
+          }, 400);
+        }, 1000); // 1 sec delay
+      }
+    });
+  &lt;/script&gt;
+
+  &lt;!-- MACUI Loader --&gt;
+  &lt;div id=&quot;loader&quot;&gt;
+    &lt;div class=&quot;loader&quot;&gt;
+      &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Add your content below --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>* {
+    font-family: "Gabarito", sans-serif;
+    font-weight: 400;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.font-1 {
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-2 {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-3 {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-4 {
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 4000;
+    font-style: normal;
+}
+
+.font-5 {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a,
+button,
+summary,
+label,
+details {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.radius {
+    corner-shape: squircle;
+}
+
+.grids {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grids-3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid-3 {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grids-4 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid-4 {
+    padding: 1px;
+}
+
+@media (min-width: 900px) {
+    .grids-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 600px) {
+    .grids-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ebebeb9a;
+    backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+/* From Uiverse.io by AbanoubMagdy1 */
+.loader {
+    --dim: 3rem;
+    width: var(--dim);
+    height: var(--dim);
+    position: relative;
+    animation: spin988 2s linear infinite;
+}
+
+.loader .circle {
+    --color: #333;
+    --dim: 1.2rem;
+    width: var(--dim);
+    height: var(--dim);
+    background-color: var(--color);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.loader .circle:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.loader .circle:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+
+.loader .circle:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+
+.loader .circle:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes spin988 {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    20%,
+    25% {
+        transform: scale(1.3) rotate(90deg);
+    }
+
+    45%,
+    50% {
+        transform: scale(1) rotate(180deg);
+    }
+
+    70%,
+    75% {
+        transform: scale(1.3) rotate(270deg);
+    }
+
+    95%,
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>Already included in HTML Code</code></pre>
+          </div>
+        </div>
+      </section>
+
       <section class="component">
         <div class="component-header">
           <h2>Navbar v1.0</h2>
@@ -495,70 +817,70 @@
 
         <div class="preview-bar">
           <span>Preview</span>
-          <span>Responsive</span>
+          <span>Navbar</span>
         </div>
 
         <div class="preview">
-            <!-- MACUI Navbar v1.0 -->
-  <nav class="navbar">
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <img style="width: 40px; border-radius: 10px;"
-        src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90"
-        alt="">
-      <a href="#home" class="logo">MACUI</a>
-    </div>
-    <ul class="desktop-links">
-      <li><a href="#home" class="active-link">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a class="nav-btn" href="#contact">Contact</a></li>
-    </ul>
-    <button class="menu-btn" onclick="openMobileMenu()" aria-label="Open menu">
-      <p style="color: white; font-size:20px;"><i class="fa-solid fa-grip-lines"></i></p>
-    </button>
-  </nav>
-  <div id="mobileMenu" class="mobile-modal">
-    <div class="mobile-modal-content">
-      <div class="mobile-modal-top">
-        <div class="mobile-modal-title">Menu</div>
-        <button class="close-btn" onclick="closeMobileMenu()" aria-label="Close menu">
-          &times;
-        </button>
-      </div>
-      <ul class="mobile-links">
-        <li><a href="#home" class="active-link">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+          <!-- MACUI Navbar v1.0 -->
+          <nav class="navbar">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <img style="width: 40px; border-radius: 10px;"
+                src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90"
+                alt="">
+              <a href="#home" class="logo">MACUI</a>
+            </div>
+            <ul class="desktop-links">
+              <li><a href="#home" class="active-link">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a class="nav-btn" href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-btn" onclick="openMobileMenu()" aria-label="Open menu">
+              <p style="color: white; font-size:20px;"><i class="fa-solid fa-grip-lines"></i></p>
+            </button>
+          </nav>
+          <div id="mobileMenu" class="mobile-modal">
+            <div class="mobile-modal-content">
+              <div class="mobile-modal-top">
+                <div class="mobile-modal-title">Menu</div>
+                <button class="close-btn" onclick="closeMobileMenu()" aria-label="Close menu">
+                  &times;
+                </button>
+              </div>
+              <ul class="mobile-links">
+                <li><a href="#home" class="active-link">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        
-  <script>
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileLinks = document.querySelectorAll(".mobile-links a");
 
-    function openMobileMenu() {
-      mobileMenu.classList.add("active");
-    }
+        <script>
+          const mobileMenu = document.getElementById("mobileMenu");
+          const mobileLinks = document.querySelectorAll(".mobile-links a");
 
-    function closeMobileMenu() {
-      mobileMenu.classList.remove("active");
-    }
+          function openMobileMenu() {
+            mobileMenu.classList.add("active");
+          }
 
-    mobileMenu.addEventListener("click", function (event) {
-      if (event.target === mobileMenu) {
-        closeMobileMenu();
-      }
-    });
+          function closeMobileMenu() {
+            mobileMenu.classList.remove("active");
+          }
 
-    mobileLinks.forEach(function (link) {
-      link.addEventListener("click", closeMobileMenu);
-    });
-  </script>
+          mobileMenu.addEventListener("click", function (event) {
+            if (event.target === mobileMenu) {
+              closeMobileMenu();
+            }
+          });
+
+          mobileLinks.forEach(function (link) {
+            link.addEventListener("click", closeMobileMenu);
+          });
+        </script>
 
 
         <div class="code-grid">
@@ -898,25 +1220,19 @@
 
       <section class="component">
         <div class="component-header">
-          <h2>Responsive Navbar</h2>
-          <p>A glass style navbar with simple responsive layout.</p>
+          <h2>Loading Screen</h2>
+          <p>A glass effect Loading Screen with simple responsive layout.</p>
         </div>
 
         <div class="preview-bar">
           <span>Preview</span>
-          <span>Navigation</span>
+          <span>Loader</span>
         </div>
 
         <div class="preview">
-          <nav class="demo-navbar">
-            <strong>Brand</strong>
-            <div>
-              <a href="#">Home</a>
-              <a href="#">About</a>
-              <a href="#">Work</a>
-              <a href="#">Contact</a>
-            </div>
-          </nav>
+          <p>Custom Loading screen</p>
+          <a style="text-decoration: none; color: white; background-color: #020617; padding: 8px 25px; border-radius: 20px;"
+            target="_blank" href="https://uiverse.io/loaders">Explore loading screen</a>
         </div>
 
         <div class="code-grid">
@@ -925,15 +1241,12 @@
               <span>HTML</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>&lt;nav class="glass-navbar"&gt;
-  &lt;strong&gt;Brand&lt;/strong&gt;
-  &lt;div&gt;
-    &lt;a href="#"&gt;Home&lt;/a&gt;
-    &lt;a href="#"&gt;About&lt;/a&gt;
-    &lt;a href="#"&gt;Work&lt;/a&gt;
-    &lt;a href="#"&gt;Contact&lt;/a&gt;
+            <pre><code>&lt;!-- MACUI Loader --&gt;
+  &lt;div id=&quot;loader&quot;&gt;
+    &lt;p&gt;Loading...&lt;/p&gt; 
+    &lt;!-- Add your loader code below --&gt;
   &lt;/div&gt;
-&lt;/nav&gt;</code></pre>
+            </code></pre>
           </div>
 
           <div class="code-box">
@@ -941,31 +1254,304 @@
               <span>CSS</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>.glass-navbar {
-  width: min(720px, 100%);
-  padding: 12px 16px;
-  border-radius: 16px;
-  background: rgba(17,24,39,0.72);
-  backdrop-filter: blur(14px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+            <pre><code>    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #ebebeb9a;
+      backdrop-filter: blur(25px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>  &lt;script&gt;
+    window.addEventListener(&quot;load&quot;, function () {
+      const loader = document.getElementById(&quot;loader&quot;);
+      if (loader) {
+        setTimeout(() =&gt; {
+          loader.style.opacity = &quot;0&quot;;
+          setTimeout(() =&gt; {
+            loader.style.display = &quot;none&quot;;
+          }, 400);
+        }, 1000); // 1 sec delay
+      }
+    });
+  &lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Custom Cursor</h2>
+          <p>A Custom Dot cursor with hover effect.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Cursor</span>
+        </div>
+
+        <div class="preview">
+          <p>Custom Dot Cursor</p>
+          <a style="text-decoration: underline; color: black; font-weight: 600;"
+            href="https://developerdhaval.github.io/macui/index.html">View Demo</a>
+        </div>
+
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code> &lt;!-- MACUI Custom Cursor v1.0 --&gt;
+    &lt;div class=&quot;custom-cursor&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;span&gt;Move&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>
+.custom-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: #000000;
+    color: #000000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+        background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+    z-index: 10000;
 }
 
-.glass-navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
+.custom-cursor span {
+    font-size: 8px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background: transparent;
 }
 
-@media (max-width: 700px) {
-  .glass-navbar {
+.custom-cursor.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-cursor.is-hovering {
+    width: 13px;
+    height: 13px;
+    background: #8f5ee3;
+    color: #ffffff;
+    z-index: 1000;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        display: flex;
+    }
+}
+</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;script&gt;
+    document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; {
+      const cursor = document.querySelector(&quot;.custom-cursor&quot;);
+      const cursorText = cursor ? cursor.querySelector(&quot;span&quot;) : null;
+      const canUseCustomCursor = window.matchMedia(&quot;(hover: hover) and (pointer: fine)&quot;).matches;
+
+      if (cursor &amp;&amp; cursorText &amp;&amp; canUseCustomCursor) {
+        window.addEventListener(&quot;mousemove&quot;, (event) =&gt; {
+          cursor.style.left = `${event.clientX}px`;
+          cursor.style.top = `${event.clientY}px`;
+          cursor.classList.add(&quot;is-visible&quot;);
+        });
+
+        window.addEventListener(&quot;mouseleave&quot;, () =&gt; {
+          cursor.classList.remove(&quot;is-visible&quot;);
+        });
+
+        document.addEventListener(&quot;mouseover&quot;, (event) =&gt; {
+          const hoverTarget = event.target.closest(&quot;a, button&quot;);
+
+          if (hoverTarget &amp;&amp; !hoverTarget.classList.contains(&quot;custom-cursor&quot;)) {
+            cursor.classList.add(&quot;is-hovering&quot;);
+            cursorText.textContent = hoverTarget.matches(&quot;a, button&quot;) ? &quot;C&quot; : &quot;V&quot;;
+          } else {
+            cursor.classList.remove(&quot;is-hovering&quot;);
+            cursorText.textContent = &quot;M&quot;;
+          }
+        });
+      }
+    });
+
+    document.addEventListener(&#39;click&#39;, function (event) {
+      document.querySelectorAll(&#39;.dropdown&#39;).forEach(dropdown =&gt; {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute(&#39;open&#39;);
+        }
+      });
+    });
+
+  &lt;/script&gt;
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Hero Section v1.0</h2>
+          <p>A Hero page with responsive design.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Hero Section</span>
+        </div>
+
+        <div class="preview">
+          <!-- Hero section -->
+          <div class="hero-section">
+            <div class="left-hero">
+              <p class="font-5 hero-text">Build a beautiful UI design with MACUI</p>
+              <p>We use the latest technologies to create the best user experience. Use MACUI for your next project and
+                see the
+                difference.</p>
+              <button class="hero-btn radius"><a target="_blank" href="#">Get Started</a></button>
+            </div>
+            <div class="right-hero">
+              <img class="hero-img radius"
+                src="https://i.pinimg.com/1200x/4c/aa/f9/4caaf99d85ff6e09bb0a24eae2e67b9f.jpg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>  &lt;!-- Hero section --&gt;
+  &lt;div class=&quot;hero-section&quot;&gt;
+    &lt;div class=&quot;left-hero&quot;&gt;
+      &lt;p class=&quot;font-5 hero-text&quot;&gt;Build a beautiful UI design with MACUI&lt;/p&gt;
+      &lt;p&gt;We use the latest technologies to create the best user experience. Use MACUI for your next project and see the
+        difference.&lt;/p&gt;
+      &lt;button class=&quot;hero-btn radius&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;#&quot;&gt;Get Started&lt;/a&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;right-hero&quot;&gt;
+      &lt;img class=&quot;hero-img radius&quot; src=&quot;https://i.pinimg.com/1200x/4c/aa/f9/4caaf99d85ff6e09bb0a24eae2e67b9f.jpg&quot;
+        alt=&quot;&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>
+.hero-text {
+    font-size: 55px;
+    margin-bottom: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #351659;
+}
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    padding: 8% 10%;
+}
+
+.left-hero {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
+    justify-content: center;
+    gap: 10px;
+}
+
+.right-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-btn {
+    background-color: rgb(74, 46, 128);
+    border-radius: 200px;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    width: fit-content;
+    border: none;
+}
+
+.hero-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.hero-btn:hover {
+    box-shadow: 4px 4px black;
+    transform: translateY(-2px);
+}
+
+.hero-img {
+    width: 100%;
+    border-radius: 80px;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hero-text {
+        font-size: 40px;
+    }
 }</code></pre>
           </div>
 
@@ -974,12 +1560,546 @@
               <span>JS</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>// Add menu toggle JavaScript here if needed.</code></pre>
+            <pre><code>No JS Required</code></pre>
           </div>
         </div>
       </section>
 
       <section class="component">
+        <div class="component-header">
+          <h2>Modal Box</h2>
+          <p>A Modal Box with responsive design.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Modal Box</span>
+        </div>
+
+        <div class="preview">
+          <!-- Buttons to open modals -->
+          <button class="button" onclick="openModal('modal1')">Open Modal 1</button>
+          <button class="button" onclick="openModal('modal2')">Open Modal 2</button>
+
+          <!-- Modal 1 -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <button class="close" onclick="closeModal('modal1')">Close</button>
+              <h2>Modal 1</h2>
+              <p>This is the content inside the first modal.</p>
+            </div>
+          </div>
+
+          <!-- Modal 2 -->
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <button class="close" onclick="closeModal('modal2')">&times;</button>
+              <h2>Modal 2</h2>
+              <p>This is the content inside the second modal.</p>
+            </div>
+          </div>
+        </div>
+        <script>
+          function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+          }
+
+          function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+          }
+
+          document.addEventListener("click", function (event) {
+            const modal = document.getElementById("modal2");
+            const modalContent = modal.querySelector(".modal-content");
+
+            if (event.target === modal) {
+              closeModal("modal2");
+            }
+
+            if (modalContent.contains(event.target) && event.target.tagName === "A") {
+              closeModal("modal2");
+            }
+          });
+          function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('show');
+            document.body.classList.add('no-scroll'); // 🔒 Disable scroll
+          }
+
+          function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = modal.querySelector('.modal-content');
+            content.style.transform = 'scale(0.95)';
+            content.style.opacity = '0';
+
+            setTimeout(() => {
+              modal.classList.remove('show');
+              document.body.classList.remove('no-scroll'); // 🔓 Enable scroll
+              content.style.transform = '';
+              content.style.opacity = '';
+            }, 300);
+          }
+
+          // Close on outside click
+          window.addEventListener('click', function (e) {
+            document.querySelectorAll('.modal').forEach(modal => {
+              if (!modal.classList.contains('show')) return;
+              if (e.target === modal) {
+                closeModal(modal.id);
+              }
+            });
+          });
+
+          // Close on ESC key
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+              document.querySelectorAll('.modal.show').forEach(modal => {
+                closeModal(modal.id);
+              });
+            }
+          });
+        </script>
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;!-- Buttons to open modals --&gt;
+  &lt;button class=&quot;button&quot; onclick=&quot;openModal(&#39;modal1&#39;)&quot;&gt;Open Modal 1&lt;/button&gt;
+  &lt;button class=&quot;button&quot; onclick=&quot;openModal(&#39;modal2&#39;)&quot;&gt;Open Modal 2&lt;/button&gt;
+
+  &lt;!-- Modal 1 --&gt;
+  &lt;div id=&quot;modal1&quot; class=&quot;modal&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;button class=&quot;close&quot; onclick=&quot;closeModal(&#39;modal1&#39;)&quot;&gt;Close&lt;/button&gt;
+      &lt;h2&gt;Modal 1&lt;/h2&gt;
+      &lt;p&gt;This is the content inside the first modal.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Modal 2 --&gt;
+  &lt;div id=&quot;modal2&quot; class=&quot;modal&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;button class=&quot;close&quot; onclick=&quot;closeModal(&#39;modal2&#39;)&quot;&gt;&amp;times;&lt;/button&gt;
+      &lt;h2&gt;Modal 2&lt;/h2&gt;
+      &lt;p&gt;This is the content inside the second modal.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>.button {
+    background-color: #7e51e8;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 10px 30px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    box-shadow: 4px 4px black;
+    transform: translateY(-2px);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(98, 112, 138, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: rgba(57, 57, 57, 0.412);
+    border: 1px solid rgba(41, 41, 41, 0.471);
+    color: white;
+    padding: 24px;
+    border-radius: 24px;
+    width: 80%;
+    box-shadow: 0 8px 30px rgba(82, 82, 82, 0.5);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 15px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    border: 1px solid rgb(86, 86, 86);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.close:hover {
+    background-color: black;
+    border-radius: 20px;
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>  &lt;script&gt;
+    function openModal(id) {
+      document.getElementById(id).style.display = &quot;flex&quot;;
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = &quot;none&quot;;
+    }
+
+    document.addEventListener(&quot;click&quot;, function (event) {
+      const modal = document.getElementById(&quot;modal2&quot;);
+      const modalContent = modal.querySelector(&quot;.modal-content&quot;);
+
+      if (event.target === modal) {
+        closeModal(&quot;modal2&quot;);
+      }
+
+      if (modalContent.contains(event.target) &amp;&amp; event.target.tagName === &quot;A&quot;) {
+        closeModal(&quot;modal2&quot;);
+      }
+    });
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add(&#39;show&#39;);
+      document.body.classList.add(&#39;no-scroll&#39;); // 🔒 Disable scroll
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      const content = modal.querySelector(&#39;.modal-content&#39;);
+      content.style.transform = &#39;scale(0.95)&#39;;
+      content.style.opacity = &#39;0&#39;;
+
+      setTimeout(() =&gt; {
+        modal.classList.remove(&#39;show&#39;);
+        document.body.classList.remove(&#39;no-scroll&#39;); // 🔓 Enable scroll
+        content.style.transform = &#39;&#39;;
+        content.style.opacity = &#39;&#39;;
+      }, 300);
+    }
+
+    // Close on outside click
+    window.addEventListener(&#39;click&#39;, function (e) {
+      document.querySelectorAll(&#39;.modal&#39;).forEach(modal =&gt; {
+        if (!modal.classList.contains(&#39;show&#39;)) return;
+        if (e.target === modal) {
+          closeModal(modal.id);
+        }
+      });
+    });
+
+    // Close on ESC key
+    document.addEventListener(&#39;keydown&#39;, function (e) {
+      if (e.key === &#39;Escape&#39;) {
+        document.querySelectorAll(&#39;.modal.show&#39;).forEach(modal =&gt; {
+          closeModal(modal.id);
+        });
+      }
+    });
+  &lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Code Box</h2>
+          <p>A code box with copy button</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Code Box</span>
+        </div>
+
+        <div class="preview">
+          <!-- Copy Notification -->
+          <div id="new-toast" class="new-toast"></div>
+          <!-- Code Box 1 -->
+          <div class="code-container">
+            <div class="code-header">
+              <h3>HTML Code</h3>
+              <button class="copy-button" data-target="code-content1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="copy-icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+            <!--Add Your Parse HTML, CSS and Js code Here-->
+            <div id="code-content1" class="code-block">
+              <pre>&lt;p&gt;This is code&lt;/p&gt;</pre>
+            </div>
+          </div>
+
+        </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const copyButtons = document.querySelectorAll('.copy-button');
+  
+  copyButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const targetId = button.getAttribute('data-target');
+      copyCode(targetId, button);
+    });
+  });
+});
+
+function copyCode(contentId, button) {
+  const content = document.getElementById(contentId);
+  const range = document.createRange();
+  const selection = window.getSelection();
+
+  selection.removeAllRanges();
+  range.selectNodeContents(content);
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
+    showToast("Code copied to clipboard!", "success");
+    button.classList.add("copied");
+  } catch (err) {
+    console.error("Failed to copy", err);
+    showToast("Failed to copy the code!", "error");
+  }
+
+  selection.removeAllRanges();
+  setTimeout(() => button.classList.remove("copied"), 2000);
+}
+
+function showToast(message, type = "info") {
+  const toast = document.getElementById("new-toast");
+  toast.textContent = message;
+  toast.classList.add("show", type);
+
+  setTimeout(() => toast.classList.remove("show", type), 3000);
+}
+</script>
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;!-- Copy Notification --&gt;
+&lt;div id=&quot;new-toast&quot; class=&quot;new-toast&quot;&gt;&lt;/div&gt;
+  &lt;!-- Code Box 1 --&gt;
+&lt;div class=&quot;code-container&quot;&gt;
+  &lt;div class=&quot;code-header&quot;&gt;
+    &lt;h3&gt;HTML Code&lt;/h3&gt;
+    &lt;button class=&quot;copy-button&quot; data-target=&quot;code-content1&quot;&gt;
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;copy-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;
+        &lt;rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;&gt;&lt;/rect&gt;
+        &lt;path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;&gt;&lt;/path&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+   &lt;!--Add Your Parse HTML, CSS and Js code Here--&gt;
+  &lt;div id=&quot;code-content1&quot; class=&quot;code-block&quot;&gt;
+    &lt;pre&gt;&amp;lt;p&amp;gt;This is code&amp;lt;/p&amp;gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>.code-container {
+  position: relative;
+  background: #ededed;
+  border: 1px solid #8d8d8d;
+  border-radius: 18px;
+  padding: 10px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #767676;
+}
+
+.code-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: system-ui;
+  font-weight: 700;
+  color: #333;
+}
+
+.copy-button {
+  background-color: transparent;
+  border: 1px solid #727272;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.copy-button:hover {
+  background-color: #cecece;
+  border-color: #ccc;
+}
+
+.copy-button.copied {
+  background-color: #30303098;
+  backdrop-filter: blur(15px);
+  border-color: #2d2d2d;
+  color: #fff;
+}
+
+.copy-icon {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+.code-block {
+  padding: 10px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #333333;
+  overflow-x: auto;
+  margin-top: 5px;
+}
+
+.new-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333333a3;
+  backdrop-filter: blur(15px);
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+  z-index: 9999;
+}
+
+.new-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease;
+}
+
+.new-toast.success {
+  background-color: #323232a0;
+  backdrop-filter: blur(15px);
+}
+
+.new-toast.error {
+  background-color: #dc3545;
+}
+
+.new-toast.info {
+  background-color: #17a2b8;
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;script&gt;
+document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+  const copyButtons = document.querySelectorAll(&#39;.copy-button&#39;);
+  
+  copyButtons.forEach(button =&gt; {
+    button.addEventListener(&#39;click&#39;, function () {
+      const targetId = button.getAttribute(&#39;data-target&#39;);
+      copyCode(targetId, button);
+    });
+  });
+});
+
+function copyCode(contentId, button) {
+  const content = document.getElementById(contentId);
+  const range = document.createRange();
+  const selection = window.getSelection();
+
+  selection.removeAllRanges();
+  range.selectNodeContents(content);
+  selection.addRange(range);
+
+  try {
+    document.execCommand(&quot;copy&quot;);
+    showToast(&quot;Code copied to clipboard!&quot;, &quot;success&quot;);
+    button.classList.add(&quot;copied&quot;);
+  } catch (err) {
+    console.error(&quot;Failed to copy&quot;, err);
+    showToast(&quot;Failed to copy the code!&quot;, &quot;error&quot;);
+  }
+
+  selection.removeAllRanges();
+  setTimeout(() =&gt; button.classList.remove(&quot;copied&quot;), 2000);
+}
+
+function showToast(message, type = &quot;info&quot;) {
+  const toast = document.getElementById(&quot;new-toast&quot;);
+  toast.textContent = message;
+  toast.classList.add(&quot;show&quot;, type);
+
+  setTimeout(() =&gt; toast.classList.remove(&quot;show&quot;, type), 3000);
+}
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+
+            <section class="component">
         <div class="component-header">
           <h2>Primary Button</h2>
           <p>A rounded action button with hover effect.</p>
@@ -1000,7 +2120,7 @@
               <span>HTML</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>&lt;button class="primary-btn"&gt;Download Now&lt;/button&gt;</code></pre>
+            <pre><code>Past</code></pre>
           </div>
 
           <div class="code-box">
@@ -1008,22 +2128,7 @@
               <span>CSS</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>.primary-btn {
-  border: 0;
-  padding: 14px 22px;
-  border-radius: 999px;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.primary-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-}</code></pre>
+            <pre><code>Past</code></pre>
           </div>
 
           <div class="code-box">
@@ -1031,9 +2136,7 @@
               <span>JS</span>
               <button class="copy-btn">Copy</button>
             </div>
-            <pre><code>document.querySelector(".primary-btn").addEventListener("click", function () {
-  alert("Button clicked!");
-});</code></pre>
+            <pre><code>Past</code></pre>
           </div>
         </div>
       </section>
@@ -1041,7 +2144,7 @@
     </div>
 
     <div class="empty" id="emptyMessage">
-      No component found.
+      <i class="fa-solid fa-circle-exclamation"></i> No component found.
     </div>
   </main>
 
