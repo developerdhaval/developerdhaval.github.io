@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MACUI - Components</title>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="/macui/components.css">
+  <!--[favicon]-->
+  <link rel="icon" type="image/x-icon"
+    href="https://blogger.googleusercontent.com/img/a/AVvXsEjsJ7twQoI89h9MkkvRwVrzyvElk-YFLF32Xqq9Gx-dUXsxClTcox7DNAo3B6M-VI4F3uLSCDOcoalRrhxb5B51IPFeWr7o2hLc4copdR7fImRms2GNFzGbwfjpHKtykCamXn6ZtB2ziR0NGFYSu_q8tSiHJUhgr4-ntql3IydRLrKc4W2chnOXFVTz7pGs=s512">
+  <!--[font]-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Momo+Trust+Display&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <!--[Icon]-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --hover: #925ff8;
+      --btn: #7838f8;
+    }
+
+    * {
+      font-family: "Outfit", sans-serif;
+      font-weight: 400;
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+      overflow-x: hidden;
+
+    }
+
+    .font-1 {
+      font-family: "Momo Trust Display", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .font-2 {
+      font-family: "Lilita One", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .font-3 {
+      font-family: "Outfit", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .font-4 {
+      font-family: "Gabarito", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 4000;
+      font-style: normal;
+    }
+
+    .font-5 {
+      font-family: "Luckiest Guy", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .radius {
+      corner-shape: squircle;
+    }
+
+    .grids {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 1rem;
+    }
+
+    .grid {
+      padding: 1px;
+    }
+
+    @media (min-width: 900px) {
+      .grids {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 600px) {
+      .grids {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .grids-3 {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 1rem;
+    }
+
+    .grid-3 {
+      padding: 1px;
+    }
+
+    @media (min-width: 900px) {
+      .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 600px) {
+      .grids-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .grids-4 {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 1rem;
+    }
+
+    .grid-4 {
+      padding: 1px;
+    }
+
+    @media (min-width: 900px) {
+      .grids-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 600px) {
+      .grids-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    .app {
+      width: min(1200px, 100% - 32px);
+      margin: auto;
+      padding: 32px 0;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .topbar h1 {
+      font-size: clamp(28px, 4vw, 46px);
+    }
+
+    .search-box {
+      width: min(360px, 100%);
+      height: 46px;
+      padding: 0 16px;
+      border: 1px solid #7142c3;
+      box-shadow: 4px 4px rgb(127, 88, 163);
+      border-radius: 12px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .search-box:focus {
+      border-color: #5a25eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .library {
+      display: grid;
+      gap: 26px;
+    }
+
+    .component {
+      background: #e8e4fb;
+      border: 1px solid #474747;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      box-shadow: 10px 10px rgb(211, 201, 231);
+      margin-bottom: 100px;
+    }
+
+    .component-header {
+      padding: 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .component-header h2 {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .component-header p {
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    .preview-bar {
+      padding: 10px 16px;
+      background: #6a4ea2;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .preview {
+      padding: 34px 20px;
+      background:
+        linear-gradient(135deg, #dbeafe, #fce7f3);
+      display: grid;
+      place-items: center;
+      min-height: 180px;
+    }
+
+    .demo-card {
+      width: min(360px, 100%);
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .demo-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .demo-card p {
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .demo-card button,
+    .demo-btn {
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .demo-navbar {
+      width: min(720px, 100%);
+      min-height: 64px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: rgba(17, 24, 39, 0.72);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: #ffffff;
+    }
+
+    .demo-navbar strong {
+      font-size: 20px;
+    }
+
+    .demo-navbar div {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .demo-navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+    }
+
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #e5e7eb;
+    }
+
+    .code-box {
+      background: #0f172a;
+      color: #e5e7eb;
+      min-width: 0;
+    }
+
+    .code-top {
+      height: 44px;
+      padding: 0 12px;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .copy-btn {
+      border: 0;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    pre {
+      max-height: 260px;
+      overflow: auto;
+      padding: 16px;
+      font-size: 13px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .empty {
+      display: none;
+      padding: 42px 20px;
+      text-align: center;
+      background: #ffffff;
+      border: 1px dashed #cbd5e1;
+      border-radius: 16px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 900px) {
+      .code-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-navbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .demo-navbar div {
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-btn {
+      background-color: var(--btn);
+      border-radius: 200px;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 500;
+      transition: all 0.3s ease-in-out;
+      width: fit-content;
+      border: none;
+    }
+
+    .hero-btn a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .hero-btn:hover {
+      box-shadow: 4px 4px black;
+    }
+
+    .hero-text {
+      font-size: 50px;
+      margin-bottom: 0;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #351659;
+      font-weight: 700;
+    }
+
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      padding: 5% 11%;
+    }
+
+    .left-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .right-hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-img {
+      width: 80%;
+      border-radius: 800px;
+    }
+
+    .radius {
+      corner-shape: squircle;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero-text {
+        font-size: 40px;
+      }
+
+      .hero-img {
+        width: 100%;
+        border-radius: 1000px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero-section">
+    <div class="left-hero">
+      <p class="font-5 hero-text">Components Library</p>
+      <p>Search components, preview them, and copy source code.</p>
+      <input accesskey="s" type="text" class="search-box" id="searchInput" placeholder="Search component (Alt + S)" />
+    </div>
+    <div class="right-hero">
+      <img class="hero-img radius" src="https://i.pinimg.com/1200x/c6/5f/9e/c65f9ed500fb983d82ab74935ccb5e09.jpg"
+        alt="">
+    </div>
+  </div>
+  <p style="border-top: 1px solid black;"></p>
+
+  <main class="app">
+
+
+    <div class="library" id="library">
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Navbar v1.0</h2>
+          <p>A modern glass effect Navbar component.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Responsive</span>
+        </div>
+
+        <div class="preview">
+            <!-- MACUI Navbar v1.0 -->
+  <nav class="navbar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img style="width: 40px; border-radius: 10px;"
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90"
+        alt="">
+      <a href="#home" class="logo">MACUI</a>
+    </div>
+    <ul class="desktop-links">
+      <li><a href="#home" class="active-link">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a class="nav-btn" href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-btn" onclick="openMobileMenu()" aria-label="Open menu">
+      <p style="color: white; font-size:20px;"><i class="fa-solid fa-grip-lines"></i></p>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="mobile-modal">
+    <div class="mobile-modal-content">
+      <div class="mobile-modal-top">
+        <div class="mobile-modal-title">Menu</div>
+        <button class="close-btn" onclick="closeMobileMenu()" aria-label="Close menu">
+          &times;
+        </button>
+      </div>
+      <ul class="mobile-links">
+        <li><a href="#home" class="active-link">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+        </div>
+        
+  <script>
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = document.querySelectorAll(".mobile-links a");
+
+    function openMobileMenu() {
+      mobileMenu.classList.add("active");
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove("active");
+    }
+
+    mobileMenu.addEventListener("click", function (event) {
+      if (event.target === mobileMenu) {
+        closeMobileMenu();
+      }
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener("click", closeMobileMenu);
+    });
+  </script>
+
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;!-- MACUI Navbar v1.0 --&gt;
+&nbsp; &lt;nav class=&quot;navbar&quot;&gt;
+&nbsp; &nbsp; &lt;div style=&quot;display: flex; align-items: center; gap: 10px;&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;img style=&quot;width: 40px; border-radius: 10px;&quot;
+&nbsp; &nbsp; &nbsp; &nbsp; src=&quot;https://blogger.googleusercontent.com/img/a/AVvXsEgz7-UcxUZ4dHEhcgpvCB9_TSq1EJMwvp5HS0fCVLGp6znv9tToEdh7UGHcKlgQiZa1_3Qs0skw60JmyMFhU62WzBlYI-UyuZ5twc_MrUNiw5FlBiX3xEiyGb8zr-w4liXf0J4DxTgOvTISTeF6frgfUOc6pH2l2xnhx0UkAhTNui_UNMLy-RJKAO1m6bV3=w150-h150-p-k-no-nu-rw-e90&quot;
+&nbsp; &nbsp; &nbsp; &nbsp; alt=&quot;&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;a href=&quot;#home&quot; class=&quot;logo&quot;&gt;MACUI&lt;/a&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;ul class=&quot;desktop-links&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#home&quot; class=&quot;active-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#services&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#work&quot;&gt;Work&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a class=&quot;nav-btn&quot; href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &lt;/ul&gt;
+&nbsp; &nbsp; &lt;button class=&quot;menu-btn&quot; onclick=&quot;openMobileMenu()&quot; aria-label=&quot;Open menu&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;p style=&quot;color: white; font-size:20px;&quot;&gt;&lt;i class=&quot;fa-solid fa-grip-lines&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&nbsp; &nbsp; &lt;/button&gt;
+&nbsp; &lt;/nav&gt;
+&nbsp; &lt;div id=&quot;mobileMenu&quot; class=&quot;mobile-modal&quot;&gt;
+&nbsp; &nbsp; &lt;div class=&quot;mobile-modal-content&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;mobile-modal-top&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;mobile-modal-title&quot;&gt;Menu&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;close-btn&quot; onclick=&quot;closeMobileMenu()&quot; aria-label=&quot;Close menu&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;times;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;
+&nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &lt;ul class=&quot;mobile-links&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#home&quot; class=&quot;active-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#services&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#work&quot;&gt;Work&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&nbsp; &nbsp; &nbsp; &lt;/ul&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &lt;/div&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>.navbar {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1120px, calc(100% - 32px));
+    height: 72px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 18px;
+    border: 1px solid rgba(56, 56, 56, 0.24);
+    background: rgb(225, 227, 255);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 20px 45px rgba(93, 93, 93, 0.2);
+    z-index: 1000;
+}
+
+.logo {
+    color: #000000;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.desktop-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn {
+    background-color: #c6b8f2;
+}
+
+.desktop-links a {
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.desktop-links a:hover {
+    background: rgba(62, 62, 62, 0.18);
+}
+
+.menu-btn {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #000000;
+    border: 2px solid black;
+    position: relative;
+}
+
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    content: "";
+    transform: translateX(-50%);
+    transition: 0.3s ease;
+}
+
+.menu-btn span {
+    top: 50%;
+}
+
+.menu-btn span::before {
+    top: -7px;
+}
+
+.menu-btn span::after {
+    top: 7px;
+}
+
+.mobile-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(21, 23, 30, 0.208);
+    backdrop-filter: blur(14px) saturate(170%);
+    -webkit-backdrop-filter: blur(14px) saturate(170%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.35s ease;
+}
+
+.mobile-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-modal-content {
+    width: min(420px, 100%);
+    padding: 28px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: translateY(18px) scale(0.96);
+    transition: 0.35s ease;
+}
+
+.mobile-modal.active .mobile-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.mobile-modal-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.mobile-modal-title {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.close-btn {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mobile-links a {
+    width: 100%;
+    height: 56px;
+    padding: 0 18px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.12);
+    transition: 0.3s ease;
+}
+
+.mobile-links a:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateX(4px);
+}
+
+.mobile-links .active-link {
+    background: #ffffff;
+    color: #111827;
+}
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 130px 24px 40px;
+}
+
+.hero h1 {
+    max-width: 900px;
+    font-size: clamp(42px, 8vw, 86px);
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 16px;
+        width: calc(100% - 28px);
+        height: 66px;
+        padding: 0 14px 0 20px;
+        border-radius: 18px;
+    }
+
+    .desktop-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .mobile-modal {
+        padding: 0;
+    }
+
+    .mobile-modal-content {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        padding: 26px 22px;
+        background: rgba(15, 23, 42, 0.68);
+        backdrop-filter: blur(28px) saturate(180%);
+        -webkit-backdrop-filter: blur(28px) saturate(180%);
+    }
+
+    .mobile-modal-top {
+        margin-bottom: 48px;
+    }
+
+    .mobile-links {
+        gap: 16px;
+    }
+
+    .mobile-links a {
+        height: 62px;
+        border-radius: 18px;
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-modal {
+        display: none;
+    }
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;script&gt;
+&nbsp; &nbsp; const mobileMenu = document.getElementById(&quot;mobileMenu&quot;);
+&nbsp; &nbsp; const mobileLinks = document.querySelectorAll(&quot;.mobile-links a&quot;);
+
+&nbsp; &nbsp; function openMobileMenu() {
+&nbsp; &nbsp; &nbsp; mobileMenu.classList.add(&quot;active&quot;);
+&nbsp; &nbsp; }
+
+&nbsp; &nbsp; function closeMobileMenu() {
+&nbsp; &nbsp; &nbsp; mobileMenu.classList.remove(&quot;active&quot;);
+&nbsp; &nbsp; }
+
+&nbsp; &nbsp; mobileMenu.addEventListener(&quot;click&quot;, function (event) {
+&nbsp; &nbsp; &nbsp; if (event.target === mobileMenu) {
+&nbsp; &nbsp; &nbsp; &nbsp; closeMobileMenu();
+&nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; });
+
+&nbsp; &nbsp; mobileLinks.forEach(function (link) {
+&nbsp; &nbsp; &nbsp; link.addEventListener(&quot;click&quot;, closeMobileMenu);
+&nbsp; &nbsp; });
+&nbsp; &lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Responsive Navbar</h2>
+          <p>A glass style navbar with simple responsive layout.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Navigation</span>
+        </div>
+
+        <div class="preview">
+          <nav class="demo-navbar">
+            <strong>Brand</strong>
+            <div>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Work</a>
+              <a href="#">Contact</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;nav class="glass-navbar"&gt;
+  &lt;strong&gt;Brand&lt;/strong&gt;
+  &lt;div&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Work&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>.glass-navbar {
+  width: min(720px, 100%);
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(17,24,39,0.72);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.glass-navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+}
+
+@media (max-width: 700px) {
+  .glass-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>// Add menu toggle JavaScript here if needed.</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="component">
+        <div class="component-header">
+          <h2>Primary Button</h2>
+          <p>A rounded action button with hover effect.</p>
+        </div>
+
+        <div class="preview-bar">
+          <span>Preview</span>
+          <span>Button</span>
+        </div>
+
+        <div class="preview">
+          <button class="demo-btn">Download Now</button>
+        </div>
+
+        <div class="code-grid">
+          <div class="code-box">
+            <div class="code-top">
+              <span>HTML</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;button class="primary-btn"&gt;Download Now&lt;/button&gt;</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>CSS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>.primary-btn {
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}</code></pre>
+          </div>
+
+          <div class="code-box">
+            <div class="code-top">
+              <span>JS</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><code>document.querySelector(".primary-btn").addEventListener("click", function () {
+  alert("Button clicked!");
+});</code></pre>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="empty" id="emptyMessage">
+      No component found.
+    </div>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const components = document.querySelectorAll(".component");
+    const emptyMessage = document.getElementById("emptyMessage");
+
+    searchInput.addEventListener("input", function () {
+      const value = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+
+      components.forEach(function (component) {
+        const heading = component.querySelector("h2").innerText.toLowerCase();
+
+        if (heading.includes(value)) {
+          component.classList.remove("hide");
+          visibleCount++;
+        } else {
+          component.classList.add("hide");
+        }
+      });
+
+      emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+    });
+
+    document.querySelectorAll(".copy-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const code = button.closest(".code-box").querySelector("code").innerText;
+
+        navigator.clipboard.writeText(code).then(function () {
+          button.innerText = "Copied";
+
+          setTimeout(function () {
+            button.innerText = "Copy";
+          }, 1200);
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
