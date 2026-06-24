@@ -2,167 +2,423 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhaval Mandaviya</title>
-    <link rel="stylesheet" href="portfolio.css">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhaval Mandaviya | Web Developer & UI/UX Designer</title>
+  
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="portfolio.css">
+  
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="#">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Momo+Trust+Display&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  
+  <!-- Icons (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!--Navbar -->
-    <nav>
-        <div class="navbar">
-            <a href="#" class="logo">Mr.MD</a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#social">Social media</a>
-            </div>
-            <a class="navbtn" href="#contact">Contact <i style="background-color: transparent;"
-                    class="fa-solid fa-envelope"></i></a>
-        </div>
+  <!-- MACUI Loader -->
+  <div id="loader">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <div class="pattern-background-1" id="home">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="#home" class="logo font-5">Mr.MD</a>
+      </div>
+      <ul class="desktop-links">
+        <li><a href="#home" class="active-link">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a class="nav-btn" href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-btn" onclick="openMobileMenu()" aria-label="Open menu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
     </nav>
 
-    <!-- Title page1 -->
-    <div class="container">
-        <div class="mimgc2"><img class="mimg2" src="https://i.pinimg.com/736x/02/39/d1/0239d19d20b4f93d93785c829b04f1b1.jpg" alt=""></div>
-        <p class="title">Dhaval Mandaviya</p>
-        <div class="text-changer">
-            <p class="intro-text">I am a</p>
-            <div class="roles-container">
-                <span class="role">Web Developer</span>
-                <span class="role">Web Designer</span>
-                <span class="role">Editor</span>
-            </div>
+    <!-- Mobile Menu Modal -->
+    <div id="mobileMenu" class="mobile-modal">
+      <div class="mobile-modal-content">
+        <div class="mobile-modal-top">
+          <div class="mobile-modal-title">Menu</div>
+          <button class="close-btn" onclick="closeMobileMenu()" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
-        <p class="mini-text1">Hey, I am a Dhaval Mandaviya. I like to do something great & new things!</p>
-        <br>
-        <center><a class="btn" href="#">Contact for your Work <i
-                    style="background-color: transparent;" style="color: rgb(234, 234, 234);"
-                    class="fa-solid fa-square-arrow-up-right"></i></a></center><br>
-        <p style="border-top: 1px solid rgba(255, 255, 255, 0.281);"></p>
-        <div class="mimgc"><img class="mimg" src="https://i.pinimg.com/736x/95/5a/aa/955aaaefc7cc624ef84f336be75002de.jpg" alt=""></div>
-    </div><br>
-
-     <!-- Experience -->
-  <div class="page2" id="experience">
-    <div class="mimgc3"><img class="mimg3" src="https://i.pinimg.com/1200x/86/6c/27/866c2782277d83bdb01708b79e4f74a0.jpg" alt=""></div>
-    <center><div class="title2">Experience</div><br>
-    <div class="para">Explore my skills and services:</div></center><br>
-    <div class="grids">
-        <div class="grid">
-            <div class="note">
-                <p class="ntitle"><i class="fa-brands fa-html5"></i> HTML</p>
-                <p style="background-color: transparent;">As an HTML developer, I see HTML (HyperText Markup Language) as the backbone of every website I build. It is not just a language but a way to structure ideas into a clear and meaningful layout that browsers can understand.</p>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="note">
-                <p class="ntitle"><i class="fa-brands fa-css"></i> CSS</p>
-                <p style="background-color: transparent;">As a CSS developer, I see CSS (Cascading Style Sheets) as the creative layer that brings life to a webpage. While HTML provides the structure, I use CSS to control the design, layout, colors, fonts, and responsiveness of the site.</p>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="note">
-                <p class="ntitle"><i class="fa-solid fa-code"></i> Web Development</p>
-                <p  style="background-color: transparent;">As someone with web development skills, I see web development as the process of turning ideas into functional and engaging digital experiences. I work with technologies like HTML to structure content, CSS to design and style it.</p>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="note">
-                <p class="ntitle"><i class="fa-solid fa-wand-magic-sparkles"></i> Video/Photo Editing</p>
-                <p style="background-color: transparent;">As a video or photo editor, I see my work as transforming ordinary images into visually compelling stories. I focus on enhancing colors, adjusting lighting, refining details, and correcting imperfections to bring out the best in every photo.</p>
-            </div>
-        </div>
+        <ul class="mobile-links">
+          <li><a href="#home" class="active-link">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#social">Social</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-  </div><br>
-  
-   <div class="page3">
-   <div id="projects">
-    <div class="mimgc4"><img class="mimg4" src="https://i.pinimg.com/736x/b7/c4/21/b7c421358f09488c5da10c31f5c898df.jpg" alt=""></div>
-    <center><br><div class="title2">Projects</div><br>
-    <div class="para">Explore my projects and works:</div></center><br>
-    <div class="grids">
-        <div class="grid">
-            <div class="note2">
-                <p class="ntitle2"><i class="fa-solid fa-circle-chevron-right"></i> MACUI</p>
-                <p style="background-color: transparent;">This is a small and beautiful Indian CSS library. It is help to the css Developer, and work fast with componets.</p><br>
-                <a class="nbtn" href="https://themacui.blogspot.com/">Visit site</a><br><br>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="note2">
-                <p class="ntitle2"><i class="fa-solid fa-circle-chevron-right"></i> Developer Dashboard</p>
-                <p style="background-color: transparent;">This is a Dashboard for fronted developer. All useful site available and also have a CSS useful tricks.</p><br>
-                <a class="nbtn" href="https://developerdhaval.github.io/Dashboard/dashboard.html">Visit site</a><br><br>
-            </div>
-        </div>
-    </div><br>
-   </div></div><br>
 
-   <div class="page4">
-   <div id="social">
-    <div class="mimgc5"><img class="mimg5" src="https://i.pinimg.com/736x/0a/9c/98/0a9c9860d17857fc4979018757172048.jpg" alt=""></div>
-    <center><br><div class="title2">Social</div><br>
-    <div class="para">Contact me in social media:</div></center><br>
-    <div class="grids">
-        <div class="grid">
-            <div class="note3">
-                <a class="text3" href="https://github.com/developerdhaval"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="grid-container">
+        <div class="item-1">
+          <p>Hello !</p>
+          <h1 class="hero-title font-5">Dhaval Mandaviya</h1>
+          <div class="animated-text">I am a Web Developer</div>
+          <button class="hero-btn">
+            <a href="#contact">Contact for any work <i class="fa-solid fa-square-arrow-up-right"></i></a>
+          </button>
         </div>
-        <div class="grid">
-            <div class="note3">
-                <a class="text3" href="https://www.linkedin.com/in/dhaval-mandaviya-721244368?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-linkedin"></i> Linkedln</a>
+        <div class="item-2">
+          <!-- iOS Style Widget Mockup -->
+          <div class="hero-card radius shake-horizontal">
+            <div class="widget-system-bar">
+              <span class="system-time">01:11</span>
+              <div class="system-icons">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full" style="color: var(--accent);"></i>
+              </div>
             </div>
-        </div>
-        <div class="grid">
-            <div class="note3">
-                <a class="text3" href="https://www.instagram.com/_dhaval._.mandaviya_"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            
+            <div class="widget-profile">
+              <div class="widget-avatar">
+                <i class="fa-solid fa-user-astronaut"></i>
+              </div>
+              <div class="widget-user-details">
+                <h4>Dhaval Mandaviya</h4>
+                <div class="widget-status-badge">
+                  <span class="status-dot"></span> Active Now
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="grid">
-            <div class="note3">
-                <a class="text3" href="mailto:devloperdhaval@gmail.com"><i class="fa-regular fa-envelope-open"></i> Email ID</a>
+            
+            <div class="widget-grid">
+              <div class="widget-tile">
+                <span>Role</span>
+                <p>Frontend Dev</p>
+              </div>
+              <div class="widget-tile">
+                <span>Experience</span>
+                <p>4+ Years</p>
+              </div>
+              <div class="widget-tile">
+                <span>Specialty</span>
+                <p>UI/UX &amp; CSS</p>
+              </div>
+              <div class="widget-tile">
+                <span>Location</span>
+                <p>India</p>
+              </div>
             </div>
+            
+            <div class="widget-action">
+              <i class="fa-solid fa-sparkles"></i> Crafting Fluid Interfaces
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Experience Section -->
+  <section class="expereiance-section" id="experience">
+    <center>
+      <span class="exp-title">Experience</span>
+      <h2 class="section-subtitle">Skills & Services</h2>
+    </center>
+    <div class="grids-4">
+      <div class="grid-4">
+        <div class="exp-card radius">
+          <h3 class="exp-card-title"><i class="fa-brands fa-html5"></i> HTML5</h3>
+          <p>As an HTML developer, I see HTML5 as the structural backbone of every website I build. It is not just syntax, but a tool to design search-engine optimized, semantic, and highly readable page templates.</p>
+        </div>
+      </div>
+      <div class="grid-4">
+        <div class="exp-card radius">
+          <h3 class="exp-card-title"><i class="fa-brands fa-css3-alt"></i> CSS3</h3>
+          <p>As a CSS developer, I leverage advanced CSS3 layouts, transitions, custom properties, and animations to turn static mockups into responsive, beautiful, and interactive user interfaces.</p>
+        </div>
+      </div>
+      <div class="grid-4">
+        <div class="exp-card radius">
+          <h3 class="exp-card-title"><i class="fa-solid fa-code"></i> Web Dev</h3>
+          <p>Turning business concepts into robust digital products. Utilizing core Javascript, clean architectures, and modern UI practices to design fast-loading web applications.</p>
+        </div>
+      </div>
+      <div class="grid-4">
+        <div class="exp-card radius">
+          <h3 class="exp-card-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Editing</h3>
+          <p>Refining digital brand assets. Enhancing visual structures, modifying gradients, crafting responsive SVG vector structures, and formatting images to tell cohesive digital stories.</p>
+        </div>
+      </div>
     </div>
-   </div></div><br><br>
+  </section>
 
-   <!-- Contact page -->
-   <div class="page4" id="contact">
-      <center><div class="title2">Contact</div><br>
-      <div class="para">Contact for any web work:</div></center><br><br>
-      <center><div class="grids">
-           <div class="grid">
-                    </div>
-        <div class="grid">
-            <div class="cform">
-          <form action="https://api.web3forms.com/submit" method="POST" class="form">
-            <input type="hidden" name="access_key" value="ba3c581f-e8b9-4ca3-b358-e0be82794c81" />
-            <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
-            <input type="hidden" name="from_name" value="Developer Dhaval site" />
+  <!-- Projects Section -->
+  <section class="project-section" id="projects">
+    <center>
+      <span class="exp-title">Projects</span>
+      <h2 class="section-subtitle">My Creative Works</h2>
+    </center>
 
-            <input id="name" class="input" name="name" placeholder="Name" type="text"><br>
-            <input id="email" class="input" name="email" placeholder="Email" type="email"><br>
-            <textarea id="message" style="height: 70px;" class="input" name="message" placeholder="Message"
-              type="message"></textarea><br>
-            <button type="submit" class="cbtn">Send message</button>
-          </form>
-        </div><br>
+    <div class="grids">
+      <div class="grid">
+        <div class="project-card radius">
+          <div class="img-box">
+            <img class="image-1" src="image1.png" alt="MACUI CSS Library">
+          </div>
+          <div class="project-card-tags">
+            <span class="project-tag">CSS Library</span>
+            <span class="project-tag">Frontend Tools</span>
+          </div>
+          <h3 class="project-title">MACUI</h3>
+          <p>MACUI is a small, premium Indian CSS component library designed to help developers build sleek, glassmorphic, and high-performance UI structures rapidly without bloating codebases.</p>
+          <button class="project-btn">
+            <a href="https://developerdhaval.github.io/macui/index.html" target="_blank" rel="noopener">Visit Library <i class="fa-solid fa-arrow-right"></i></a>
+          </button>
         </div>
-      </div><p style="border-top: 1px solid rgb(109, 109, 109); width: 80%;"></p></center><br>
+      </div>
+      
+      <div class="grid">
+        <div class="project-card radius">
+          <div class="img-box">
+            <img class="image-1" src="https://i.pinimg.com/736x/7c/5b/ac/7c5bac6c1789f41be122a2508412ce06.jpg" alt="Developer Dashboard Project">
+          </div>
+          <div class="project-card-tags">
+            <span class="project-tag">GitHub</span>
+            <span class="project-tag">All project</span>
+          </div>
+          <h3 class="project-title">All Project</h3>
+          <p>View my all projects in GitHub. Also view a source code and learn the project. I upload my all projects work in GitHub, so yo can esaily find a code and project for more ideas. </p>
+          <button class="project-btn">
+            <a href="https://developerdhaval.github.io/Dashboard/dashboard.html" target="_blank" rel="noopener">Launch App <i class="fa-solid fa-arrow-right"></i></a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="social-section" id="social">
+    <center>
+      <span class="exp-title">Connect</span>
+      <h2 class="section-subtitle">Social Media</h2>
+    </center>
+    
+    <div class="social-bento">
+      <a href="https://github.com/developerdhaval" target="_blank" rel="noopener" class="social-card card-github">
+        <div class="social-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="social-info">
+          <h4>GitHub</h4>
+          <p>View Repository Projects</p>
+        </div>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/dhaval-mandaviya-721244368?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-card card-linkedin">
+        <div class="social-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <div class="social-info">
+          <h4>LinkedIn</h4>
+          <p>Connect Professionally</p>
+        </div>
+      </a>
+      
+      <a href="https://www.instagram.com/_dhaval._.mandaviya_" target="_blank" rel="noopener" class="social-card card-instagram">
+        <div class="social-icon"><i class="fa-brands fa-instagram"></i></div>
+        <div class="social-info">
+          <h4>Instagram</h4>
+          <p>View Visual Creative Works</p>
+        </div>
+      </a>
+      
+      <a href="mailto:devloperdhaval@gmail.com" class="social-card card-email">
+        <div class="social-icon"><i class="fa-regular fa-envelope-open"></i></div>
+        <div class="social-info">
+          <h4>Email</h4>
+          <p>devloperdhaval@gmail.com</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <center>
+      <span class="exp-title">Inquiries</span>
+      <h2 class="section-subtitle">Get In Touch</h2>
+    </center>
+    
+    <div class="contact-container">
+      <!-- Contact Info Dashboard Card -->
+      <div class="contact-info-card">
+        <div class="contact-info-top">
+          <h3>Let's collaborate!</h3>
+          <p>Have an interesting project, website query, or freelance role? Submit the form and I will get back to you shortly.</p>
+          
+          <div class="contact-meta">
+            <div class="contact-meta-item">
+              <div class="contact-meta-icon"><i class="fa-regular fa-envelope"></i></div>
+              <div class="contact-meta-text">
+                <h5>Email Address</h5>
+                <p>devloperdhaval@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-meta-item">
+              <div class="contact-meta-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-meta-text">
+                <h5>Location</h5>
+                <p>India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+      
+      <!-- Submission Form Card -->
+      <div class="contact-form-card">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ba3c581f-e8b9-4ca3-b358-e0be82794c81" />
+          <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+          <input type="hidden" name="from_name" value="Developer Dhaval site" />
+
+          <div class="form-group">
+            <input id="name" class="form-input" name="name" placeholder="Name" type="text" required>
+          </div>
+          
+          <div class="form-group">
+            <input id="email" class="form-input" name="email" placeholder="Email Address" type="email" required>
+          </div>
+          
+          <div class="form-group">
+            <textarea id="message" class="form-input" name="message" placeholder="Describe your project or message..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            Send Message <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a href="#home" class="footer-logo font-5">Mr.MD</a>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dhaval Mandaviya. All rights reserved.</p>
+      <p>Designed with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> using HTML & CSS</p>
+    </div>
+  </footer>
+
+  <!-- Page Interactivity Scripts -->
+  <script>
+    // Hide Loader on Page Load
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      if (loader) {
+        setTimeout(() => {
+          loader.style.opacity = "0";
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 400);
+        }, 1);
+      }
+    });
+
+    // Mobile Navbar Menu Toggle
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = document.querySelectorAll(".mobile-links a");
+
+    function openMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.add("active");
+      }
+    }
+
+    function closeMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.remove("active");
+      }
+    }
+
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", function (event) {
+        if (event.target === mobileMenu) {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    // Sticky Navbar & Active Section Link Highlighter (ScrollSpy)
+    const navbar = document.getElementById("navbar");
+    const navLinks = document.querySelectorAll(".desktop-links a:not(.nav-btn)");
+    const mobileNavLinks = document.querySelectorAll(".mobile-links a");
+    const sections = document.querySelectorAll("section, #home");
+
+    window.addEventListener("scroll", function () {
+      // 1. Add background shadow and resize when scrolled
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+      // 2. Highlight Nav Link on Scroll
+      let currentSectionId = "home";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop - 120) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      // Update Desktop links
+      navLinks.forEach((link) => {
+        link.classList.remove("active-link");
+        if (link.getAttribute("href") === `#${currentSectionId}`) {
+          link.classList.add("active-link");
+        }
+      });
+
+      // Update Mobile links
+      mobileNavLinks.forEach((link) => {
+        link.classList.remove("active-link");
+        if (link.getAttribute("href") === `#${currentSectionId}`) {
+          link.classList.add("active-link");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
